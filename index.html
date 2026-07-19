@@ -29,6 +29,14 @@
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
+        
+        /* HEADER DATA ALIGNMENT CONTAINER */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
         /* TICKER VISIBILITY RECOVERY & ANTI-OVERLAP PATCH */
         .announcement-ticker-bar {
@@ -51,28 +59,29 @@
             white-space: nowrap;
         }
 
-        /* LIVE SYSTEM CHRONOGRAPH WIDGET */
+        /* SHIFTED LIVE SYSTEM CHRONOGRAPH WIDGET (HEADER INTEGRATED) */
         .live-chronograph-node {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 153, 51, 0.2);
             backdrop-filter: blur(16px);
-            border-radius: 12px;
-            padding: 0.85rem 1.25rem;
-            margin-bottom: 1.25rem;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 4px 20px rgba(0, 0, 0, 0.2);
+            gap: 0.85rem;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         .chrono-label {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
+            gap: 0.4rem;
+            font-size: 0.65rem;
             font-weight: 700;
             color: #94a3b8;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding-right: 0.6rem;
         }
         .chrono-label i {
             color: #ff9933;
@@ -81,10 +90,10 @@
         .chrono-display-values {
             font-family: 'Inter', sans-serif;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #ffffff;
             display: flex;
-            gap: 0.75rem;
+            gap: 0.6rem;
         }
         .chrono-date { color: #ffffff; }
         .chrono-time { color: #138808; font-weight: 700; }
@@ -110,17 +119,22 @@
                 flex-direction: column;
                 width: 100%;
                 gap: 0.5rem;
+                align-items: center;
             }
             .nav-social-btn {
                 width: 100%;
                 justify-content: center;
+            }
+            .live-chronograph-node {
+                width: 100%;
+                justify-content: center;
+                margin-top: 0.25rem;
             }
             .dashboard-grid-layout {
                 display: flex !important;
                 flex-direction: column !important;
                 gap: 1.5rem !important;
             }
-            /* Smart Ordering: Moves critical control widgets and trackers above standard content on mobile scales */
             .sidebar-panel {
                 order: -1 !important; 
             }
@@ -344,7 +358,7 @@
         </div>
     </div>
 
-    <!-- 1. STICKY GLASSMORPHIC NAVIGATION HEADER -->
+    <!-- 1. STICKY NAVIGATION HEADER (CLOCK INJECTED ON THE RIGHT SIDE, ABOVE TICKER) -->
     <nav class="glass-nav">
         <div class="nav-container">
             <a href="#" class="nav-brand">
@@ -359,20 +373,34 @@
                     <span class="green-txt">HUSSAINI</span>
                 </h1>
             </a>
+            
             <div class="nav-actions">
-                <a href="https://instagram.com/syed.akber_._" target="_blank" class="nav-social-btn" aria-label="Instagram Profile">
-                    <i class="fa-brands fa-instagram"></i>
-                    <span>@syed.akber_._</span>
-                </a>
-                <a href="mailto:SAH6440@GMAIL.COM" class="nav-social-btn" aria-label="Email Project Director">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>SAH6440@GMAIL.COM</span>
-                </a>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end;">
+                    <a href="https://instagram.com/syed.akber_._" target="_blank" class="nav-social-btn" aria-label="Instagram Profile">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>@syed.akber_._</span>
+                    </a>
+                    <a href="mailto:SAH6440@GMAIL.COM" class="nav-social-btn" aria-label="Email Project Director">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>SAH6440@GMAIL.COM</span>
+                    </a>
+                </div>
+                
+                <!-- LIVE CLOCK SITUATED AT THE RIGHT SIDE OF HEADER, IMMEDIATELY ABOVE THE TICKER -->
+                <div class="live-chronograph-node">
+                    <div class="chrono-label">
+                        <i class="fa-solid fa-circle-dot"></i> Live
+                    </div>
+                    <div class="chrono-display-values">
+                        <span class="chrono-date" id="liveChronoDate">--/--/----</span>
+                        <span class="chrono-time" id="liveChronoTime">00:00:00 AM</span>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- 2. ANNOUNCEMENT MARQUEE TICKER -->
+    <!-- 2. ANNOUNCEMENT MARQUEE TICKER (SITS IMMEDIATELY BELOW THE LIVE CLOCK HEADER MATRIX) -->
     <div class="announcement-ticker-bar">
         <div class="ticker-content">
             <span class="ticker-badge"><i class="fa-solid fa-bullhorn"></i> CRITICAL UPDATE</span>
@@ -457,17 +485,6 @@
 
             <!-- COLUMN RIGHT: INTERACTIVE CONTROL & RADAR MODULES (5-SPAN GRID) -->
             <div class="workspace-panel sidebar-panel">
-                
-                <!-- LIVE CHRONOGRAPH WIDGET STICKER -->
-                <div class="live-chronograph-node">
-                    <div class="chrono-label">
-                        <i class="fa-solid fa-circle-dot"></i> Live Tracker
-                    </div>
-                    <div class="chrono-display-values">
-                        <span class="chrono-date" id="liveChronoDate">--/--/----</span>
-                        <span class="chrono-time" id="liveChronoTime">00:00:00 AM</span>
-                    </div>
-                </div>
 
                 <article class="premium-dashboard-card danger-console-panel" id="email-campaign">
                     <div class="panel-critical-glow"></div>
