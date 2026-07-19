@@ -1,6 +1,6 @@
 /**
  * ====================================================================
- * NATIONAL COALITION FOR STUDENT ACCOUNTABILITY - EXECUTIVE DASHBOARD
+ * THE SOVEREIGN VOICE - EXECUTIVE MOBILIZATION ENGINE
  * Core Architecture Logic Baseline (Version 2.0)
  * Framework Year: 2026
  * ====================================================================
@@ -9,14 +9,47 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // ==========================================
-    // 1. ANTHEM AUDIO PLAYER MATRIX
+    // 1. REAL-TIME LIVE SYSTEM CHRONOGRAPH EXTENSION
+    // ==========================================
+    const chronoDateEl = document.getElementById("liveChronoDate");
+    const chronoTimeEl = document.getElementById("liveChronoTime");
+
+    function runSystemChronograph() {
+        const now = new Date();
+        
+        const dateOptions = { year: 'numeric', month: 'short', day: '2-digit' };
+        if (chronoDateEl) {
+            chronoDateEl.textContent = now.toLocaleDateString('en-US', dateOptions);
+        }
+
+        let hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        
+        const formattedTime = 
+            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
+        
+        if (chronoTimeEl) {
+            chronoTimeEl.textContent = formattedTime;
+        }
+    }
+
+    runSystemChronograph();
+    setInterval(runSystemChronograph, 1000);
+
+
+    // ==========================================
+    // 2. ANTHEM AUDIO PLAYER MATRIX
     // ==========================================
     const anthemAudio = document.getElementById("anthemAudioPlayer");
     const progressBar = document.getElementById("audio-progress-bar");
     const currentTimeText = document.getElementById("current-time");
     const totalDurationText = document.getElementById("total-duration");
 
-    // Global Exposure for Inline HTML Button Triggers
     window.handleAnthemPlay = () => {
         if (anthemAudio) {
             anthemAudio.play().catch(err => console.log("Audio playback interaction requirement triggered:", err));
@@ -29,19 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Track Time Updates and Render Progress Line
     if (anthemAudio) {
         anthemAudio.addEventListener("timeupdate", () => {
             const current = anthemAudio.currentTime;
-            const duration = anthemAudio.duration || 52; // Fallback to anthem default spec
+            const duration = anthemAudio.duration || 52;
             
-            // Move tracking bar
             if (progressBar) {
                 const percentage = (current / duration) * 100;
                 progressBar.style.width = `${percentage}%`;
             }
 
-            // Update time stamps
             if (currentTimeText) {
                 const mins = Math.floor(current / 60);
                 const secs = Math.floor(current % 60);
@@ -52,11 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ==========================================
-    // 2. DISPATCH & COPY ACCOUNTABILITY ENGINE
+    // 3. DISPATCH & COPY ACCOUNTABILITY ENGINE
     // ==========================================
     const toastNotification = document.getElementById("clipboardToast");
 
-    // Formulate Mailto Trigger
     window.executeProtestDispatch = () => {
         const targetEmail = "d.pradhan@sansad.nic.in";
         const ccEmail = "minister.sm@gov.in";
@@ -69,10 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "A Concerned Citizen of India"
         );
 
-        window.location.href = `mailto:${targetEmail}?cc=${ccEmail}&subject=${subject}&body=${body}`;
+        window.location.href = `mailto:${targetEmail}?cc=${ccEmail}?subject=${subject}&body=${body}`;
     };
 
-    // Handle Text Copying to User Clipboard
     window.executeFrameworkCopy = () => {
         const validationText = 
             "Subject: Urgent Mandate: Educational Accountability and Examination Infrastructure Reform\n\n" +
@@ -84,10 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         navigator.clipboard.writeText(validationText).then(() => {
             if (toastNotification) {
-                // Trigger visual alert
                 toastNotification.classList.add("show");
-                
-                // Diminish toast cache after visibility window
                 setTimeout(() => {
                     toastNotification.classList.remove("show");
                 }, 3500);
@@ -99,39 +124,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ==========================================
-    // 3. AUTOMATED LIVE NEWS RADAR ENGINE
+    // 4. AUTOMATED LIVE NEWS RADAR ENGINE
     // ==========================================
     const newsFeedTarget = document.getElementById("newsFeedTarget");
 
-    // Real-Time News Stream Array utilizing Tricolor Icons instead of local avatars
     const liveCampaignNewsStream = [
         {
             tag: "CRITICAL UPDATE",
             headline: "Sonam Wangchuk Pushes Fast From Hospital Ahead of March",
             snippet: "Despite forced hospital shift by police, Wangchuk calls on student fronts to keep the July 20 Parliament March strong.",
             iconClass: "fa-solid fa-hospital-user",
-            iconColor: "#ff9933" // Saffron
+            iconColor: "#ff9933"
         },
         {
             tag: "DEVELOPING",
             headline: "CJP Confirms Night Vigil at Delhi Ahead of Parliament Route",
             snippet: "Abhijeet Dipke warns against youth suppression; student clusters deploy human chains near assembly zones.",
             iconClass: "fa-solid fa-users-rays",
-            iconColor: "#ffffff" // White
+            iconColor: "#ffffff"
         },
         {
             tag: "MANIFESTO",
             headline: "Academics Issue Open Demand Letter for Pradhan's Resignation",
             snippet: "Eminent scholars and former JNU professors join the mandate citing systemic examination leakage crisis.",
             iconClass: "fa-solid fa-file-signature",
-            iconColor: "#138808" // Green
+            iconColor: "#138808"
         }
     ];
 
-    // Core function to inject the data blocks without breaking image scopes
     function renderLiveNewsFeed() {
         if (!newsFeedTarget) return;
-        newsFeedTarget.innerHTML = ""; // Wipe default HTML placeholders cleanly
+        newsFeedTarget.innerHTML = "";
         
         liveCampaignNewsStream.forEach(article => {
             const newsCardHtml = `
@@ -150,12 +173,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Execute News Render Module Instantly
     renderLiveNewsFeed();
 });
 
 // ==========================================
-// 4. GREETING PORTAL SYSTEM DISMISSAL ROUTINE
+// 5. GREETING PORTAL SYSTEM DISMISSAL ROUTINE
 // ==========================================
 window.dismissGreetingPortal = () => {
     const portal = document.getElementById("greetingPortal");
@@ -163,6 +185,6 @@ window.dismissGreetingPortal = () => {
         portal.style.opacity = "0";
         setTimeout(() => {
             portal.style.display = "none";
-        }, 600); // Matches the CSS transition curve window smoothly
+        }, 600);
     }
 };
