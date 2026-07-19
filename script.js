@@ -1,154 +1,143 @@
-/* ==========================================================================
-   GLOBAL CONFIGURATION & DIRECT ROUTING CONSTANTS
-   ========================================================================== */
-const ROUTING_CONFIG = {
-    to: "d.pradhan@sansad.nic.in",
-    cc: "minister.sm@gov.in",
-    subject: "Urgently Requesting Structural Accountability: National Education Infrastructure",
-    body: "To,\nThe Ministry of Education, Government of India\n\nSubject: Demand for Systemic Accountability and Administrative Resignations\n\nRespected Dignitaries,\n\nWe write this as deeply concerned citizens, students, and stakeholders of India’s future. The catastrophic chain of systemic lapses, structural failures, and unaddressed paper leaks within our highest national examination frameworks have severely damaged public confidence and fundamentally harmed the health and mental well-being of millions of students.\n\nTrue leadership requires administrative accountability. The hard work of Indian youth cannot be compromised by prolonged institutional negligence. Standing in unified solidarity with the call for transparent civic reforms championed by public figures like Sonam Wangchuk, we collectively mandate that immediate responsibility be taken at the highest administrative levels to restore institutional trust and pave the way for real structural reforms.\n\nThe student community is the cornerstone of India, and their futures must be protected above all else.\n\nSincerely,\nA Unified Voice for Student Justice\n\n--- End of Message ---"
-};
+/**
+ * ====================================================================
+ * NATIONAL COALITION FOR STUDENT ACCOUNTABILITY - EXECUTIVE DASHBOARD
+ * Core Architecture Logic Baseline (Version 2.0)
+ * Framework Year: 2026
+ * ====================================================================
+ */
 
-/* ==========================================================================
-   1. DIRECT ACTION DISPATCH HUB (EMAIL & CLIPBOARD)
-   ========================================================================== */
-function executeProtestDispatch() {
-    const mailtoUrl = `mailto:${ROUTING_CONFIG.to}?cc=${ROUTING_CONFIG.cc}&subject=${encodeURIComponent(ROUTING_CONFIG.subject)}&body=${encodeURIComponent(ROUTING_CONFIG.body)}`;
-    window.location.href = mailtoUrl;
-}
-
-function executeFrameworkCopy() {
-    const plainTextTemplate = `TO: ${ROUTING_CONFIG.to}\nCC: ${ROUTING_CONFIG.cc}\nSUBJECT: ${ROUTING_CONFIG.subject}\n\nMESSAGE:\n${ROUTING_CONFIG.body}`;
-    
-    navigator.clipboard.writeText(plainTextTemplate).then(() => {
-        const toast = document.getElementById("clipboardToast");
-        if (toast) {
-            toast.classList.add("show");
-            setTimeout(() => {
-                toast.classList.remove("show");
-            }, 4000);
-        }
-    }).catch(err => {
-        console.error("System Clipboard cache delivery failed: ", err);
-    });
-}
-
-/* ==========================================================================
-   2. 🇮🇳 NATIVE DEVICE-AGNOSTIC AUDIO PLAYER CONTROLLER
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-    const audioPlayer = document.getElementById("anthemAudioPlayer");
-    const playBtn = document.getElementById("btn-play-anthem");
-    const pauseBtn = document.getElementById("btn-pause-anthem");
+    
+    // ==========================================
+    // 1. ANTHEM AUDIO PLAYER MATRIX
+    // ==========================================
+    const anthemAudio = document.getElementById("anthemAudioPlayer");
     const progressBar = document.getElementById("audio-progress-bar");
-    const currentTimeDisplay = document.getElementById("current-time");
-    const durationDisplay = document.getElementById("total-duration");
-    const progressContainer = document.querySelector(".progress-slider-container");
+    const currentTimeText = document.getElementById("current-time");
+    const totalDurationText = document.getElementById("total-duration");
 
-    if (!audioPlayer || !playBtn || !pauseBtn || !progressBar) return;
+    // Global Exposure for Inline HTML Button Triggers
+    window.handleAnthemPlay = () => {
+        if (anthemAudio) {
+            anthemAudio.play().catch(err => console.log("Audio playback interaction requirement triggered:", err));
+        }
+    };
 
-    // Direct Time/Progress Alignment Update Engine
-    audioPlayer.addEventListener("timeupdate", () => {
-        const current = audioPlayer.currentTime;
-        const duration = audioPlayer.duration || 52; // Fallback to anthem standard execution runtime
-        
-        // Update visual timeline bar width percent
-        const progressPercent = (current / duration) * 100;
-        progressBar.style.width = `${progressPercent}%`;
+    window.handleAnthemPause = () => {
+        if (anthemAudio) {
+            anthemAudio.pause();
+        }
+    };
 
-        // Format and render current runtime stamp
-        const currentMins = Math.floor(current / 60);
-        const currentSecs = Math.floor(current % 60).toString().padStart(2, '0');
-        currentTimeDisplay.textContent = `${currentMins}:${currentSecs}`;
-    });
+    // Track Time Updates and Render Progress Line
+    if (anthemAudio) {
+        anthemAudio.addEventListener("timeupdate", () => {
+            const current = anthemAudio.currentTime;
+            const duration = anthemAudio.duration || 52; // Fallback to anthem default spec
+            
+            // Move tracking bar
+            if (progressBar) {
+                const percentage = (current / duration) * 100;
+                progressBar.style.width = `${percentage}%`;
+            }
 
-    // Capture standard audio metadata duration if accessible
-    audioPlayer.addEventListener("loadedmetadata", () => {
-        const duration = audioPlayer.duration;
-        const durationMins = Math.floor(duration / 60);
-        const durationSecs = Math.floor(duration % 60).toString().padStart(2, '0');
-        durationDisplay.textContent = `${durationMins}:${durationSecs}`;
-    });
-
-    // Reset UI state cleanly upon tracking completion
-    audioPlayer.addEventListener("ended", () => {
-        progressBar.style.width = "0%";
-        currentTimeDisplay.textContent = "0:00";
-        playBtn.style.filter = "none";
-    });
-
-    // Allow scrubbing/skipping through the timeline by clicking the track
-    if (progressContainer) {
-        progressContainer.addEventListener("click", (e) => {
-            const width = progressContainer.clientWidth;
-            const clickX = e.offsetX;
-            const duration = audioPlayer.duration || 52;
-            audioPlayer.currentTime = (clickX / width) * duration;
+            // Update time stamps
+            if (currentTimeText) {
+                const mins = Math.floor(current / 60);
+                const secs = Math.floor(current % 60);
+                currentTimeText.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            }
         });
     }
-});
 
-/* Global window scope functions mapped directly to html semantic attributes */
-function handleAnthemPlay() {
-    const audioPlayer = document.getElementById("anthemAudioPlayer");
-    const playBtn = document.getElementById("btn-play-anthem");
-    
-    if (audioPlayer) {
-        audioPlayer.play().then(() => {
-            // Highlighting design accents under active playback state
-            playBtn.style.filter = "brightness(1.2) contrast(1.1)";
+
+    // ==========================================
+    // 2. DISPATCH & COPY ACCOUNTABILITY ENGINE
+    // ==========================================
+    const toastNotification = document.getElementById("clipboardToast");
+
+    // Formulate Mailto Trigger
+    window.executeProtestDispatch = () => {
+        const targetEmail = "d.pradhan@sansad.nic.in";
+        const ccEmail = "minister.sm@gov.in";
+        const subject = encodeURIComponent("Urgent Mandate: Educational Accountability and Examination Infrastructure Reform");
+        const body = encodeURIComponent(
+            "Dear Minister,\n\n" +
+            "As an involved citizen, I am writing to formally voice my deep concerns regarding the recent structural systemic issues within our national examination infrastructure. Academic integrity and absolute transparency are crucial anchors for the future of our students.\n\n" +
+            "We urge immediate administrative accountability, comprehensive reforms to secure examinations against vulnerabilities, and swift action to support the generations striving to contribute to our nation.\n\n" +
+            "Respectfully submitted,\n" +
+            "A Concerned Citizen of India"
+        );
+
+        window.location.href = `mailto:${targetEmail}?cc=${ccEmail}&subject=${subject}&body=${body}`;
+    };
+
+    // Handle Text Copying to User Clipboard
+    window.executeFrameworkCopy = () => {
+        const validationText = 
+            "Subject: Urgent Mandate: Educational Accountability and Examination Infrastructure Reform\n\n" +
+            "Dear Minister,\n\n" +
+            "As an involved citizen, I am writing to formally voice my deep concerns regarding the recent structural systemic issues within our national examination infrastructure. Academic integrity and absolute transparency are crucial anchors for the future of our students.\n\n" +
+            "We urge immediate administrative accountability, comprehensive reforms to secure examinations against vulnerabilities, and swift action to support the generations striving to contribute to our nation.\n\n" +
+            "Respectfully submitted,\n" +
+            "A Concerned Citizen of India";
+
+        navigator.clipboard.writeText(validationText).then(() => {
+            if (toastNotification) {
+                // Trigger visual alert
+                toastNotification.classList.add("show");
+                
+                // Diminish toast cache after visibility window
+                setTimeout(() => {
+                    toastNotification.classList.remove("show");
+                }, 3500);
+            }
         }).catch(err => {
-            console.warn("Cross-browser modern media interaction security protocol intercept captured: ", err);
+            console.error("Critical Clipboard execution failure:", err);
         });
-    }
-}
+    };
 
-function handleAnthemPause() {
-    const audioPlayer = document.getElementById("anthemAudioPlayer");
-    const playBtn = document.getElementById("btn-play-anthem");
-    
-    if (audioPlayer) {
-        audioPlayer.pause();
-        if (playBtn) playBtn.style.filter = "none";
-    }
-}
-// ==========================================
-// AUTOMATED LIVE NEWS RADAR SIMULATION ENGINE
-// ==========================================
-document.addEventListener("DOMContentLoaded", () => {
+
+    // ==========================================
+    // 3. AUTOMATED LIVE NEWS RADAR ENGINE (FIXED)
+    // ==========================================
     const newsFeedTarget = document.getElementById("newsFeedTarget");
-    if (!newsFeedTarget) return;
 
-    // Real-Time Verified Live News Stream Array
+    // Real-Time News Stream Array utilizing Tricolor Icons instead of local avatars
     const liveCampaignNewsStream = [
         {
             tag: "CRITICAL UPDATE",
             headline: "Sonam Wangchuk Pushes Fast From Hospital Ahead of March",
             snippet: "Despite forced hospital shift by police, Wangchuk calls on student fronts to keep the July 20 Parliament March strong.",
-            img: "wangchuk.jpg"
+            iconClass: "fa-solid fa-hospital-user",
+            iconColor: "#ff9933" // Saffron
         },
         {
             tag: "DEVELOPING",
             headline: "CJP Confirms Night Vigil at Delhi Ahead of Parliament Route",
             snippet: "Abhijeet Dipke warns against youth suppression; student clusters deploy human chains near assembly zones.",
-            img: "assets/images/akber.jpg" 
+            iconClass: "fa-solid fa-users-rays",
+            iconColor: "#ffffff" // White
         },
         {
             tag: "MANIFESTO",
             headline: "Academics Issue Open Demand Letter for Pradhan's Resignation",
             snippet: "Eminent scholars and former JNU professors join the mandate citing systemic examination leakage crisis.",
-            img: "pradhan.jpg"
+            iconClass: "fa-solid fa-file-signature",
+            iconColor: "#138808" // Green
         }
     ];
 
-    // Core function to inject the dynamic data block cleanly
+    // Core function to inject the data blocks without breaking image scopes
     function renderLiveNewsFeed() {
-        newsFeedTarget.innerHTML = ""; // Clear out older nodes
+        if (!newsFeedTarget) return;
+        newsFeedTarget.innerHTML = ""; // Wipe default HTML placeholders cleanly
         
         liveCampaignNewsStream.forEach(article => {
             const newsCardHtml = `
                 <div class="news-card-node">
-                    <div class="news-image-frame">
-                        <img src="${article.img}" alt="Live News Event View" onerror="this.src='pradhan.jpg'">
+                    <div class="news-image-frame" style="display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.02); border: 1px dashed rgba(255, 255, 255, 0.15);">
+                        <i class="${article.iconClass}" style="font-size: 1.65rem; color: ${article.iconColor}; opacity: 0.85;"></i>
                     </div>
                     <div class="news-meta-block">
                         <span class="news-timestamp">${article.tag} • Live</span>
@@ -161,6 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Run render loops instantly on dashboard boot
+    // Execute News Render Module Instantly
     renderLiveNewsFeed();
 });
