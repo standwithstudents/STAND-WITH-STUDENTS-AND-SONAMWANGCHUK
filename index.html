@@ -455,8 +455,8 @@
                 <button id="audioTrigger" onclick="toggleNationalAnthem()">Play</button>
             </div>
         </div>
-        <!-- Target local repository source file -->
-        <audio id="hymnPlayer" loop src="./anthem.ogg"></audio>
+        <!-- High-fidelity universal MP3 stream for 100% device compatibility -->
+        <audio id="hymnPlayer" loop preload="auto" src="https://archive.org/download/JanaGanaManaInstrumental/Jana%20Gana%20Mana%20%28Instrumental%29.mp3"></audio>
     </header>
 
     <!-- 3. REALTIME PHYSICS DRIVEN FLAG WITH FLOATING MANDATE BADGES -->
@@ -627,16 +627,16 @@
             var triggerBtn = document.getElementById("audioTrigger");
             
             if (player.paused) {
-                player.play().then(function() {
-                    triggerBtn.innerText = "Pause";
-                    triggerBtn.style.background = "#d97706";
-                }).catch(function(error) {
-                    // Falls back to direct window audio handling if active policy restrictions exist
-                    player.muted = false;
-                    player.play();
-                    triggerBtn.innerText = "Pause";
-                    triggerBtn.style.background = "#d97706";
-                });
+                var playPromise = player.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(function() {
+                        triggerBtn.innerText = "Pause";
+                        triggerBtn.style.background = "#d97706";
+                    }).catch(function(error) {
+                        console.log("Playback failed:", error);
+                    });
+                }
             } else {
                 player.pause();
                 triggerBtn.innerText = "Play";
