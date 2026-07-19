@@ -20,17 +20,29 @@
 
     <!-- Styles for Navigation Photo Component, Live News Widget & Welcome Overlay -->
     <style>
-        /* TICKER VISIBILITY RECOVERY PATCH */
+        /* ADJUST NAV EXTRA TO AVOID CLIPPING THE FRAME */
+        .glass-nav {
+            padding: 0.75rem 0;
+            position: relative;
+            z-index: 20; /* Layered safely above the ticker */
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* TICKER VISIBILITY RECOVERY & ANTI-OVERLAP PATCH */
         .announcement-ticker-bar {
             display: block !important;
             position: relative;
+            clear: both; /* Prevents floated components from spilling over */
             width: 100%;
-            background: rgba(11, 18, 32, 0.8) !important;
+            background: rgba(11, 18, 32, 0.95) !important;
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 153, 51, 0.25);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             overflow: hidden;
             padding: 0.85rem 0;
-            z-index: 99;
+            z-index: 10; /* Lower than header layer to sit underneath perfectly */
         }
         .ticker-content {
             display: flex;
@@ -151,9 +163,6 @@
             font-size: 2rem;
             color: #cbd5e1;
         }
-        .glass-nav {
-            padding: 0.75rem 0;
-        }
         .nav-title-mesh {
             display: flex;
             flex-direction: column;
@@ -258,7 +267,7 @@
         </div>
     </nav>
 
-    <!-- 2. ANNOUNCEMENT MARQUEE TICKER (VISIBILITY RESTORED) -->
+    <!-- 2. ANNOUNCEMENT MARQUEE TICKER (VISIBILITY RESTORED & POSITIONED PROPERLY) -->
     <div class="announcement-ticker-bar">
         <div class="ticker-content">
             <span class="ticker-badge"><i class="fa-solid fa-bullhorn"></i> CRITICAL UPDATE</span>
