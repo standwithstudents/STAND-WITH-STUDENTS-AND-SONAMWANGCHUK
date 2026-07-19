@@ -156,7 +156,7 @@
             line-height: 1.1;
         }
 
-        /* LINK LINKS */
+        /* LINKS BAR */
         .segmented-nav-links {
             display: flex;
             justify-content: flex-start;
@@ -220,7 +220,7 @@
         .chrono-date { color: #ffffff; }
         .chrono-time { color: #138808; font-weight: 700; }
 
-        /* 4. PREMIUM SCANNABLE VIEWPORT ARCHITECTURE COMPONENTS */
+        /* SCANNABLE CORE PATTERNS */
         .scannable-bullet-list {
             list-style: none;
             padding: 0;
@@ -237,10 +237,7 @@
             line-height: 1.5;
             color: #cbd5e1;
         }
-        .scannable-bullet-list li i {
-            margin-top: 0.25rem;
-            font-size: 0.85rem;
-        }
+        .scannable-bullet-list li i { margin-top: 0.25rem; font-size: 0.85rem; }
         .text-accent-saffron { color: #ff9933; }
         .text-accent-green { color: #138808; }
 
@@ -257,21 +254,10 @@
             padding: 1.25rem;
             transition: var(--transition-smooth);
         }
-        .metric-scannable-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 153, 51, 0.2);
-        }
-        .metric-scannable-card h4 {
-            font-size: 0.95rem;
-            color: #ffffff;
-            margin: 0 0 0.5rem 0;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        .metric-scannable-card:hover { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 153, 51, 0.2); }
+        .metric-scannable-card h4 { font-size: 0.95rem; color: #ffffff; margin: 0 0 0.5rem 0; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
 
-        /* 5. GRANULAR EMAIL DISPATCH CONTROL COMPONENT INTERFACE */
+        /* GRANULAR EMAIL DISPATCH CONTROL COMPONENT INTERFACE */
         .email-control-dashboard-matrix {
             display: flex;
             flex-direction: column;
@@ -300,21 +286,11 @@
             border: none;
             box-shadow: 0 4px 15px rgba(19, 136, 8, 0.2);
         }
-        .btn-main-send:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 153, 51, 0.3);
-        }
-        .btn-sub-copy {
-            background: rgba(255, 255, 255, 0.03);
-            color: #cbd5e1;
-        }
-        .btn-sub-copy:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            border-color: rgba(255, 153, 51, 0.25);
-        }
+        .btn-main-send:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 153, 51, 0.3); }
+        .btn-sub-copy { background: rgba(255, 255, 255, 0.03); color: #cbd5e1; }
+        .btn-sub-copy:hover { background: rgba(255, 255, 255, 0.08); color: #ffffff; border-color: rgba(255, 153, 51, 0.25); }
 
-        /* 6. ADVANCED DYNAMIC VISUAL ENGINE HERO STACK */
+        /* ADVANCED DYNAMIC VISUAL ENGINE HERO STACK */
         .dashboard-hero {
             position: relative;
             width: 100%;
@@ -328,64 +304,15 @@
             background: linear-gradient(135deg, #090e1a 0%, #060912 50%, #05070f 100%);
             z-index: 1;
         }
-        .hero-tricolor-gradient-mesh {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: -3;
-            overflow: hidden;
-        }
-        .mesh-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            mix-blend-mode: screen;
-            animation: moveBlobs 12s infinite ease-in-out alternate;
-        }
+        .hero-tricolor-gradient-mesh { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.08; pointer-events: none; z-index: -3; overflow: hidden; }
+        .mesh-blob { position: absolute; border-radius: 50%; filter: blur(120px); mix-blend-mode: screen; animation: moveBlobs 12s infinite ease-in-out alternate; }
         .mesh-saffron { top: -20%; left: 10%; width: 50%; height: 60%; background: #ff9933; }
         .mesh-white { top: 20%; left: 30%; width: 40%; height: 50%; background: #ffffff; animation-delay: -4s; }
         .mesh-green { bottom: -20%; right: 10%; width: 50%; height: 60%; background: #138808; animation-delay: -8s; }
-        @keyframes moveBlobs {
-            0% { transform: translate(0px, 0px) scale(1); }
-            100% { transform: translate(50px, 40px) scale(1.15); }
-        }
-        .hero-particles-canvas-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -2;
-        }
-        .ashoka-chakra-watermark-frame {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 320px;
-            height: 320px;
-            border: 4px dashed rgba(0, 0, 128, 0.025);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: slowChakraRotation 80s linear infinite;
-        }
-        .ashoka-chakra-watermark-frame::before {
-            content: '';
-            position: absolute;
-            width: 90%;
-            height: 90%;
-            border: 2px solid rgba(0, 0, 128, 0.015);
-            border-radius: 50%;
-        }
+        @keyframes moveBlobs { 0% { transform: translate(0px, 0px) scale(1); } 100% { transform: translate(50px, 40px) scale(1.15); } }
+        .hero-particles-canvas-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -2; }
+        .ashoka-chakra-watermark-frame { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 320px; height: 320px; border: 4px dashed rgba(0, 0, 128, 0.025); border-radius: 50%; pointer-events: none; z-index: -1; display: flex; align-items: center; justify-content: center; animation: slowChakraRotation 80s linear infinite; }
+        .ashoka-chakra-watermark-frame::before { content: ''; position: absolute; width: 90%; height: 90%; border: 2px solid rgba(0, 0, 128, 0.015); border-radius: 50%; }
         .chakra-hub-node { width: 24px; height: 24px; border: 2px solid rgba(0, 0, 128, 0.02); border-radius: 50%; }
         @keyframes slowChakraRotation { to { transform: translate(-50%, -50%) rotate(360deg); } }
 
@@ -411,7 +338,7 @@
             50% { background: rgba(220, 38, 38, 0.4); box-shadow: 0 0 35px rgba(220, 38, 38, 0.5); border-color: #f87171; color: #ffffff; }
         }
 
-        /* 7. SCROLL REVEALS & FOOTER */
+        /* SCROLL REVEALS & FOOTER */
         .reveal-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--anim-bezier), transform 0.6s var(--anim-bezier); }
         .reveal-on-scroll.active-fade { opacity: 1; transform: translateY(0); }
         .premium-dashboard-card { transition: transform 0.3s var(--anim-bezier), box-shadow 0.3s var(--anim-bezier); }
@@ -439,9 +366,11 @@
         }
         #backToTopTrigger.active-btt { opacity: 1; visibility: visible; }
 
+        /* REFINED TRACTION MONITOR LAYOUT CONFIG */
         .analytics-counter-matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem; }
-        .counter-metric-tile { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 1rem; text-align: center; }
-        .counter-numerical-node { font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; color: #ffffff; }
+        .counter-metric-tile { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 1.25rem 1rem; text-align: center; position: relative; overflow: hidden; }
+        .counter-numerical-node { font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-bottom: 0.25rem; line-height: 1.2; }
+        .counter-metric-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center; gap: 0.3rem; }
 
         .social-amplification-rack { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.75rem; }
         .btn-amplification { display: flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.75rem; border-radius: 8px; font-size: 0.8rem; font-weight: 600; color: #ffffff; text-decoration: none; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); }
@@ -580,7 +509,7 @@
         </div>
     </section>
 
-    <!-- STAGE 5: MAIN SCANNABLE DATA WORKSPACE (REDUCED FATIGUE PATTERNS) -->
+    <!-- STAGE 5: MAIN SCANNABLE DATA WORKSPACE -->
     <main class="dashboard-workspace" id="main-dashboard-content">
         <div class="dashboard-grid-layout">
             
@@ -652,17 +581,22 @@
                 </article>
             </div>
 
-            <!-- RIGHT COLUMN (EMAIL ARCHITECTURE POLISHED FOR ACCURACY) -->
+            <!-- RIGHT COLUMN (VISITOR RADAR INJECTED HERE) -->
             <div class="workspace-panel sidebar-panel">
                 
+                <!-- MODERNIZED EXECUTIVE PLATFORM TRACTION RADAR WITH LIVE VISITOR INTERACTION -->
                 <div class="analytics-counter-matrix">
-                    <div class="counter-metric-tile">
-                        <div class="counter-numerical-node" data-target-count="450000">0</div>
-                        <div class="counter-metric-label" style="font-size:0.65rem; color:#94a3b8;">Mobilized Students</div>
+                    <div class="counter-metric-tile" style="border-color: rgba(255, 153, 51, 0.25);">
+                        <div class="counter-numerical-node" id="liveVisitorCounterNode">12,804</div>
+                        <div class="counter-metric-label" style="color: #ff9933;">
+                            <i class="fa-solid fa-users-viewfinder" style="animation: pulseFade 2s infinite linear;"></i> Live Visitors
+                        </div>
                     </div>
-                    <div class="counter-metric-tile">
+                    <div class="counter-metric-tile" style="border-color: rgba(19, 136, 8, 0.25);">
                         <div class="counter-numerical-node" data-target-count="128400">0</div>
-                        <div class="counter-metric-label" style="font-size:0.65rem; color:#94a3b8;">Dispatched Mandates</div>
+                        <div class="counter-metric-label" style="color: #138808;">
+                            <i class="fa-solid fa-file-shield"></i> Sent Mandates
+                        </div>
                     </div>
                 </div>
 
@@ -676,7 +610,6 @@
                     </div>
                 </article>
 
-                <!-- UPGRADED POLISHED GRANULAR EMAIL DISPATCH CARD -->
                 <article class="premium-dashboard-card danger-console-panel" id="email-campaign">
                     <div class="panel-critical-glow" aria-hidden="true"></div>
                     <div class="card-header">
@@ -764,7 +697,7 @@
         </div>
     </main>
 
-    <!-- FOOTER WITH DISCLAIMERS -->
+    <!-- FOOTER WITH LEGAL LINKS -->
     <footer class="premium-dashboard-footer" role="contentinfo">
         <div class="footer-grid-layout">
             <div class="footer-column">
