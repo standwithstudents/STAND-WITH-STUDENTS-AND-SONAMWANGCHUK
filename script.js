@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ==========================================
-    // 3. AUTOMATED LIVE NEWS RADAR ENGINE (FIXED)
+    // 3. AUTOMATED LIVE NEWS RADAR ENGINE
     // ==========================================
     const newsFeedTarget = document.getElementById("newsFeedTarget");
 
@@ -153,3 +153,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Execute News Render Module Instantly
     renderLiveNewsFeed();
 });
+
+// ==========================================
+// 4. GREETING PORTAL SYSTEM DISMISSAL ROUTINE
+// ==========================================
+window.dismissGreetingPortal = () => {
+    const portal = document.getElementById("greetingPortal");
+    if (portal) {
+        portal.style.opacity = "0";
+        setTimeout(() => {
+            portal.style.display = "none";
+        }, 600); // Matches the CSS transition curve window smoothly
+    }
+};
