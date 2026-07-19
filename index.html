@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Coalition for Student Accountability | Executive Campaign Dashboard</title>
+    <title>The Sovereign Voice | National Movement for Student Rights & Accountability</title>
     
     <!-- SEO Meta & Optimization Tags -->
     <meta name="description" content="Official mobilization dashboard demanding structural transparency, examination infrastructure reforms, and institutional accountability.">
@@ -72,7 +72,7 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 153, 51, 0.05);
             border-radius: 24px;
             padding: 3rem 2.5rem;
-            max-width: 580px;
+            max-width: 620px;
             width: 90%;
             text-align: center;
             transform: scale(1);
@@ -103,14 +103,27 @@
         }
         .greeting-card-mesh h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
+            font-weight: 800;
             color: #ffffff;
-            font-size: 1.85rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
             letter-spacing: -0.5px;
+            line-height: 1.3;
+        }
+        .greeting-card-mesh .special-welcome-tag {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #ff9933, #138808);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            display: block;
         }
         .greeting-card-mesh p {
-            color: #94a3b8;
+            color: #cbd5e1;
             font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 2rem;
@@ -227,15 +240,16 @@
 </head>
 <body>
 
-    <!-- GREETING GATEWAY OVERLAY BLOCK -->
+    <!-- MODIFICATION 1: SPECIAL & EMOTIONAL GREETING GATEWAY OVERLAY BLOCK -->
     <div class="greeting-overlay-curtain" id="greetingPortal">
         <div class="greeting-card-mesh">
             <div class="greeting-gesture-frame">
                 <i class="fa-solid fa-hands-praying"></i>
             </div>
-            <h2>Namaste & Welcome</h2>
-            <p>We extend our deepest respect and gratitude to you for visiting the official operational framework of the National Coalition for Student Accountability. Thank you for standing in solidarity with the future of India's students.</p>
-            <button class="btn-enter-platform" onclick="dismissGreetingPortal()">Access Campaign Dashboard</button>
+            <span class="special-welcome-tag">Welcome, Brave Citizen</span>
+            <h2>The Sovereign Voice<br><span style="font-size: 1.2rem; font-weight: 500; color: #94a3b8;">National Movement for Student Rights & Accountability</span></h2>
+            <p>You are entering a space built on the broken dreams, sweat, and tears of millions of Indian students. This is not just a digital platform; it is a monument to our shared struggle for truth and structural transparency. Thank you for choosing to stand with us, for keeping hope alive, and for defending the integrity of our generation's future.</p>
+            <button class="btn-enter-platform" onclick="dismissGreetingPortal()">Join The Frontline</button>
         </div>
     </div>
 
@@ -288,7 +302,9 @@
                 <div class="pulse-badge mandate-green"><i class="fa-solid fa-circle-exclamation"></i> RESIGN PM NARENDRA MODI</div>
             </div>
             
-            <h2 class="hero-main-title">National Coalition for Student Accountability</h2>
+            <!-- MODIFICATION 2: EMOTIONAL & PROFESSIONAL MAIN HEADINGS -->
+            <h2 class="hero-main-title">The Sovereign Voice</h2>
+            <p class="hero-subtitle" style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #ff9933; margin-bottom: 0.5rem;">National Movement for Student Rights & Accountability</p>
             <p class="hero-subtitle">A digital operational framework dedicated to securing systemic educational reforms, institutional transparency, and immediate administrative accountability.</p>
         </div>
     </section>
