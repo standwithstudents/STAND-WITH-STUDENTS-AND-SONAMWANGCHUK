@@ -1,0 +1,880 @@
+/* ==========================================================================
+   ENTEPRISE BASE ARCHITECTURE & CORE VARIABLES
+   ========================================================================== */
+:root {
+    --india-saffron: #FF9933;
+    --india-white: #FFFFFF;
+    --india-green: #138808;
+    --india-navy: #000080;
+    
+    /* Premium Slate/Navy Theme Matrix */
+    --bg-dark: #070B14;
+    --bg-deep-workspace: #0B1220;
+    --card-bg: rgba(20, 27, 43, 0.65);
+    --card-border: rgba(255, 255, 255, 0.07);
+    --card-border-hover: rgba(255, 255, 255, 0.15);
+    
+    /* Typography & Messaging Colors */
+    --text-light: #F3F4F6;
+    --text-gray: #9CA3AF;
+    --primary-red: #EF4444;
+    --dark-red: #B91C1C;
+    
+    /* Decorative Glow Matrix */
+    --saffron-glow: rgba(255, 153, 51, 0.15);
+    --green-glow: rgba(19, 136, 8, 0.15);
+    --navy-glow: rgba(0, 0, 128, 0.25);
+    --red-glow: rgba(239, 68, 68, 0.15);
+    
+    /* System Transitions */
+    --standard-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   1. STICKY GLASSMORPHIC NAVIGATION HEADER
+   ========================================================================== */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(11, 18, 32, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+    padding: 15px 0;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+/* Tricolor Dot Signatures */
+.saffron-dot, .white-dot, .green-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.saffron-dot { background-color: var(--india-saffron); }
+.white-dot { background-color: var(--india-white); }
+.green-dot { background-color: var(--india-green); }
+
+.nav-title-mesh {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-left: 4px;
+}
+.nav-title-mesh .saffron-txt { color: var(--india-saffron); }
+.nav-title-mesh .white-txt { color: var(--india-white); }
+.nav-title-mesh .green-txt { color: var(--india-green); }
+
+.nav-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.nav-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--card-border);
+    border-radius: 30px;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--standard-transition);
+}
+
+.nav-social-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--card-border-hover);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   2. ANNOUNCEMENT MARQUEE CONTROLLER
+   ========================================================================== */
+.announcement-ticker-bar {
+    margin-top: 73px; /* Account for fixed navigation offset */
+    background: #080D17;
+    border-bottom: 1px solid rgba(0, 0, 128, 0.3);
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.ticker-content {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+}
+
+.ticker-badge {
+    background: linear-gradient(135deg, #1E293B, #0F172A);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--india-saffron);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-left: 24px;
+    z-index: 10;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+}
+
+.ticker-text {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 40px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #E5E7EB;
+    animation: marqueePlay 45s linear infinite;
+}
+
+@keyframes marqueePlay {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* ==========================================================================
+   3. PREMIUM ANIMATED HERO STAGE
+   ========================================================================== */
+.dashboard-hero {
+    position: relative;
+    padding: 60px 24px;
+    text-align: center;
+    background: radial-gradient(circle at top center, #15223C 0%, var(--bg-dark) 70%);
+    border-bottom: 1px solid var(--card-border);
+    overflow: hidden;
+}
+
+/* High-Realism Waving Tricolor Logic */
+.flag-viewport {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.waving-flag-canvas {
+    width: 180px;
+    height: 120px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    position: relative;
+    background: linear-gradient(
+        to bottom,
+        var(--india-saffron) 33.33%,
+        var(--india-white) 33.33%,
+        var(--india-white) 66.66%,
+        var(--india-green) 66.66%
+    );
+    transform-origin: left center;
+    animation: windPhysics 4s ease-in-out infinite alternate;
+    border-radius: 2px;
+}
+
+/* Ashoka Chakra Implementation */
+.waving-flag-canvas::before {
+    content: "";
+    position: absolute;
+    top: 33.33%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid var(--india-navy);
+    border-radius: 50%;
+    background-image: radial-gradient(circle, var(--india-navy) 20%, transparent 20%),
+                      linear-gradient(0deg, transparent 46%, var(--india-navy) 46%, var(--india-navy) 54%, transparent 54%),
+                      linear-gradient(45deg, transparent 46%, var(--india-navy) 46%, var(--india-navy) 54%, transparent 54%),
+                      linear-gradient(90deg, transparent 46%, var(--india-navy) 46%, var(--india-navy) 54%, transparent 54%),
+                      linear-gradient(135deg, transparent 46%, var(--india-navy) 46%, var(--india-navy) 54%, transparent 54%);
+    background-size: 100% 100%;
+}
+
+/* Light/Shadow Waves */
+.waving-flag-canvas::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.06) 30%,
+        rgba(0,0,0,0.15) 50%,
+        rgba(255,255,255,0.08) 70%,
+        rgba(0,0,0,0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shadowRipple 2s linear infinite;
+}
+
+@keyframes windPhysics {
+    0% { transform: rotateX(4deg) rotateY(-8deg) skewY(-1.5deg) scaleX(0.98); }
+    100% { transform: rotateX(6deg) rotateY(4deg) skewY(1.5deg) scaleX(1); }
+}
+
+@keyframes shadowRipple {
+    0% { background-position: 0% 50%; }
+    100% { background-position: -200% 50%; }
+}
+
+.hero-badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.pulse-badge {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 4px;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    animation: flashAlert 2s infinite alternate;
+}
+
+.mandate-saffron {
+    background: linear-gradient(135deg, #C26300, #944B00);
+    border: 1px solid rgba(255, 153, 51, 0.3);
+    box-shadow: 0 0 15px rgba(255, 153, 51, 0.2);
+}
+
+.mandate-green {
+    background: linear-gradient(135deg, #0E6306, #0A4704);
+    border: 1px solid rgba(19, 136, 8, 0.3);
+    box-shadow: 0 0 15px rgba(19, 136, 8, 0.2);
+}
+
+@keyframes flashAlert {
+    0% { opacity: 0.8; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1.02); }
+}
+
+.hero-main-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--india-white);
+    max-width: 800px;
+    margin: 0 auto 16px auto;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    color: var(--text-gray);
+    max-width: 650px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   4. EXECUTIVE DASHBOARD GRID & CORE PANELS
+   ========================================================================== */
+.dashboard-workspace {
+    background-color: var(--bg-deep-workspace);
+    padding: 60px 24px;
+}
+
+.dashboard-grid-layout {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 32px;
+}
+
+.workspace-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Premium Dashboard Card Base Styling */
+.premium-dashboard-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: var(--standard-transition);
+}
+
+.premium-dashboard-card:hover {
+    border-color: var(--card-border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Tricolor Top Border Rails */
+.border-saffron { border-top: 4px solid var(--india-saffron); }
+.border-white { border-top: 4px solid rgba(255, 255, 255, 0.6); }
+.border-green { border-top: 4px solid var(--india-green); }
+.border-navy { border-top: 4px solid var(--india-navy); }
+.border-red { border-top: 4px solid var(--primary-red); }
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.card-icon-frame {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.saffron-glow { background: var(--saffron-glow); color: var(--india-saffron); }
+.green-glow { background: var(--green-glow); color: var(--india-green); }
+.navy-glow { background: var(--navy-glow); color: #60A5FA; }
+.red-glow { background: var(--red-glow); color: var(--primary-red); }
+.white-glow { background: rgba(255, 255, 255, 0.05); color: var(--text-light); }
+
+.card-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--india-white);
+    letter-spacing: -0.3px;
+}
+
+/* Card Specific: Editorial Content Styling */
+.editorial-content p {
+    font-size: 15.5px;
+    color: #D1D5DB;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.editorial-content .salutation {
+    font-size: 16px;
+    color: var(--india-white);
+}
+
+.tricolor-divider {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin: 30px 0;
+}
+.tricolor-divider span {
+    width: 24px;
+    height: 3px;
+    border-radius: 2px;
+}
+.tricolor-divider span:nth-child(1) { background-color: var(--india-saffron); }
+.tricolor-divider span:nth-child(2) { background-color: var(--india-white); }
+.tricolor-divider span:nth-child(3) { background-color: var(--india-green); }
+
+.closing-call {
+    text-align: center;
+    font-weight: 600;
+    color: var(--india-white) !important;
+}
+
+.signature-tag {
+    text-align: center;
+    font-weight: 700;
+    color: var(--india-saffron) !important;
+    letter-spacing: 0.3px;
+    margin-bottom: 0 !important;
+}
+
+/* Card Specific: Memorial Remembrance Block */
+.solemn-blockquote {
+    font-style: italic;
+    color: #E5E7EB;
+    border-left: 3px solid var(--primary-red);
+    padding-left: 20px;
+    margin-bottom: 24px;
+    font-size: 15px;
+}
+
+.card-message-callout {
+    background: rgba(239, 68, 68, 0.03);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+.card-message-callout p {
+    font-size: 14.5px;
+    color: #CBD5E1;
+    margin: 0;
+}
+
+/* Card Specific: Manifesto Block */
+.manifesto-paragraph {
+    font-size: 15px;
+    color: #D1D5DB;
+    text-align: justify;
+    margin: 0;
+}
+
+/* ==========================================================================
+   5. 🇮🇳 NATIONAL ANTHEM PREMIUM AUDIO CONTROLLER UI
+   ========================================================================== */
+.anthem-respect-callout {
+    background: rgba(0, 0, 128, 0.15);
+    border: 1px solid rgba(96, 165, 250, 0.15);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+}
+
+.respect-note {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #93C5FD;
+    text-align: center;
+    margin: 0;
+    font-weight: 500;
+}
+
+.custom-audio-interface {
+    background: rgba(11, 18, 32, 0.6);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.player-timeline-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.time-stamp {
+    font-size: 11.5px;
+    font-family: monospace;
+    color: var(--text-gray);
+    min-width: 30px;
+}
+
+.progress-slider-container {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, var(--india-saffron), var(--india-white), var(--india-green));
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.player-control-matrix {
+    display: flex;
+    gap: 12px;
+}
+
+.player-control-btn {
+    flex: 2;
+    background: linear-gradient(135deg, #1D4ED8, #1E40AF);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    color: var(--india-white);
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--standard-transition);
+}
+
+.player-control-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+    filter: brightness(1.1);
+}
+
+.player-control-btn.btn-secondary {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    color: var(--text-light);
+}
+
+.player-control-btn.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   6. DIRECT ACTION EMAIL CAMPAIGN PORTAL (DANGER CONSOLE)
+   ========================================================================== */
+.danger-console-panel {
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    background: linear-gradient(180deg, rgba(20, 27, 43, 0.65) 0%, rgba(26, 18, 20, 0.65) 100%);
+    overflow: hidden;
+}
+
+.panel-critical-glow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+}
+
+.critical-red-glow { background: rgba(239, 68, 68, 0.12); color: var(--primary-red); }
+
+.target-profile-mesh {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 24px;
+}
+
+.profile-node {
+    text-align: center;
+    flex: 1;
+}
+
+.avatar-wrapper {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    margin: 0 auto 12px auto;
+    padding: 2px;
+    border: 2px solid rgba(239, 68, 68, 0.4);
+    background: var(--bg-dark);
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-node h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--india-white);
+    margin-bottom: 2px;
+}
+
+.title-sub {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.text-saffron { color: var(--india-saffron); }
+.text-green { color: var(--india-green); }
+
+.console-descriptor {
+    font-size: 13px;
+    color: var(--text-gray);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.action-trigger-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.action-dashboard-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 13.5px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--standard-transition);
+}
+
+.btn-dispatch {
+    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: var(--india-white);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.btn-dispatch:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35);
+    filter: brightness(1.1);
+}
+
+.btn-clipboard {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--card-border);
+    color: #CBD5E1;
+}
+
+.btn-clipboard:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--india-white);
+}
+
+/* Clipboard Toast Alert CSS Notification */
+.dashboard-toast {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #34D399;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: var(--standard-transition);
+}
+
+.dashboard-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.system-routing-data-box {
+    background: rgba(7, 11, 20, 0.5);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 24px;
+}
+
+.routing-box-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--india-saffron);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.routing-list {
+    list-style: none;
+}
+
+.routing-list li {
+    font-size: 12.5px;
+    color: var(--text-gray);
+    margin-bottom: 6px;
+}
+.routing-list li:last-child { margin-bottom: 0; }
+
+.routing-code {
+    font-family: monospace;
+    color: #E2E8F0;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* Card Specific: Solidarity Grid Layout */
+.solidarity-mesh-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.solidarity-row-node {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.solidarity-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--card-border);
+}
+
+.placeholder-icon-avatar {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--india-saffron);
+    width: 60px;
+    height: 60px;
+}
+
+.solidarity-meta h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--india-white);
+    margin-bottom: 4px;
+}
+
+.solidarity-meta p {
+    font-size: 12.5px;
+    color: var(--text-gray);
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   7. OUTRO REFLECTION & FOOTER
+   ========================================================================== */
+.thanks-outro-reflection {
+    text-align: center;
+    padding: 60px 24px;
+    max-width: 650px;
+    margin: 0 auto;
+    border-top: 1px solid var(--card-border);
+}
+
+.outro-icon {
+    font-size: 28px;
+    color: var(--india-saffron);
+    margin-bottom: 16px;
+}
+
+.thanks-outro-reflection h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--india-white);
+    margin-bottom: 8px;
+}
+
+.thanks-outro-reflection p {
+    font-size: 14.5px;
+    color: var(--text-gray);
+}
+
+.dashboard-footer {
+    background-color: #05080F;
+    border-top: 1px solid var(--card-border);
+    padding: 30px 24px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-copyright {
+    font-size: 13px;
+    color: #4B5563;
+    margin-bottom: 6px;
+}
+
+.footer-version-tag {
+    font-size: 11px;
+    color: #374151;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE MEDIA CONSTRAINTS MATRIX
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .dashboard-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px 16px;
+    }
+    .announcement-ticker-bar {
+        margin-top: 105px;
+    }
+    .nav-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    .hero-main-title {
+        font-size: 28px;
+    }
+    .premium-dashboard-card {
+        padding: 24px;
+    }
+    .target-profile-mesh {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
