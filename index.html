@@ -26,35 +26,46 @@
             line-height: 1.6;
         }
 
-        /* --- 1. RUNNING ALERT TICKER (SLOWED DOWN) --- */
+        /* --- 1. RUNNING TICKER & POPPING HIGHLIGHT MANDATE (SLOWED) --- */
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
-            background-color: #5a1217;
+            background-color: #3b070b;
             border-bottom: 2px solid var(--primary-red);
-            padding: 10px 0;
+            padding: 12px 0;
             box-sizing: border-box;
         }
         .ticker {
             display: inline-block;
             white-space: nowrap;
             padding-left: 100%;
-            animation: ticker 45s linear infinite; /* Slowed from 25s to 45s for readability */
+            animation: ticker 55s linear infinite; /* Highly readable speed */
             font-weight: bold;
-            color: #f8d7da;
+            color: #fff;
             font-size: 15px;
             letter-spacing: 0.5px;
+        }
+        .ticker span.highlight-alert {
+            background-color: var(--primary-red);
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: 900;
+            display: inline-block;
+            box-shadow: 0 0 8px rgba(217,83,79,0.8);
+            margin: 0 5px;
+            text-transform: uppercase;
         }
         @keyframes ticker {
             0% { transform: translate3d(0, 0, 0); }
             100% { transform: translate3d(-100%, 0, 0); }
         }
 
-        /* --- 2. CREDITS BANNER --- */
+        /* --- 2. ACTIVIST CREDITS BANNER --- */
         .credits-banner {
             background-color: #000;
             text-align: center;
-            padding: 12px;
+            padding: 14px;
             font-size: 14px;
             letter-spacing: 1px;
             color: var(--text-gray);
@@ -64,7 +75,7 @@
             color: #fff;
         }
 
-        /* --- 3. LARGE WAVING INDIAN FLAG SYSTEM --- */
+        /* --- 3. DYNAMIC WAVING INDIAN TRICOLOR --- */
         .flag-container {
             position: relative;
             width: 100%;
@@ -77,10 +88,10 @@
             border-bottom: 1px solid #222;
         }
         .waving-flag {
-            width: 240px;
-            height: 160px;
+            width: 270px;
+            height: 180px;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.8);
             background: linear-gradient(
                 to bottom,
                 var(--india-saffron) 33.33%,
@@ -96,8 +107,8 @@
             top: 33.33%;
             left: 50%;
             transform: translate(-50%, 0);
-            width: 53.33px;
-            height: 53.33px;
+            width: 60px;
+            height: 60px;
             border: 2px solid #000080;
             border-radius: 50%;
             box-sizing: border-box;
@@ -109,11 +120,11 @@
             background-size: 100% 100%;
         }
         @keyframes wave {
-            0% { transform: skewY(-2deg) scaleX(0.98); }
-            100% { transform: skewY(2deg) scaleX(1); }
+            0% { transform: skewY(-3deg) scaleX(0.97); }
+            100% { transform: skewY(3deg) scaleX(1); }
         }
 
-        /* --- 4. EXPERT TWO-COLUMN LAYOUT --- */
+        /* --- 4. PROFESSIONAL DASHBOARD DUAL PANEL --- */
         .dashboard-layout {
             max-width: 1250px;
             margin: 40px auto;
@@ -123,19 +134,12 @@
             padding: 0 20px;
         }
 
-        .main-narrative-panel {
+        .main-narrative-panel, .side-action-panel {
             display: flex;
             flex-direction: column;
             gap: 30px;
         }
 
-        .side-action-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        /* CARD ARCHITECTURE */
         .pro-card {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -173,7 +177,7 @@
             text-align: justify;
         }
 
-        /* MEMORIAL SECTION STYLE */
+        /* MEMORIAL TRACK ROW */
         .memorial-section {
             background: linear-gradient(135deg, #1f1416 0%, #15181c 100%);
             border-left: 4px solid var(--primary-red);
@@ -181,19 +185,18 @@
         .memorial-section h3 {
             color: var(--primary-red);
             font-size: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         .memorial-text {
             font-style: italic;
             color: #e2e8f0 !important;
         }
 
-        /* RESIGNATION PORTAL MEDIA SETUP */
+        /* RESIGNATION PORTAL MEDIA SETUP RIGHT PANEL */
         .minister-profile-box {
             text-align: center;
             margin-bottom: 25px;
+            border-bottom: 1px solid #2a2d34;
+            padding-bottom: 20px;
         }
         .minister-img {
             width: 140px;
@@ -218,7 +221,7 @@
             letter-spacing: 1px;
         }
 
-        /* BUTTON SYSTEM */
+        /* ACTION LINKS AND INFO BOXES */
         .btn {
             display: block;
             width: 100%;
@@ -272,7 +275,7 @@
             color: var(--text-gray);
         }
 
-        /* SOLIDARITY ROW DESIGN */
+        /* SOLIDARITY SIDE CARD SETUP */
         .solidarity-header {
             font-size: 18px;
             font-weight: bold;
@@ -289,19 +292,17 @@
             gap: 15px;
             margin-bottom: 20px;
             background: rgba(255,255,255,0.02);
-            padding: 12px;
+            padding: 15px;
             border-radius: 6px;
+            border-left: 3px solid var(--accent-yellow);
         }
         .leader-img {
-            width: 65px;
-            height: 65px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--accent-yellow);
+            border: 2px solid #fff;
             background-color: #222;
-        }
-        .leader-img.blue-border {
-            border-color: #5bc0de;
         }
         .leader-details h4 {
             margin: 0 0 4px 0;
@@ -332,30 +333,32 @@
 </head>
 <body>
 
-    <!-- 1. ALERT TICKER -->
+    <!-- 1. POPPING RUNNING ALERT TICKER -->
     <div class="ticker-wrap">
         <div class="ticker">
-            🚨 NATIONAL NOTICE: JOIN THE PEACEFUL MARCH TO SANSAD (PARLIAMENT, NEW DELHI) ON JULY 20TH, 2026. DEMANDING SYSTEMIC ACCOUNTABILITY, TRANSPARENCY, AND SYSTEMIC REFORMS FOR THE STUDENT COMMUNITY. 🇮🇳
+            <span class="highlight-alert">MANDATE: RESIGN UNION MINISTER DHARMENDRA PRADHAN</span> 
+            <span class="highlight-alert">MANDATE: RESIGN PRIME MINISTER NARENDRA MODI</span> 
+            👉 NOTICE: JOIN THE NATIONWIDE PEACEFUL MARCH TO SANSAD (PARLIAMENT, NEW DELHI) ON JULY 20TH, 2026. STAND UNIFIED FOR EXAMINATION INTEGRITY AND DEMAND SYSTEMIC TRANSPARENCY! 🇮🇳
         </div>
     </div>
 
-    <!-- 2. ACTIVIST CREDITS -->
+    <!-- 2. CAMPAIGNER BANNER -->
     <div class="credits-banner">
         Campaign Framework Implemented By: <strong>SYED AKBER HUSSAINI</strong> (Social Activist)
     </div>
 
-    <!-- 3. SWINGING TRICOLOR HEADER -->
+    <!-- 3. ANIMATED FLAG ELEMENT -->
     <div class="flag-container">
         <div class="waving-flag" title="National Flag of India"></div>
     </div>
 
-    <!-- 4. MAIN LAYOUT GRID -->
+    <!-- 4. TWO-COLUMN LAYOUT -->
     <div class="dashboard-layout">
         
-        <!-- LEFT PANEL: MESSAGES & MANDATES -->
+        <!-- LEFT PANELS: STATEMENTS & TRIBUTES -->
         <div class="main-narrative-panel">
             
-            <!-- Welcome Framework & Message to Every Indian -->
+            <!-- Message Frame -->
             <div class="pro-card flag-accent">
                 <div class="welcome-title-box">
                     <h1>A Message to Every Indian</h1>
@@ -375,42 +378,52 @@
                 </div>
             </div>
 
-            <!-- In Memoriam Section -->
+            <!-- Tribute Memorial Box -->
             <div class="pro-card memorial-section">
-                <h3>🕯️ In Remembrance: The Price of Broken Dreams</h3>
+                <h3>🕯️ In Remembrance: The Victims of the Examination Crisis</h3>
                 <p class="memorial-text">
-                    We dedicate a solemn portion of this collective call to the brilliant young souls across our country whom we lost to the devastating pressures of paper leaks and structural failures. Your sacrifices are a permanent scar on the nation's conscience, and they will never be forgotten. 
+                    We stand in profound mourning and absolute resolve for the brilliant young Indian students who tragically lost their lives to suicide amid the severe emotional duress caused by the recent paper leaks and institutional negligence. Their deaths are a national tragedy.
                 </p>
                 <p class="memorial-text">
-                    To every student feeling isolated under the weight of this crisis: Your lives are infinitely valuable, and you are the irreplaceable future of India. We stand as a shield for your aspirations. We will fight to clean the system so you can focus entirely on making India proud.
+                    To every student struggling under the weight of this uncertainty: Your lives hold infinite worth. You are the definitive future of this nation. We are building this shield of accountability so that your hard work will never again be stolen by corruption or systemic dysfunction. Stay strong; you will make India proud.
                 </p>
             </div>
 
             <!-- Political Coalition Appeal -->
             <div class="pro-card">
-                <h3>A Call to All National and Regional Political Formations</h3>
-                <p style="color: var(--text-gray); font-size: 15px; text-align: justify;">
-                    This movement transcends the internal divides of partisan politics. The protection of student merit and institutional integrity is a foundational national necessity. We explicitly call upon representatives from all political organizations to join the march to Parliament on July 20th, 2026. Support the youth of India cleanly, stand in structural solidarity, and protect the human resource that will build the future of our nation.
+                <h3>A Call to All National and Regional Political Parties</h3>
+                <p style="color: var(--text-gray); font-size: 15px; text-align: justify; margin: 0;">
+                    Protecting the academic integrity of our nation is a non-partisan duty. We explicitly call upon all political parties of India to actively join this peaceful march to Parliament on July 20th, 2026. Stand with the student community, protect the future workforce of our republic, and demonstrate that public accountability is paramount. We are the future of India, and together, we will make India proud.
                 </p>
             </div>
 
         </div>
 
-        <!-- RIGHT PANEL: PORTAL CONSOLE (MODIFIED LOCATION) -->
+        <!-- RIGHT PANEL: RESIGNATION PORTAL CONSOLE -->
         <div class="side-action-panel">
             
-            <!-- Resignation Direct Action Portal -->
+            <!-- Resignation Framework Area -->
             <div class="pro-card resignation-accent">
+                
+                <!-- Minister Profile -->
                 <div class="minister-profile-box">
-                    <!-- Standard Official Profile Photo Endpoint Placeholder -->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Dharmendra_Pradhan%2C_Minister_of_Education.jpg" alt="Dharmendra Pradhan Profile" class="minister-img">
-                    <div class="minister-title">Dharmendra Pradhan</div>
-                    <div class="minister-sub">Demanded Resignation</div>
+                    <img src="pradhan.jpg" alt="Minister Dharmendra Pradhan" class="minister-img">
+                    <div class="minister-title">Shri Dharmendra Pradhan</div>
+                    <div class="minister-sub">Hon'ble Minister of Education</div>
                 </div>
 
-                <h3 style="text-align: center; font-size: 18px; margin-bottom: 15px;">Official Demands Submission</h3>
-                <p style="font-size: 14px; text-align: center; margin-bottom: 20px;">
-                    Execute your right to register peaceful civic dissent. Tap below to automatically compile the petition to the Ministry of Education and the PMO.
+                <!-- Prime Minister Profile -->
+                <div class="minister-profile-box">
+                    <img src="modi.jpg" alt="PM Narendra Modi" class="minister-img">
+                    <div class="minister-title">Shri Narendra Modi</div>
+                    <div class="minister-sub">Hon'ble Prime Minister of India</div>
+                </div>
+
+                <h3 style="text-align: center; font-size: 17px; margin-bottom: 15px; text-transform: uppercase; color: #fff;">
+                    Official Accountability Submission Portal
+                </h3>
+                <p style="font-size: 13px; text-align: center; margin-bottom: 20px; color: var(--text-gray);">
+                    Click below to generate the formal email demand addressed to the Ministry of Education and the Prime Minister's Office.
                 </p>
 
                 <button class="btn" onclick="sendProtestEmail()">
@@ -422,7 +435,7 @@
                 </button>
                 
                 <div class="clipboard-info" id="clipboardAlert" style="display: none;">
-                    ✓ Email framework copied successfully!
+                    ✓ Framework successfully copied to clipboard!
                 </div>
 
                 <div class="info-box">
@@ -432,26 +445,16 @@
                 </div>
             </div>
 
-            <!-- In Solidarity With Section -->
+            <!-- Solidarity Section -->
             <div class="pro-card">
                 <div class="solidarity-header">In Solidarity With</div>
                 
-                <!-- Sonam Wangchuk Profile Box -->
+                <!-- Sonam Wangchuk Profile -->
                 <div class="leader-row">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Sonam_Wangchuk_SECMOL.jpg" alt="Sonam Wangchuk" class="leader-img">
+                    <img src="wangchuk.jpg" alt="Mr. Sonam Wangchuk" class="leader-img">
                     <div class="leader-details">
                         <h4>Mr. Sonam Wangchuk</h4>
-                        <p>Education Reformer & Climate Activist. A vital symbol of integrity and truth.</p>
-                    </div>
-                </div>
-
-                <!-- Abhijeet Dipke Profile Box -->
-                <div class="leader-row">
-                    <!-- Standard Public Press Avatar Placeholder -->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Abhijeet Dipke" class="leader-img blue-border">
-                    <div class="leader-details">
-                        <h4>Mr. Abhijeet Dipke</h4>
-                        <p>Social Reform Activist. Actively organizing digital mobilization and civic response platforms.</p>
+                        <p>Eminent Engineer, Innovator & Education Reformist. Standing firmly for systemic truth and administrative integrity.</p>
                     </div>
                 </div>
             </div>
@@ -461,24 +464,24 @@
     </div>
 
     <footer>
-        Campaign managed on behalf of the national student movement. © 2026.
+        Campaign portal managed on behalf of the national student initiative. © 2026.
     </footer>
 
     <script>
         var to = "d.pradhan@sansad.nic.in";
         var cc = "minister.sm@gov.in,appt.pmo@nic.in";
-        var subjectText = "Urgently Requesting Accountability and Responsibility: National Education Framework";
+        var subjectText = "Urgently Requesting Structural Accountability: National Education Infrastructure";
         
-        var bodyText = "To Mr. Dharmendra Pradhan,\n" +
-                       "Minister for Education, India\n\n" +
-                       "Subject: Demand for Systemic Accountability and Formal Resignation\n\n" +
-                       "Respected Minister,\n\n" +
-                       "We write this as concerned citizens, students, and supporters of India’s future. The recent series of systemic failures and compromised examinations within the National Education Ministry have severely eroded public confidence and deeply impacted the aspirations of millions of hardworking students nationwide.\n\n" +
-                       "Effective leadership demands complete accountability. The student body deserves transparency, uncompromised exam integrity, and leadership dedicated strictly to securing their future. Standing in total solidarity with the national call for systemic reform, we collectively state that you must assume ultimate responsibility for these structural missteps and formally resign from your post to allow for restoring public trust.\n\n" +
-                       "The youth of India are its greatest strength, and their future cannot be compromised.\n\n" +
+        var bodyText = "To,\n" +
+                       "The Ministry of Education & The Prime Minister's Office, Government of India\n\n" +
+                       "Subject: Demand for Systemic Accountability and Administrative Resignations\n\n" +
+                       "Respected Dignitaries,\n\n" +
+                       "We write this as deeply concerned citizens, students, and stakeholders of India’s future. The catastrophic chain of systemic lapses, structural failures, and unaddressed paper leaks within our highest national examination frameworks have severely damaged public confidence and fundamentally harmed the health and mental well-being of millions of students.\n\n" +
+                       "True leadership requires administrative accountability. The hard work of Indian youth cannot be compromised by prolonged institutional negligence. Standing in unified solidarity with the call for transparent civic reforms championed by public figures like Sonam Wangchuk, we collectively mandate that immediate responsibility be taken at the highest administrative levels to restore institutional trust and pave the way for real structural reforms.\n\n" +
+                       "The student community is the cornerstone of India, and their futures must be protected above all else.\n\n" +
                        "Sincerely,\n" +
                        "A Unified Voice for Student Justice\n\n" +
-                       "--- Campaign Endorsement ---";
+                       "--- End of Message ---";
 
         function sendProtestEmail() {
             var subject = encodeURIComponent(subjectText);
@@ -494,7 +497,7 @@
                 alertBox.style.display = "block";
                 setTimeout(function(){ alertBox.style.display = "none"; }, 5000);
             }, function() {
-                alert("Please manually copy the text framework from the info block.");
+                alert("Please manually copy the text block inside the details tab.");
             });
         }
     </script>
