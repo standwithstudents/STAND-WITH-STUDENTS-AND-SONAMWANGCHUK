@@ -26,7 +26,7 @@
             line-height: 1.6;
         }
 
-        /* --- 1. RUNNING TICKER & POPPING HIGHLIGHT MANDATE (SLOWED) --- */
+        /* --- 1. RUNNING ALERT TICKER --- */
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
@@ -39,7 +39,7 @@
             display: inline-block;
             white-space: nowrap;
             padding-left: 100%;
-            animation: ticker 55s linear infinite; /* Highly readable speed */
+            animation: ticker 55s linear infinite;
             font-weight: bold;
             color: #fff;
             font-size: 15px;
@@ -61,7 +61,7 @@
             100% { transform: translate3d(-100%, 0, 0); }
         }
 
-        /* --- 2. ACTIVIST CREDITS BANNER --- */
+        /* --- 2. CREDITS BANNER --- */
         .credits-banner {
             background-color: #000;
             text-align: center;
@@ -75,7 +75,7 @@
             color: #fff;
         }
 
-        /* --- 3. DYNAMIC WAVING INDIAN TRICOLOR --- */
+        /* --- 3. SWINGING INDIAN FLAG --- */
         .flag-container {
             position: relative;
             width: 100%;
@@ -99,7 +99,8 @@
                 #ffffff 66.66%,
                 var(--india-green) 66.66%
             );
-            animation: wave 4s ease-in-out infinite alternate;
+            transform-origin: left center;
+            animation: waveMotion 3s ease-in-out infinite alternate;
         }
         .waving-flag::before {
             content: "";
@@ -119,12 +120,12 @@
                               linear-gradient(135deg, transparent 48%, #000080 48%, #000080 52%, transparent 52%);
             background-size: 100% 100%;
         }
-        @keyframes wave {
-            0% { transform: skewY(-3deg) scaleX(0.97); }
-            100% { transform: skewY(3deg) scaleX(1); }
+        @keyframes waveMotion {
+            0% { transform: rotate(-3deg) skewY(-2deg); }
+            100% { transform: rotate(3deg) skewY(2deg); }
         }
 
-        /* --- 4. PROFESSIONAL DASHBOARD DUAL PANEL --- */
+        /* --- 4. TWO-COLUMN LAYOUT --- */
         .dashboard-layout {
             max-width: 1250px;
             margin: 40px auto;
@@ -177,7 +178,6 @@
             text-align: justify;
         }
 
-        /* MEMORIAL TRACK ROW */
         .memorial-section {
             background: linear-gradient(135deg, #1f1416 0%, #15181c 100%);
             border-left: 4px solid var(--primary-red);
@@ -191,7 +191,7 @@
             color: #e2e8f0 !important;
         }
 
-        /* RESIGNATION PORTAL MEDIA SETUP RIGHT PANEL */
+        /* IMAGE FALLBACK MECHANISM */
         .minister-profile-box {
             text-align: center;
             margin-bottom: 25px;
@@ -221,7 +221,7 @@
             letter-spacing: 1px;
         }
 
-        /* ACTION LINKS AND INFO BOXES */
+        /* BUTTONS */
         .btn {
             display: block;
             width: 100%;
@@ -275,7 +275,7 @@
             color: var(--text-gray);
         }
 
-        /* SOLIDARITY SIDE CARD SETUP */
+        /* SOLIDARITY ROW DESIGN */
         .solidarity-header {
             font-size: 18px;
             font-weight: bold;
@@ -347,7 +347,7 @@
         Campaign Framework Implemented By: <strong>SYED AKBER HUSSAINI</strong> (Social Activist)
     </div>
 
-    <!-- 3. ANIMATED FLAG ELEMENT -->
+    <!-- 3. ANIMATED SWING FLAG ELEMENT -->
     <div class="flag-container">
         <div class="waving-flag" title="National Flag of India"></div>
     </div>
@@ -407,14 +407,14 @@
                 
                 <!-- Minister Profile -->
                 <div class="minister-profile-box">
-                    <img src="pradhan.jpg" alt="Minister Dharmendra Pradhan" class="minister-img">
+                    <img src="./pradhan.jpg" alt="Minister Dharmendra Pradhan" class="minister-img">
                     <div class="minister-title">Shri Dharmendra Pradhan</div>
                     <div class="minister-sub">Hon'ble Minister of Education</div>
                 </div>
 
                 <!-- Prime Minister Profile -->
                 <div class="minister-profile-box">
-                    <img src="modi.jpg" alt="PM Narendra Modi" class="minister-img">
+                    <img src="./modi.jpg" alt="PM Narendra Modi" class="minister-img">
                     <div class="minister-title">Shri Narendra Modi</div>
                     <div class="minister-sub">Hon'ble Prime Minister of India</div>
                 </div>
@@ -451,10 +451,18 @@
                 
                 <!-- Sonam Wangchuk Profile -->
                 <div class="leader-row">
-                    <img src="wangchuk.jpg" alt="Mr. Sonam Wangchuk" class="leader-img">
+                    <img src="./wangchuk.jpg" alt="Mr. Sonam Wangchuk" class="leader-img">
                     <div class="leader-details">
                         <h4>Mr. Sonam Wangchuk</h4>
                         <p>Eminent Engineer, Innovator & Education Reformist. Standing firmly for systemic truth and administrative integrity.</p>
+                    </div>
+                </div>
+
+                <!-- Abhijeet Dipke Profile -->
+                <div class="leader-row">
+                    <div class="leader-details" style="padding-left: 5px;">
+                        <h4>Mr. Abhijeet Dipke</h4>
+                        <p>Social Reform Activist. Actively organizing digital mobilization frameworks and public transparency platforms for Indian students.</p>
                     </div>
                 </div>
             </div>
