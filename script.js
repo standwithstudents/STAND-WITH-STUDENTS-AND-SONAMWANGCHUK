@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     const pageLoader = document.getElementById("page-loader-curtain");
     if (pageLoader) {
-        // Automatically release workspace frames once internal components resolve
         setTimeout(() => {
             pageLoader.style.opacity = "0";
             setTimeout(() => {
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 2. SEGMENTED NAVIGATION ROUTE HIGHLIGHTING SCROLL ENGINE
+    // 2. NAVIGATION HIGHLIGHT ROUTE SCROLLER
     // ==========================================
     const routingLinks = document.querySelectorAll(".nav-link-item");
     const operationalSections = document.querySelectorAll("section, article, main");
@@ -47,10 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================
-    // 3. SCROLL-DRIVEN INTERACTION REVEAL INTERSECTION
+    // 3. SCROLL-DRIVEN REVEAL INTERSECTIONS
     // ==========================================
     const elementsToReveal = document.querySelectorAll(".reveal-on-scroll");
-    
     const scrollRevealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -59,11 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, { threshold: 0.1 });
-
     elementsToReveal.forEach(el => scrollRevealObserver.observe(el));
 
     // ==========================================
-    // 4. STEP NUMERICAL CEILING COUNT ENGINES
+    // 4. ANIMATED HIGH-SPEED COUNTER ENGINE
     // ==========================================
     function initializeCounterNumericalHeartbeat() {
         const counterNodes = document.querySelectorAll("[data-target-count]");
@@ -88,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 5. BACK TO TOP SCROLL WINDOW TRIGGERS
+    // 5. BACK TO TOP CONTROL LOGIC
     // ==========================================
     const bttButton = document.getElementById("backToTopTrigger");
     window.addEventListener("scroll", () => {
@@ -98,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
             bttButton.classList.remove("active-btt");
         }
     });
-
     if (bttButton) {
         bttButton.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
@@ -106,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 6. REAL-TIME SYSTEM CHRONOGRAPH HEARTRATE LOOP
+    // 6. SYSTEM CHRONOGRAPH HEARTBEAT LOOP
     // ==========================================
     const chronoDateEl = document.getElementById("liveChronoDate");
     const chronoTimeEl = document.getElementById("liveChronoTime");
@@ -114,9 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function runSystemChronograph() {
         const now = new Date();
         const dateOptions = { year: 'numeric', month: 'short', day: '2-digit' };
-        if (chronoDateEl) {
-            chronoDateEl.textContent = now.toLocaleDateString('en-US', dateOptions);
-        }
+        if (chronoDateEl) chronoDateEl.textContent = now.toLocaleDateString('en-US', dateOptions);
 
         let hours = now.getHours();
         const minutes = now.getMinutes();
@@ -125,19 +119,14 @@ document.addEventListener("DOMContentLoaded", () => {
         
         hours = hours % 12;
         hours = hours ? hours : 12;
-        
-        const formattedTime = 
-            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
-        
-        if (chronoTimeEl) {
-            chronoTimeEl.textContent = formattedTime;
-        }
+        const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
+        if (chronoTimeEl) chronoTimeEl.textContent = formattedTime;
     }
     runSystemChronograph();
     setInterval(runSystemChronograph, 1000);
 
     // ==========================================
-    // 7. SOCIAL HOOK INTERACTION INTERFACES
+    // 7. SOCIAL HOOK LINKS SHARE INTERFACE
     // ==========================================
     const whatsappAnchor = document.getElementById("whatsappShareBtn");
     const instagramAnchor = document.getElementById("instagramShareBtn");
@@ -149,18 +138,17 @@ document.addEventListener("DOMContentLoaded", () => {
             this.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(crossPlatformSharePayload)}${dynamicRouteUri}`;
         });
     }
-
     if (instagramAnchor) {
         instagramAnchor.addEventListener("click", function(e) {
             e.preventDefault();
             navigator.clipboard.writeText(`${crossPlatformSharePayload} ${window.location.href}`);
-            alert("Movement payload and framework link copied! Opening Instagram pipelines now.");
+            alert("Movement link copied to clipboard! Share it on your Instagram Story or DMs.");
             window.open("https://instagram.com", "_blank");
         });
     }
 
     // ==========================================
-    // 8. ANTHEM CORE AUDIO DEPLOYMENT CONTROLS
+    // 8. ANTHEM RESPECTIVE AUDIO LOOP ARCHITECTURE
     // ==========================================
     const anthemAudio = document.getElementById("anthemAudioPlayer");
     const progressBar = document.getElementById("audio-progress-bar");
@@ -183,32 +171,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 9. AUTOMATED FEED TIMELINE LOADER
+    // 9. PROFESSIONAL TIMELINE FEED DESIGN INJECTION
     // ==========================================
-    const newsFeedTarget = document.getElementById("newsFeedTarget");
-    const liveCampaignNewsStream = [
-        { tag: "CRITICAL UPDATE", headline: "Sonam Wangchuk Pushes Fast From Hospital Ahead of March", snippet: "Despite forced hospital shift by police, Wangchuk calls on student fronts to keep the July 20 Parliament March strong.", iconClass: "fa-solid fa-hospital-user", iconColor: "#ff9933" },
-        { tag: "DEVELOPING", headline: "CJP Confirms Night Vigil at Delhi Ahead of Parliament Route", snippet: "Abhijeet Dipke warns against youth suppression; student clusters deploy human chains near assembly zones.", iconClass: "fa-solid fa-users-rays", iconColor: "#ffffff" },
-        { tag: "MANIFESTO", headline: "Academics Issue Open Demand Letter for Pradhan's Resignation", snippet: "Eminent scholars and former JNU professors join the mandate citing systemic examination leakage crisis.", iconClass: "fa-solid fa-file-signature", iconColor: "#138808" }
+    const newsTimelineTarget = document.getElementById("newsTimelineTarget");
+    const liveCampaignTimelineStream = [
+        { status: "Critical Update", bg: "#rgba(255,153,51,0.15)", color: "#ff9933", title: "Sonam Wangchuk Pushes Fast Ahead of March", text: "Despite heavy security management adjustments, Wangchuk states the July 20 Parliament March stands firm for educational framework values." },
+        { status: "Developing", bg: "rgba(255,255,255,0.06)", color: "#ffffff", title: "Night Vigil Confirmed at Assembling Zones", text: "Abhijeet Dipke and citizen clusters report thousands arriving across strategic routes to secure peaceful advocacy alignment panels." },
+        { status: "Manifesto Focus", bg: "rgba(19,136,8,0.15)", color: "#138808", title: "Senior Academic Alliance Demands Overhaul", text: "Prominent research professors release an open manifesto letter requesting complete accountability structural transparency." }
     ];
 
-    if (newsFeedTarget) {
-        newsFeedTarget.innerHTML = liveCampaignNewsStream.map(art => `
-            <div class="news-card-node">
-                <div class="news-image-frame" style="display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.15);">
-                    <i class="${art.iconClass}" style="font-size: 1.25rem; color: ${art.iconColor};"></i>
-                </div>
-                <div class="news-meta-block">
-                    <span class="news-timestamp">${art.tag}</span>
-                    <h4 class="news-headline-txt" style="font-size:0.8rem; margin:2px 0;">${art.headline}</h4>
-                    <p class="news-snippet-txt" style="font-size:0.75rem; color:#94a3b8; margin:0;">${art.snippet}</p>
+    if (newsTimelineTarget) {
+        newsTimelineTarget.innerHTML = liveCampaignTimelineStream.map(item => `
+            <div class="timeline-node-event">
+                <div class="timeline-node-dot"></div>
+                <div class="timeline-node-body">
+                    <span class="timeline-node-tag" style="background:${item.bg}; color:${item.color};">${item.status}</span>
+                    <h4 style="font-size:0.85rem; color:#fff; font-weight:700; margin:3px 0;">${item.title}</h4>
+                    <p style="font-size:0.75rem; color:#94a3b8; margin:0; line-height:1.4;">${item.text}</p>
                 </div>
             </div>
         `).join('');
     }
 });
 
-// INITIAL DISMISSAL SYSTEM CONTROLLER FOR GREETING PORTAL OVERLAY
+// ==========================================
+// 10. FAQ ACCORDION PATTERN TOGGLE CONTROLLER
+// ==========================================
+window.toggleFaqAccordion = (headerElement) => {
+    const parentItem = headerElement.parentElement;
+    const contentPane = parentItem.querySelector(".faq-accordion-content");
+    const isCurrentlyOpen = parentItem.classList.contains("open-faq");
+
+    // Close all open FAQ rows inside the workspace first
+    document.querySelectorAll(".faq-accordion-item").forEach(item => {
+        item.classList.remove("open-faq");
+        item.querySelector(".faq-accordion-content").style.maxHeight = null;
+    });
+
+    if (!isCurrentlyOpen) {
+        parentItem.classList.add("open-faq");
+        contentPane.style.maxHeight = contentPane.scrollHeight + "px";
+    }
+};
+
 window.dismissGreetingPortal = () => {
     const portal = document.getElementById("greetingPortal");
     if (portal) {
