@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
         canvas.width = canvasWidth;
         canvas.height = canvasHeight;
 
-        // Track and adjust on viewport sizing updates
         window.addEventListener("resize", () => {
             if(canvas.offsetWidth !== canvasWidth) {
                 canvasWidth = canvas.offsetWidth;
@@ -47,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const activeParticleArray = [];
-        const maximumParticlesCount = 35; // Clean, non-distracting visual capacity
+        const maximumParticlesCount = 35;
 
         class ParticleNode {
             constructor() {
@@ -55,14 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 this.y = Math.random() * canvasHeight;
                 this.radius = Math.random() * 1.5 + 0.5;
                 this.speedX = (Math.random() * 0.15) - 0.075;
-                this.speedY = (Math.random() * -0.2) - 0.05; // Upward drift vector
+                this.speedY = (Math.random() * -0.2) - 0.05;
                 this.opacity = Math.random() * 0.4 + 0.1;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
                 
-                // Reset coordinates if bounds breached
                 if (this.y < 0) {
                     this.y = canvasHeight;
                     this.x = Math.random() * canvasWidth;
