@@ -70,7 +70,6 @@
             border-bottom: 1px solid var(--card-border);
             padding: 20px;
             text-align: center;
-            sticky: top;
             z-index: 1000;
         }
         .meta-branding {
@@ -116,7 +115,6 @@
             border-bottom: 1px solid var(--card-border);
             position: relative;
         }
-        /* Flag Physics Simulation Container */
         .flag-wave-machine {
             width: 300px;
             height: 200px;
@@ -130,11 +128,9 @@
                 var(--india-green) 66.66%
             );
             transform-origin: left center;
-            /* Complex dual-axis organic aero swing animation */
             animation: flagWindGrid 3.5s ease-in-out infinite alternate;
             overflow: hidden;
         }
-        /* Ashoka Chakra Realism Element */
         .flag-wave-machine::before {
             content: "";
             position: absolute;
@@ -154,7 +150,6 @@
             background-size: 100% 100%;
             opacity: 0.95;
         }
-        /* Wind Shadow / Air Turbulence Ripple Simulation Overlaid */
         .flag-wave-machine::after {
             content: "";
             position: absolute;
@@ -195,7 +190,6 @@
             gap: 35px;
         }
 
-        /* PREMIUM GLASS AND STEEL METRICS CARDS */
         .premium-card {
             background-color: var(--card-surface);
             border: 1px solid var(--card-border);
@@ -414,7 +408,7 @@
 </head>
 <body>
 
-    <!-- 1. PREMIUM POPPING RUNNING ALERT TICKER -->
+    <!-- 1. ALERT TICKER -->
     <div class="ticker-wrap">
         <div class="ticker">
             <span class="highlight-alert"><i class="fa-solid fa-triangle-exclamation"></i> MANDATE: RESIGN MINISTER DHARMENDRA PRADHAN</span> 
@@ -423,7 +417,7 @@
         </div>
     </div>
 
-    <!-- 2. EXECUTIVE BRANDING & CONTACT ROUTING HEADER -->
+    <!-- 2. BRANDING & CONTACT ROUTING HEADER -->
     <header>
         <div class="meta-branding"><i class="fa-solid fa-shield-halved"></i> National Student Mobilization Initiative</div>
         <h1 class="leader-title">SYED AKBER HUSSAINI</h1>
@@ -506,7 +500,7 @@
                     Accountability Dispatch System
                 </h3>
                 <p style="font-size: 13px; text-align: center; color: var(--text-secondary); margin-bottom: 25px;">
-                    Send an automated formal protest email directly from your secure client to the Ministry of Education and the Prime Minister's Office.
+                    Send an automated formal protest email directly from your secure client to the Ministry of Education.
                 </p>
 
                 <button class="action-trigger" onclick="sendProtestEmail()">
@@ -524,7 +518,7 @@
                 <div class="meta-data-box">
                     <strong>Configured System Headers:</strong><br>
                     • <b>Primary To:</b> d.pradhan@sansad.nic.in<br>
-                    • <b>Routing CC:</b> minister.sm@gov.in, appt.pmo@nic.in
+                    • <b>Routing CC:</b> minister.sm@gov.in
                 </div>
             </div>
 
@@ -570,11 +564,11 @@
 
     <script>
         var to = "d.pradhan@sansad.nic.in";
-        var cc = "minister.sm@gov.in,appt.pmo@nic.in";
+        var cc = "minister.sm@gov.in";
         var subjectText = "Urgently Requesting Structural Accountability: National Education Infrastructure";
         
         var bodyText = "To,\n" +
-                       "The Ministry of Education & The Prime Minister's Office, Government of India\n\n" +
+                       "The Ministry of Education, Government of India\n\n" +
                        "Subject: Demand for Systemic Accountability and Administrative Resignations\n\n" +
                        "Respected Dignitaries,\n\n" +
                        "We write this as deeply concerned citizens, students, and stakeholders of India’s future. The catastrophic chain of systemic lapses, structural failures, and unaddressed paper leaks within our highest national examination frameworks have severely damaged public confidence and fundamentally harmed the health and mental well-being of millions of students.\n\n" +
