@@ -1,7 +1,7 @@
 /**
  * ====================================================================
  * THE SOVEREIGN VOICE - EXECUTIVE MOBILIZATION ENGINE
- * Core Architecture Logic Baseline & Animation Matrix (Version 2.0)
+ * Core Architecture Logic Baseline & Visual Particle Engine (Version 2.0)
  * Framework Year: 2026
  * ====================================================================
  */
@@ -9,7 +9,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // ==========================================
-    // 1. ACTIVE PAGE INITIALIZATION LOADER DISMISSAL
+    // 1. ACTIVE PAGE INITIALIZATION LOADER & VISUAL FIELD ENGINE
     // ==========================================
     const pageLoader = document.getElementById("page-loader-curtain");
     if (pageLoader) {
@@ -18,12 +18,84 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 pageLoader.style.display = "none";
                 initializeCounterNumericalHeartbeat();
+                initializeHeroProceduralParticles();
             }, 400);
         }, 600);
     }
 
     // ==========================================
-    // 2. NAVIGATION HIGHLIGHT ROUTE SCROLLER
+    // 2. HERO SECTION PROCEDURAL SLOW PARTICULATES MATRIX
+    // ==========================================
+    function initializeHeroProceduralParticles() {
+        const canvas = document.getElementById("heroParticlesField");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        
+        let canvasWidth = canvas.offsetWidth;
+        let canvasHeight = canvas.offsetHeight;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+
+        // Track and adjust on viewport sizing updates
+        window.addEventListener("resize", () => {
+            if(canvas.offsetWidth !== canvasWidth) {
+                canvasWidth = canvas.offsetWidth;
+                canvasHeight = canvas.offsetHeight;
+                canvas.width = canvasWidth;
+                canvas.height = canvasHeight;
+            }
+        });
+
+        const activeParticleArray = [];
+        const maximumParticlesCount = 35; // Clean, non-distracting visual capacity
+
+        class ParticleNode {
+            constructor() {
+                this.x = Math.random() * canvasWidth;
+                this.y = Math.random() * canvasHeight;
+                this.radius = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() * 0.15) - 0.075;
+                this.speedY = (Math.random() * -0.2) - 0.05; // Upward drift vector
+                this.opacity = Math.random() * 0.4 + 0.1;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // Reset coordinates if bounds breached
+                if (this.y < 0) {
+                    this.y = canvasHeight;
+                    this.x = Math.random() * canvasWidth;
+                }
+                if (this.x < 0 || this.x > canvasWidth) {
+                    this.x = Math.random() * canvasWidth;
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < maximumParticlesCount; i++) {
+            activeParticleArray.push(new ParticleNode());
+        }
+
+        function runParticleRenderLoop() {
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+            activeParticleArray.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(runParticleRenderLoop);
+        }
+        runParticleRenderLoop();
+    }
+
+    // ==========================================
+    // 3. NAVIGATION HIGHLIGHT ROUTE SCROLLER
     // ==========================================
     const routingLinks = document.querySelectorAll(".nav-link-item");
     const operationalSections = document.querySelectorAll("section, article, main");
@@ -46,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================
-    // 3. SCROLL-DRIVEN REVEAL INTERSECTIONS
+    // 4. SCROLL-DRIVEN REVEAL INTERSECTIONS
     // ==========================================
     const elementsToReveal = document.querySelectorAll(".reveal-on-scroll");
     const scrollRevealObserver = new IntersectionObserver((entries) => {
@@ -60,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elementsToReveal.forEach(el => scrollRevealObserver.observe(el));
 
     // ==========================================
-    // 4. ANIMATED HIGH-SPEED COUNTER ENGINE
+    // 5. ANIMATED HIGH-SPEED COUNTER ENGINE
     // ==========================================
     function initializeCounterNumericalHeartbeat() {
         const counterNodes = document.querySelectorAll("[data-target-count]");
@@ -85,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 5. BACK TO TOP CONTROL LOGIC
+    // 6. BACK TO TOP CONTROL LOGIC
     // ==========================================
     const bttButton = document.getElementById("backToTopTrigger");
     window.addEventListener("scroll", () => {
@@ -102,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 6. SYSTEM CHRONOGRAPH HEARTBEAT LOOP
+    // 7. SYSTEM CHRONOGRAPH HEARTBEAT LOOP
     // ==========================================
     const chronoDateEl = document.getElementById("liveChronoDate");
     const chronoTimeEl = document.getElementById("liveChronoTime");
@@ -126,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(runSystemChronograph, 1000);
 
     // ==========================================
-    // 7. SOCIAL HOOK LINKS SHARE INTERFACE
+    // 8. SOCIAL HOOK LINKS SHARE INTERFACE
     // ==========================================
     const whatsappAnchor = document.getElementById("whatsappShareBtn");
     const instagramAnchor = document.getElementById("instagramShareBtn");
@@ -148,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 8. ANTHEM CORE AUDIO DEPLOYMENT CONTROLS
+    // 9. ANTHEM CORE AUDIO CONTROLS
     // ==========================================
     const anthemAudio = document.getElementById("anthemAudioPlayer");
     const progressBar = document.getElementById("audio-progress-bar");
@@ -171,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 9. TIMELINE FEED DESIGN INJECTION
+    // 10. TIMELINE FEED DESIGN INJECTION
     // ==========================================
     const newsTimelineTarget = document.getElementById("newsTimelineTarget");
     const liveCampaignTimelineStream = [
@@ -195,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 10. FAQ ACCORDION PATTERN TOGGLE CONTROLLER
+// 11. FAQ ACCORDION PATTERN TOGGLE CONTROLLER
 // ==========================================
 window.toggleFaqAccordion = (headerElement) => {
     const parentItem = headerElement.parentElement;
@@ -214,13 +286,13 @@ window.toggleFaqAccordion = (headerElement) => {
 };
 
 // ==========================================
-// 11. LEGAL LIGHTBOX DISPLAY ENGINE CONTROLLERS
+// 12. LEGAL LIGHTBOX DISPLAY CONTROLLERS
 // ==========================================
 window.openLegalLightbox = (modalElementId) => {
     const activeTargetModal = document.getElementById(modalElementId);
     if (activeTargetModal) {
         activeTargetModal.classList.add("modal-visible");
-        document.body.style.overflow = "hidden"; // Prevent background body displacement scrolling
+        document.body.style.overflow = "hidden";
     }
 };
 
