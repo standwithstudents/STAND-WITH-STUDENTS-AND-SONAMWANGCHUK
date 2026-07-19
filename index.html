@@ -18,15 +18,14 @@
     <!-- Structural Cascade Integration -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Embedded Advanced Style Matrix (Animations, Loader, Layout Fixes & Sharing Extensions) -->
+    <!-- Embedded Advanced Style Matrix (Fixed Overlays, Clean Navigation & Image Wrappers) -->
     <style>
-        /* 1. ANIMATION & TRANSITION SYSTEM CORE ARCHITECTURE */
         :root {
             --anim-bezier: cubic-bezier(0.4, 0, 0.2, 1);
             --transition-smooth: all 0.3s var(--anim-bezier);
         }
 
-        /* PAGE INITIALIZATION LOADER STACK */
+        /* 1. INITIALIZATION LOADER ACCESSIBILITY CURTAIN */
         #page-loader-curtain {
             position: fixed;
             top: 0;
@@ -39,11 +38,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
         .loader-spinner-ring {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border: 4px solid rgba(255, 153, 51, 0.1);
             border-top-color: #ff9933;
             border-bottom-color: #138808;
@@ -54,46 +53,72 @@
             to { transform: rotate(360deg); }
         }
 
-        /* SCROLL TRIGGER ANIMATION UTILITIES */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s var(--anim-bezier), transform 0.8s var(--anim-bezier);
+        /* 2. FIXED PORTAL GREETING OVERLAY CURTAIN SYSTEM */
+        .greeting-overlay-curtain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+            z-index: 99999 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s var(--anim-bezier), visibility 0.5s var(--anim-bezier);
+            overflow-y: auto;
+            padding: 1rem;
+            box-sizing: border-box;
         }
-        .reveal-on-scroll.active-fade {
-            opacity: 1;
-            transform: translateY(0);
+        .greeting-card-mesh {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
         }
-        .reveal-slide-left {
-            opacity: 0;
-            transform: translateX(-40px);
-            transition: opacity 0.8s var(--anim-bezier), transform 0.8s var(--anim-bezier);
+        .greeting-gesture-frame {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem auto;
+            background: linear-gradient(135deg, rgba(255, 153, 51, 0.15) 0%, rgba(19, 136, 8, 0.15) 100%);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .reveal-slide-left.active-slide {
-            opacity: 1;
-            transform: translateX(0);
+        .greeting-gesture-frame i {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #ff9933, #ffffff, #138808);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* PREMIUM STICKY NAVIGATION BAR WITH GLASSMORPHISM OVERRIDE */
+        /* 3. PREMIUM STICKY STABILIZED NAVIGATION BAR */
         .glass-nav {
             position: sticky;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             z-index: 2000;
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            transition: var(--transition-smooth);
         }
-        
         .nav-container {
             display: flex;
             flex-direction: column;
             width: 100%;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
         .nav-top-row {
             display: flex;
@@ -101,22 +126,55 @@
             align-items: center;
             width: 100%;
         }
-        
-        /* RESPONSIVE SEGMENTED SYSTEM LINKS INTERFACE */
+
+        /* FIXED PROFILE FRAMES & CONTENT DEPLOYMENT */
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        .nav-profile-frame {
+            width: 65px !important;  
+            height: 65px !important; 
+            border-radius: 50% !important;
+            overflow: hidden !important;
+            border: 3px solid rgba(255, 153, 51, 0.95) !important; 
+            background: #10162a !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+            box-shadow: 0 0 15px rgba(255, 153, 51, 0.35);
+        }
+        .nav-profile-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block;
+        }
+        .nav-title-mesh {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        /* ROUTE LINK RACK */
         .segmented-nav-links {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             gap: 0.25rem;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 0.25rem;
-            border-radius: 10px;
+            padding: 0.35rem;
+            border-radius: 12px;
             width: 100%;
-            margin-top: 0.25rem;
+            overflow-x: auto;
+            white-space: nowrap;
         }
         .nav-link-item {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.4rem;
             color: #94a3b8;
@@ -124,271 +182,166 @@
             font-size: 0.8rem;
             font-weight: 600;
             text-decoration: none;
-            padding: 0.5rem 0.85rem;
+            padding: 0.45rem 0.85rem;
             border-radius: 8px;
             transition: var(--transition-smooth);
         }
         .nav-link-item:hover, .nav-link-item.active-route {
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.06);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-        .nav-link-item i {
-            font-size: 0.85rem;
-            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.08);
         }
 
-        /* HEADER INTEGRATED CHRONOGRAPH MATRIX */
+        /* CHRONOGRAPH ENGINE NODE */
         .live-chronograph-node {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 153, 51, 0.2);
-            backdrop-filter: blur(16px);
             border-radius: 8px;
-            padding: 0.5rem 1rem;
+            padding: 0.45rem 0.85rem;
             display: flex;
             align-items: center;
-            gap: 0.85rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            gap: 0.75rem;
         }
         .chrono-label {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
             font-size: 0.65rem;
             font-weight: 700;
             color: #94a3b8;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
-            padding-right: 0.6rem;
+            padding-right: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
-        .chrono-label i {
-            color: #ff9933;
-            animation: pulseFade 2s infinite ease-in-out;
-        }
+        .chrono-label i { color: #ff9933; }
         .chrono-display-values {
             font-family: 'Inter', sans-serif;
             font-weight: 600;
             font-size: 0.8rem;
             display: flex;
-            gap: 0.6rem;
+            gap: 0.5rem;
         }
         .chrono-date { color: #ffffff; }
         .chrono-time { color: #138808; font-weight: 700; }
 
-        @keyframes pulseFade {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
+        /* SCROLL DRIVEN REVEALS */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s var(--anim-bezier), transform 0.6s var(--anim-bezier);
         }
-
-        /* TICKER MULTI-LAYER STACK CORRECTION RULES */
-        .announcement-ticker-bar {
-            display: block !important;
-            position: relative;
-            clear: both;
-            width: 100%;
-            background: rgba(11, 18, 32, 0.95) !important;
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 153, 51, 0.25);
-            overflow: hidden;
-            padding: 0.85rem 0;
-            z-index: 10;
+        .reveal-on-scroll.active-fade {
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        /* NATIVE BUTTON RIPPLE CORE IMPLEMENTATION FRAMEWORK */
-        .ripple-effect {
-            position: relative;
-            overflow: hidden;
-        }
-        .ripple-element {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.35);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: runRippleEffect 0.6s linear;
-            pointer-events: none;
-        }
-        @keyframes runRippleEffect {
-            to { transform: scale(4); opacity: 0; }
-        }
-
-        /* HOVER INTERACTIONS MECHANISM FOR CONTENT NODES */
         .premium-dashboard-card {
-            transition: transform 0.3s var(--anim-bezier), box-shadow 0.3s var(--anim-bezier), border-color 0.3s var(--anim-bezier);
+            transition: transform 0.3s var(--anim-bezier), box-shadow 0.3s var(--anim-bezier);
         }
         .premium-dashboard-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 153, 51, 0.05);
-            border-color: rgba(255, 153, 51, 0.45) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
 
-        /* LIVE SCROLL ENGINE INTERACTION ELEMENT (BACK TO TOP) */
+        /* BACK TO TOP ARROW BUTTON */
         #backToTopTrigger {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
+            bottom: 25px;
+            right: 25px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             background: linear-gradient(135deg, #ff9933 0%, #138808 100%);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: none;
             color: #ffffff;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 25px rgba(19, 136, 8, 0.4);
             z-index: 9999;
             opacity: 0;
             visibility: hidden;
-            transform: scale(0.8) translateY(10px);
-            transition: opacity 0.4s var(--anim-bezier), visibility 0.4s var(--anim-bezier), transform 0.4s var(--anim-bezier);
+            transition: opacity 0.3s base, visibility 0.3s base;
         }
         #backToTopTrigger.active-btt {
             opacity: 1;
             visibility: visible;
-            transform: scale(1) translateY(0);
-        }
-        #backToTopTrigger:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(255, 153, 51, 0.5);
         }
 
-        /* SOCIAL METRICS DEEP ENGAGEMENT BLOCK */
-        .social-amplification-rack {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-        .btn-amplification {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.85rem;
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: #ffffff;
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: var(--transition-smooth);
-        }
-        .btn-whatsapp {
-            background: rgba(37, 211, 102, 0.15);
-            border-color: rgba(37, 211, 102, 0.3);
-        }
-        .btn-whatsapp:hover {
-            background: #25d366;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            transform: translateY(-2px);
-        }
-        .btn-instagram {
-            background: rgba(225, 48, 108, 0.15);
-            border-color: rgba(225, 48, 108, 0.3);
-        }
-        .btn-instagram:hover {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            box-shadow: 0 10px 20px rgba(220, 39, 67, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* COUNTER BOX METRICS ENGINE DESIGN */
+        /* MULTI-COUNTER DESIGN METRICS */
         .analytics-counter-matrix {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 0.75rem;
             margin-bottom: 1.25rem;
         }
         .counter-metric-tile {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 12px;
-            padding: 1.25rem 1rem;
+            padding: 1rem;
             text-align: center;
         }
         .counter-numerical-node {
             font-family: 'Inter', sans-serif;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-            margin-bottom: 0.25rem;
-        }
-        .counter-metric-label {
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #64748b;
+            color: #ffffff;
         }
 
-        /* WELCOME OVERLAY COMPONENT */
-        .greeting-overlay-curtain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
-            z-index: 99999;
+        /* AMPLIFICATION RACK FOR DEEP CONNECTIONS */
+        .social-amplification-rack {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .btn-amplification {
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .greeting-card-mesh {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            border-radius: 24px;
-            padding: 3rem 2.5rem;
-            max-width: 620px;
-            text-align: center;
+            gap: 0.4rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* BREAKPOINT MATRIX FOR RESPONSIVE PHONES */
+        /* MOBILE OVERRIDES LAYER */
         @media screen and (max-width: 992px) {
-            .nav-container { padding: 0.5rem 0; }
             .nav-top-row { flex-direction: column; gap: 0.75rem; text-align: center; }
-            .segmented-nav-links { flex-wrap: wrap; padding: 0.5rem; }
-            .nav-link-item { width: 48%; justify-content: center; font-size: 0.75rem; padding: 0.4rem 0.5rem; }
+            .nav-actions { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+            .segmented-nav-links { justify-content: flex-start; }
             .dashboard-grid-layout { display: flex !important; flex-direction: column !important; }
             .sidebar-panel { order: -1 !important; }
-            #backToTopTrigger { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+            .greeting-card-mesh { padding: 1.75rem 1.25rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- STAGE 0: ACCESSIBLE NATIVE PAGE LOADER ELEMENT -->
+    <!-- STAGE 0: ACCESSIBLE NATIVE PAGE LOADER -->
     <div id="page-loader-curtain" role="status" aria-label="Loading platform workspace assets">
         <div class="loader-spinner-ring"></div>
     </div>
 
-    <!-- STAGE 1: HIGH ACCESSIBILITY ENTRY WELCOME INTERFACE SYSTEM OVERLAY -->
+    <!-- STAGE 1: PORTAL GREETING OVERLAY SYSTEM (Z-INDEX BOUND CONTROL) -->
     <div class="greeting-overlay-curtain" id="greetingPortal" role="dialog" aria-modal="true" aria-labelledby="portalHeading">
         <div class="greeting-card-mesh">
             <div class="greeting-gesture-frame" aria-hidden="true">
                 <i class="fa-solid fa-hands-praying"></i>
             </div>
             <span class="special-welcome-tag">Welcome, Brave Citizen</span>
-            <h2 id="portalHeading">The Sovereign Voice<br><span style="font-size: 1.2rem; font-weight: 500; color: #94a3b8;">National Movement for Student Rights & Accountability</span></h2>
-            <p>You are entering a space built on the dreams, effort, and resilience of millions of Indian students. This is not just a digital platform; it is a monument to our shared struggle for truth and structural transparency. Thank you for choosing to stand with us, for keeping hope alive, and for defending the integrity of our generation's future.</p>
-            <button class="btn-enter-platform ripple-effect" onclick="dismissGreetingPortal()" aria-label="Dismiss welcome overlay and launch operational system dashboard">Join The Frontline</button>
+            <h2 id="portalHeading" style="color:#fff; font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:1.4rem; line-height:1.3; margin-bottom:1rem;">The Sovereign Voice<br><span style="font-size: 1.1rem; font-weight: 500; color: #94a3b8;">National Movement for Student Rights & Accountability</span></h2>
+            <p style="color:#cbd5e1; font-size:0.9rem; line-height:1.5; margin-bottom:1.5rem;">You are entering a space built on the dreams, effort, and resilience of millions of Indian students. This is not just a digital platform; it is a monument to our shared struggle for truth and structural transparency. Thank you for choosing to stand with us, for keeping hope alive, and for defending the integrity of our generation's future.</p>
+            <button class="btn-enter-platform" onclick="dismissGreetingPortal()" style="background:linear-gradient(90deg, #ff9933 0%, #138808 100%); color:#fff; border:none; padding:0.85rem 2rem; border-radius:10px; font-weight:600; cursor:pointer;" aria-label="Dismiss welcome overlay and launch operational system dashboard">Join The Frontline</button>
         </div>
     </div>
 
-    <!-- ACCESSIBILITY ASSISTANCE INTERFACE LINK -->
-    <a href="#main-dashboard-content" class="skip-nav-link" style="position:absolute; top:-100px; left:0; background:#ff9933; color:#000; padding:10px; z-index:999999; transition: top 0.2s;">Skip navigation to dashboard controls</a>
-
-    <!-- STAGE 2: FIXED/STICKY GLASSMORPHIC PLATFORM NAVIGATION HEADER -->
+    <!-- STAGE 2: PREMIUM FIXED/STICKY GLASSMORPHIC PLATFORM NAVIGATION HEADER -->
     <nav class="glass-nav" role="navigation" aria-label="Primary Platform Route Architecture">
         <div class="nav-container">
             <div class="nav-top-row">
@@ -406,17 +359,17 @@
                 
                 <div class="nav-actions">
                     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; align-items: center;">
-                        <a href="https://instagram.com/syed.akber_._" target="_blank" class="nav-social-btn ripple-effect" aria-label="Follow project updates via Instagram profile link">
+                        <a href="https://instagram.com/syed.akber_._" target="_blank" class="nav-social-btn" aria-label="Follow project updates via Instagram profile link">
                             <i class="fa-brands fa-instagram" aria-hidden="true"></i>
                             <span>@syed.akber_._</span>
                         </a>
-                        <a href="mailto:SAH6440@GMAIL.COM" class="nav-social-btn ripple-effect" aria-label="Send high-priority email inquiry to coordination desk">
+                        <a href="mailto:SAH6440@GMAIL.COM" class="nav-social-btn" aria-label="Send high-priority email inquiry to coordination desk">
                             <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                             <span>SAH6440@GMAIL.COM</span>
                         </a>
                         
-                        <!-- REALTIME CLOCK CHRONOGRAPH ASSET BLOCK CONTAINER -->
-                        <div class="live-chronograph-node" aria-live="polite" aria-label="Active environment chronological metrics">
+                        <!-- CHRONOGRAPH ELEMENT -->
+                        <div class="live-chronograph-node" aria-live="polite">
                             <div class="chrono-label"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Live</div>
                             <div class="chrono-display-values">
                                 <span class="chrono-date" id="liveChronoDate">--/--/----</span>
@@ -427,7 +380,7 @@
                 </div>
             </div>
             
-            <!-- STICKY TRANSPARENT BUTTON SEGMENT LINKS INTERFACE -->
+            <!-- STICKY SEGMENT BUTTON NAV ROUTER LINKS -->
             <div class="segmented-nav-links">
                 <a href="#home-section" class="nav-link-item active-route"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
                 <a href="#campaign-message" class="nav-link-item"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i><span>Campaign</span></a>
@@ -467,11 +420,11 @@
         </div>
     </section>
 
-    <!-- STAGE 5: CORE COMPLIANT DASHBOARD METRICS & DATA WORKSPACE -->
+    <!-- STAGE 5: CORE DASHBOARD METRICS & DATA WORKSPACE -->
     <main class="dashboard-workspace" id="main-dashboard-content">
         <div class="dashboard-grid-layout">
             
-            <!-- LEFT AREA ARCHITECTURE: MESSAGES, MANIFESTOS & TIMELINES -->
+            <!-- LEFT COMPONENT COLUMN -->
             <div class="workspace-panel main-panel">
                 <article class="premium-dashboard-card border-saffron reveal-on-scroll" id="campaign-message">
                     <div class="card-header">
@@ -483,7 +436,7 @@
                         <p>Tomorrow is not just another day—it is an opportunity to peacefully stand together for the future of our students and the values of our democracy.</p>
                         <p>Millions of students dedicate years of hard work, sacrifice, and hope to build a better future. They deserve an education system that is fair, transparent, and worthy of their trust. Their dreams should never be overshadowed by concerns about the integrity of examinations or the institutions that shape their future.</p>
                         <p>If you are attending tomorrow's peaceful march towards Parliament, I extend my heartfelt respect and best wishes. Please remain peaceful, respectful, and committed to the principles of our Constitution. Let your voice be heard with dignity, discipline, and unity.</p>
-                        <p>If you are unable to join the march in person, your support still matters. You can express your views respectfully through emails to public representatives, by raising awareness, and by encouraging constructive dialogue. Every peaceful action contributes to a stronger democracy.</p>
+                        <p>If you are unable to join the march in person, your support still matters. You can express your views respectfully through emails to public representatives, by raising awareness, and by encouraging constructive dialogue.</p>
                         <div class="tricolor-divider" aria-hidden="true"><span></span><span></span><span></span></div>
                         <p class="closing-call">Let us stand together for accountability, transparency, justice, and hope.</p>
                         <p class="signature-tag">United for Students. United for Justice. United for India.<br>🇮🇳 Jai Hind.</p>
@@ -499,21 +452,15 @@
                         <blockquote class="solemn-blockquote">
                             "We dedicate this national platform to honor the memory of the brilliant young Indian students who tragically lost their lives to suicide under the immense structural strain and despair caused by persistent examination paper leaks. Their lost futures remain a permanent scar on the nation's conscience."
                         </blockquote>
-                        <div class="card-message-callout">
-                            <p>To every student managing anxiety across the nation: Your existence is invaluable, and you are the true architectural future of this country. We are building this network of accountability to guarantee that your hard work will never again be exploited. Stand resolute; we will clean this system and make India proud.</p>
-                        </div>
                     </div>
                 </article>
 
-                <!-- NEW ADDITION: SOLIDARITY PHOTO GALLERY UNIT CONSOLE -->
                 <article class="premium-dashboard-card border-white reveal-on-scroll" id="solidarity-gallery">
                     <div class="card-header">
                         <div class="card-icon-frame white-glow"><i class="fa-solid fa-images" aria-hidden="true"></i></div>
                         <h3 class="card-title">Mobilization & Solidarity Gallery</h3>
                     </div>
                     <div class="card-body">
-                        <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 1rem;">Visual reports, regional delegation gatherings, and documentation captured across localized peaceful assemblies.</p>
-                        <!-- Grid pattern or image arrays can be anchored smoothly here -->
                         <div style="background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 8px; padding: 2rem; text-align: center; color: #64748b;">
                             <i class="fa-solid fa-photo-film" style="font-size: 2rem; margin-bottom: 0.5rem; display: block;"></i>
                             Platform Live Stream Gallery Active for Asset Deployment
@@ -521,7 +468,6 @@
                     </div>
                 </article>
 
-                <!-- NEW ADDITION: CORE FAQ ACCORDION ENGINE NODE -->
                 <article class="premium-dashboard-card border-navy reveal-on-scroll" id="faq-node-block">
                     <div class="card-header">
                         <div class="card-icon-frame navy-glow"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></div>
@@ -533,31 +479,27 @@
                                 <h4 style="font-size:0.85rem; color:#ffffff; margin-bottom:0.25rem;">What are the primary targets of the movement?</h4>
                                 <p style="font-size:0.8rem; color:#94a3b8; margin:0;">Securing full transparent overhaul of the national examination architecture, independent probes, and administrative resignations for operational failure.</p>
                             </div>
-                            <div style="background:rgba(255,255,255,0.02); padding:0.85rem; border-radius:6px; border:1px solid rgba(255,255,255,0.05);">
-                                <h4 style="font-size:0.85rem; color:#ffffff; margin-bottom:0.25rem;">How do I participate peacefully from my home city?</h4>
-                                <p style="font-size:0.8rem; color:#94a3b8; margin:0;">Utilize the digital Accountability Dispatch Center below to instantly route formal constitutional complaints to target ministries.</p>
-                            </div>
                         </div>
                     </div>
                 </article>
             </div>
 
-            <!-- RIGHT AREA ARCHITECTURE: CLOCKS, COUNTERS, ACTIONS, SOCIALS & RADARS -->
+            <!-- RIGHT COMPONENT COLUMN (FLIPS OVER ABOVE THE OTHER ON PHONE GRAPHICS SCREENS) -->
             <div class="workspace-panel sidebar-panel">
                 
-                <!-- NEW ADDITION: HIGH-FIDELITY AUTOMATED ANALYTICS COUNTER MODULE -->
-                <div class="analytics-counter-matrix reveal-slide-left">
+                <!-- AUTOMATED ANALYTICS INTERACTION MATRIX -->
+                <div class="analytics-counter-matrix">
                     <div class="counter-metric-tile">
                         <div class="counter-numerical-node" data-target-count="450000">0</div>
-                        <div class="counter-metric-label">Mobilized Students</div>
+                        <div class="counter-metric-label" style="font-size:0.65rem; color:#94a3b8; font-weight:700;">Mobilized Students</div>
                     </div>
                     <div class="counter-metric-tile">
                         <div class="counter-numerical-node" data-target-count="128400">0</div>
-                        <div class="counter-metric-label">Dispatched Mandates</div>
+                        <div class="counter-metric-label" style="font-size:0.65rem; color:#94a3b8; font-weight:700;">Dispatched Mandates</div>
                     </div>
                 </div>
 
-                <article class="premium-dashboard-card danger-console-panel reveal-slide-left" id="email-campaign">
+                <article class="premium-dashboard-card danger-console-panel" id="email-campaign">
                     <div class="panel-critical-glow" aria-hidden="true"></div>
                     <div class="card-header">
                         <div class="card-icon-frame critical-red-glow"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></div>
@@ -576,56 +518,55 @@
                                 <span class="title-sub text-green">Prime Minister</span>
                             </div>
                         </div>
-                        <p class="console-descriptor">Submit a structured civic accountability mandate directly to the Ministry of Education and associated statutory headers.</p>
+                        <p class="console-descriptor">Submit a structured civic accountability mandate directly to the Ministry of Education.</p>
                         
                         <div class="action-trigger-matrix">
-                            <button class="action-dashboard-btn btn-dispatch ripple-effect" onclick="executeProtestDispatch()" aria-label="Generate structural email framework inside local device client">
+                            <button class="action-dashboard-btn btn-dispatch" onclick="executeProtestDispatch()">
                                 <i class="fa-solid fa-envelope-circle-check" aria-hidden="true"></i> Dispatch Protest Email
                             </button>
-                            <button class="action-dashboard-btn btn-clipboard ripple-effect" onclick="executeFrameworkCopy()" aria-label="Copy textual framework text parameters directly into system memory cache">
+                            <button class="action-dashboard-btn btn-clipboard" onclick="executeFrameworkCopy()">
                                 <i class="fa-solid fa-copy" aria-hidden="true"></i> Copy Text Framework
                             </button>
                         </div>
                         
-                        <!-- ADDED ACCESSIBLE WHATSAPP AND INSTAGRAM AMPLIFICATION ENGINE RACK -->
+                        <!-- SHARS ENGINES -->
                         <div class="social-amplification-rack">
-                            <a href="#" id="whatsappShareBtn" class="btn-amplification btn-whatsapp ripple-effect" target="_blank" aria-label="Share current protest mobilization tracking core metrics via WhatsApp application framework">
+                            <a href="#" id="whatsappShareBtn" class="btn-amplification" target="_blank">
                                 <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp Share
                             </a>
-                            <a href="#" id="instagramShareBtn" class="btn-amplification btn-instagram ripple-effect" target="_blank" aria-label="Launch framework documentation copy instructions on Instagram channels">
+                            <a href="#" id="instagramShareBtn" class="btn-amplification" target="_blank">
                                 <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram Copy
                             </a>
                         </div>
 
-                        <div class="dashboard-toast" id="clipboardToast" role="alert" aria-live="assertive">
+                        <div class="dashboard-toast" id="clipboardToast" role="alert">
                             <i class="fa-solid fa-circle-check" aria-hidden="true"></i> <span>Framework copied to local clipboard cache.</span>
                         </div>
                     </div>
                 </article>
 
-                <article class="premium-dashboard-card anthem-dashboard-node border-navy reveal-slide-left" id="national-anthem-node">
+                <article class="premium-dashboard-card anthem-dashboard-node border-navy" id="national-anthem-node">
                     <div class="card-header">
                         <div class="card-icon-frame navy-glow"><i class="fa-solid fa-music" aria-hidden="true"></i></div>
                         <h3 class="card-title">🇮🇳 National Anthem of India</h3>
                     </div>
                     <div class="card-body">
-                        <div class="anthem-respect-callout"><p class="respect-note">"Please stand, if you are able and wish to do so, while listening to the National Anthem of India."</p></div>
                         <div class="custom-audio-interface">
                             <div class="player-timeline-block">
                                 <span class="time-stamp" id="current-time">0:00</span>
-                                <div class="progress-slider-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Anthem audio progress timeline track"><div class="progress-track" id="audio-progress-bar"></div></div>
+                                <div class="progress-slider-container"><div class="progress-track" id="audio-progress-bar"></div></div>
                                 <span class="time-stamp" id="total-duration">0:52</span>
                             </div>
                             <div class="player-control-matrix">
-                                <button class="player-control-btn ripple-effect" id="btn-play-anthem" onclick="handleAnthemPlay()" aria-label="Initiate National Anthem stream audio loop"><i class="fa-solid fa-play" aria-hidden="true"></i> <span>Play</span></button>
-                                <button class="player-control-btn btn-secondary ripple-effect" id="btn-pause-anthem" onclick="handleAnthemPause()" aria-label="Halt national anthem audio execution track"><i class="fa-solid fa-pause" aria-hidden="true"></i> <span>Pause</span></button>
+                                <button class="player-control-btn" id="btn-play-anthem" onclick="handleAnthemPlay()"><i class="fa-solid fa-play"></i> <span>Play</span></button>
+                                <button class="player-control-btn btn-secondary" id="btn-pause-anthem" onclick="handleAnthemPause()"><i class="fa-solid fa-pause"></i> <span>Pause</span></button>
                             </div>
                         </div>
                         <audio id="anthemAudioPlayer" preload="auto" src="assets/audio/anthem.mp3"></audio>
                     </div>
                 </article>
 
-                <article class="premium-dashboard-card border-saffron reveal-slide-left" id="live-news-radar">
+                <article class="premium-dashboard-card border-saffron" id="live-news-radar">
                     <div class="card-header">
                         <div class="card-icon-frame saffron-glow"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i></div>
                         <h3 class="card-title">Live Campaign News Feed / Timeline</h3>
@@ -633,14 +574,14 @@
                     <div class="card-body"><div class="news-feed-container" id="newsFeedTarget"></div></div>
                 </article>
 
-                <article class="premium-dashboard-card border-white reveal-slide-left" id="coordination-outpost">
+                <article class="premium-dashboard-card border-white" id="coordination-outpost">
                     <div class="card-header">
                         <div class="card-icon-frame white-glow"><i class="fa-solid fa-handshake-angle" aria-hidden="true"></i></div>
                         <h3 class="card-title">Outpost Coordination Desk</h3>
                     </div>
                     <div class="card-body solidarity-mesh-list">
                         <div class="solidarity-row-node">
-                            <img src="wangchuk.jpg" alt="Mr. Sonam Wangchuk Profile Vector Frame" class="solidarity-avatar">
+                            <img src="wangchuk.jpg" alt="Mr. Sonam Wangchuk Profile Frame" class="solidarity-avatar">
                             <div class="solidarity-meta">
                                 <h4>Mr. Sonam Wangchuk</h4>
                                 <p>Eminent Engineer, Innovator & Education Reformer.</p>
@@ -652,16 +593,10 @@
         </div>
     </main>
 
-    <!-- LIVE HIGH-FIDELITY ACTIVE ACCESSIBILITY COMPLIANT BACK-TO-TOP CONTROL ELEMENT -->
-    <button id="backToTopTrigger" aria-label="Scroll smoothly right back to the platform header area window" title="Return to Top Viewport">
+    <!-- BACK TO TOP HOVER UTIL NODE -->
+    <button id="backToTopTrigger" aria-label="Scroll smoothly back to top" title="Return to Top">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
-
-    <section class="thanks-outro-reflection reveal-on-scroll">
-        <div class="outro-icon" aria-hidden="true"><i class="fa-solid fa-hands-praying"></i></div>
-        <h3>Thank You for Visiting Our Official Platform</h3>
-        <p>Your civic engagement forms an active architectural layer protecting the sovereign future of India's students.</p>
-    </section>
 
     <footer class="dashboard-footer" role="contentinfo">
         <div class="footer-container">
