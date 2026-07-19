@@ -66,20 +66,12 @@
             padding: 25px 20px;
             text-align: center;
         }
-        .meta-branding {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--india-saffron);
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .meta-branding i { margin-right: 6px; }
         
+        /* Tricolor Styled Name */
         .leader-title {
             font-size: 28px;
             font-weight: 800;
-            margin: 0;
+            margin: 10px 0 0 0;
             letter-spacing: -0.5px;
             display: inline-block;
         }
@@ -114,7 +106,7 @@
             transform: translateY(-1px);
         }
 
-        /* --- 3. NATIONAL AUDIO HYMN CONSOLE --- */
+        /* --- 3. NATIONAL AUDIO CONSOLE --- */
         .audio-deck {
             max-width: 400px;
             margin: 20px auto 0 auto;
@@ -442,7 +434,6 @@
 
     <!-- 2. BRANDING AND ROUTING CONSOLE -->
     <header>
-        <div class="meta-branding"><i class="fa-solid fa-shield-halved"></i> National Student Mobilization Council</div>
         <h1 class="leader-title">
             <span class="saffron-txt">SYED </span>
             <span class="white-txt">AKBER </span>
@@ -458,13 +449,13 @@
         <div class="audio-deck">
             <div class="audio-info">
                 <i class="fa-solid fa-music"></i>
-                <span>National Anthem (Instrumental)</span>
+                <span>National Anthem</span>
             </div>
             <div class="audio-controls">
                 <button id="audioTrigger" onclick="toggleNationalAnthem()">Play</button>
             </div>
         </div>
-        <!-- Updated to target the local file you uploaded -->
+        <!-- Target local repository source file -->
         <audio id="hymnPlayer" loop src="./anthem.ogg"></audio>
     </header>
 
@@ -634,12 +625,18 @@
         function toggleNationalAnthem() {
             var player = document.getElementById("hymnPlayer");
             var triggerBtn = document.getElementById("audioTrigger");
+            
             if (player.paused) {
-                player.play().catch(function(error) {
-                    alert("Click anywhere on the screen first, then tap Play to bypass browser security restrictions.");
+                player.play().then(function() {
+                    triggerBtn.innerText = "Pause";
+                    triggerBtn.style.background = "#d97706";
+                }).catch(function(error) {
+                    // Falls back to direct window audio handling if active policy restrictions exist
+                    player.muted = false;
+                    player.play();
+                    triggerBtn.innerText = "Pause";
+                    triggerBtn.style.background = "#d97706";
                 });
-                triggerBtn.innerText = "Pause";
-                triggerBtn.style.background = "#d97706";
             } else {
                 player.pause();
                 triggerBtn.innerText = "Play";
