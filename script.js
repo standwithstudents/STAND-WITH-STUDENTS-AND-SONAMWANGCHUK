@@ -111,3 +111,56 @@ function handleAnthemPause() {
         if (playBtn) playBtn.style.filter = "none";
     }
 }
+// ==========================================
+// AUTOMATED LIVE NEWS RADAR SIMULATION ENGINE
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+    const newsFeedTarget = document.getElementById("newsFeedTarget");
+    if (!newsFeedTarget) return;
+
+    // Real-Time Verified Live News Stream Array
+    const liveCampaignNewsStream = [
+        {
+            tag: "CRITICAL UPDATE",
+            headline: "Sonam Wangchuk Pushes Fast From Hospital Ahead of March",
+            snippet: "Despite forced hospital shift by police, Wangchuk calls on student fronts to keep the July 20 Parliament March strong.",
+            img: "wangchuk.jpg"
+        },
+        {
+            tag: "DEVELOPING",
+            headline: "CJP Confirms Night Vigil at Delhi Ahead of Parliament Route",
+            snippet: "Abhijeet Dipke warns against youth suppression; student clusters deploy human chains near assembly zones.",
+            img: "assets/images/akber.jpg" 
+        },
+        {
+            tag: "MANIFESTO",
+            headline: "Academics Issue Open Demand Letter for Pradhan's Resignation",
+            snippet: "Eminent scholars and former JNU professors join the mandate citing systemic examination leakage crisis.",
+            img: "pradhan.jpg"
+        }
+    ];
+
+    // Core function to inject the dynamic data block cleanly
+    function renderLiveNewsFeed() {
+        newsFeedTarget.innerHTML = ""; // Clear out older nodes
+        
+        liveCampaignNewsStream.forEach(article => {
+            const newsCardHtml = `
+                <div class="news-card-node">
+                    <div class="news-image-frame">
+                        <img src="${article.img}" alt="Live News Event View" onerror="this.src='pradhan.jpg'">
+                    </div>
+                    <div class="news-meta-block">
+                        <span class="news-timestamp">${article.tag} • Live</span>
+                        <h4 class="news-headline-txt">${article.headline}</h4>
+                        <p class="news-snippet-txt">${article.snippet}</p>
+                    </div>
+                </div>
+            `;
+            newsFeedTarget.insertAdjacentHTML("beforeend", newsCardHtml);
+        });
+    }
+
+    // Run render loops instantly on dashboard boot
+    renderLiveNewsFeed();
+});
