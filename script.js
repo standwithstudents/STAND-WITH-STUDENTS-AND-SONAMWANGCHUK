@@ -9,32 +9,22 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // ==========================================
-    // 1. ADVANCED INITIALIZATION NATIVE PAGE LOADER
+    // 1. ACTIVE PAGE INITIALIZATION LOADER DISMISSAL
     // ==========================================
     const pageLoader = document.getElementById("page-loader-curtain");
     if (pageLoader) {
-        window.addEventListener("load", () => {
+        // Automatically release workspace frames once internal components resolve
+        setTimeout(() => {
             pageLoader.style.opacity = "0";
             setTimeout(() => {
                 pageLoader.style.display = "none";
-                // Trigger counter numeric increments immediately after asset load
                 initializeCounterNumericalHeartbeat();
-            }, 500);
-        });
-        
-        // Safety insurance trigger in case browser load event deferred
-        setTimeout(() => {
-            if (pageLoader.style.display !== "none") {
-                pageLoader.style.opacity = "0";
-                setTimeout(() => pageLoader.style.display = "none", 500);
-                initializeCounterNumericalHeartbeat();
-            }
-        }, 2500);
+            }, 400);
+        }, 600);
     }
 
-
     // ==========================================
-    // 2. STICKY ACTIVE SEGMENT ROUTING SCROLL SNIPER
+    // 2. SEGMENTED NAVIGATION ROUTE HIGHLIGHTING SCROLL ENGINE
     // ==========================================
     const routingLinks = document.querySelectorAll(".nav-link-item");
     const operationalSections = document.querySelectorAll("section, article, main");
@@ -43,8 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentActiveSectionId = "";
         operationalSections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= (sectionTop - 180)) {
+            if (window.scrollY >= (sectionTop - 220)) {
                 currentActiveSectionId = section.getAttribute("id");
             }
         });
@@ -57,36 +46,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
     // ==========================================
-    // 3. SCROLL-DRIVEN INTERACTION REVEAL ENGINE
+    // 3. SCROLL-DRIVEN INTERACTION REVEAL INTERSECTION
     // ==========================================
-    const elementsToReveal = document.querySelectorAll(".reveal-on-scroll, .reveal-slide-left");
+    const elementsToReveal = document.querySelectorAll(".reveal-on-scroll");
     
     const scrollRevealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                if (entry.target.classList.contains("reveal-slide-left")) {
-                    entry.target.classList.add("active-slide");
-                } else {
-                    entry.target.classList.add("active-fade");
-                }
+                entry.target.classList.add("active-fade");
                 scrollRevealObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.1 });
 
     elementsToReveal.forEach(el => scrollRevealObserver.observe(el));
 
-
     // ==========================================
-    // 4. METRIC TILES HIGHSPEED NUMERICAL INCREMENT COUNTERS
+    // 4. STEP NUMERICAL CEILING COUNT ENGINES
     // ==========================================
     function initializeCounterNumericalHeartbeat() {
         const counterNodes = document.querySelectorAll("[data-target-count]");
         counterNodes.forEach(node => {
             const ceilingValue = parseInt(node.getAttribute("data-target-count"), 10);
-            const cycleDuration = 1800; // Time in ms
+            const cycleDuration = 1500; 
             const framesPerSecond = 60;
             const totalTicks = (cycleDuration / 1000) * framesPerSecond;
             const absoluteStepIncrement = Math.ceil(ceilingValue / totalTicks);
@@ -104,30 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
     // ==========================================
-    // 5. NATIVE BUTTON RIPPLE DYNAMICS FACTORY
-    // ==========================================
-    const interactableRippleElements = document.querySelectorAll(".ripple-effect");
-    interactableRippleElements.forEach(btn => {
-        btn.addEventListener("click", function(e) {
-            const boundingBox = this.getBoundingClientRect();
-            const clickPositionX = e.clientX - boundingBox.left;
-            const clickPositionY = e.clientY - boundingBox.top;
-            
-            const rippleSpark = document.createElement("span");
-            rippleSpark.classList.add("ripple-element");
-            rippleSpark.style.left = `${clickPositionX}px`;
-            rippleSpark.style.top = `${clickPositionY}px`;
-            
-            this.appendChild(rippleSpark);
-            setTimeout(() => rippleSpark.remove(), 600);
-        });
-    });
-
-
-    // ==========================================
-    // 6. BACK TO TOP SCROLL UTILITY CONTROLLER
+    // 5. BACK TO TOP SCROLL WINDOW TRIGGERS
     // ==========================================
     const bttButton = document.getElementById("backToTopTrigger");
     window.addEventListener("scroll", () => {
@@ -144,9 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
     // ==========================================
-    // 7. REAL-TIME LIVE SYSTEM CHRONOGRAPH HEARTBEAT
+    // 6. REAL-TIME SYSTEM CHRONOGRAPH HEARTRATE LOOP
     // ==========================================
     const chronoDateEl = document.getElementById("liveChronoDate");
     const chronoTimeEl = document.getElementById("liveChronoTime");
@@ -176,17 +136,15 @@ document.addEventListener("DOMContentLoaded", () => {
     runSystemChronograph();
     setInterval(runSystemChronograph, 1000);
 
-
     // ==========================================
-    // 8. SOCIAL DISPATCH NETWORKS HOOKS
+    // 7. SOCIAL HOOK INTERACTION INTERFACES
     // ==========================================
     const whatsappAnchor = document.getElementById("whatsappShareBtn");
     const instagramAnchor = document.getElementById("instagramShareBtn");
-    
     const crossPlatformSharePayload = "Join 'The Sovereign Voice' National Movement demanding full systemic education accountability and infrastructural reforms. Stand with India's students: ";
     
     if (whatsappAnchor) {
-        whatsappAnchor.addEventListener("click", function(e) {
+        whatsappAnchor.addEventListener("click", function() {
             const dynamicRouteUri = encodeURIComponent(window.location.href);
             this.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(crossPlatformSharePayload)}${dynamicRouteUri}`;
         });
@@ -195,16 +153,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (instagramAnchor) {
         instagramAnchor.addEventListener("click", function(e) {
             e.preventDefault();
-            // Deep linking constraints restrict dynamic text input directly to feeds; execute clipboard backup strategy
             navigator.clipboard.writeText(`${crossPlatformSharePayload} ${window.location.href}`);
-            alert("Movement link and text copied to clipboard! Opening Instagram, paste to your Story or DM channels.");
-            window.open("https://onelink.to/instagram", "_blank");
+            alert("Movement payload and framework link copied! Opening Instagram pipelines now.");
+            window.open("https://instagram.com", "_blank");
         });
     }
 
-
     // ==========================================
-    // 9. ANTHEM AUDIO CONTROLS MATRIX
+    // 8. ANTHEM CORE AUDIO DEPLOYMENT CONTROLS
     // ==========================================
     const anthemAudio = document.getElementById("anthemAudioPlayer");
     const progressBar = document.getElementById("audio-progress-bar");
@@ -226,9 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
     // ==========================================
-    // 10. AUTOMATED NEWS RADAR RENDER
+    // 9. AUTOMATED FEED TIMELINE LOADER
     // ==========================================
     const newsFeedTarget = document.getElementById("newsFeedTarget");
     const liveCampaignNewsStream = [
@@ -241,23 +196,23 @@ document.addEventListener("DOMContentLoaded", () => {
         newsFeedTarget.innerHTML = liveCampaignNewsStream.map(art => `
             <div class="news-card-node">
                 <div class="news-image-frame" style="display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.15);">
-                    <i class="${art.iconClass}" style="font-size: 1.45rem; color: ${art.iconColor};"></i>
+                    <i class="${art.iconClass}" style="font-size: 1.25rem; color: ${art.iconColor};"></i>
                 </div>
                 <div class="news-meta-block">
-                    <span class="news-timestamp">${art.tag} • Live</span>
-                    <h4 class="news-headline-txt">${art.headline}</h4>
-                    <p class="news-snippet-txt">${art.snippet}</p>
+                    <span class="news-timestamp">${art.tag}</span>
+                    <h4 class="news-headline-txt" style="font-size:0.8rem; margin:2px 0;">${art.headline}</h4>
+                    <p class="news-snippet-txt" style="font-size:0.75rem; color:#94a3b8; margin:0;">${art.snippet}</p>
                 </div>
             </div>
         `).join('');
     }
 });
 
-// GREETING MODAL CLOSURE ACTION HANDLER
+// INITIAL DISMISSAL SYSTEM CONTROLLER FOR GREETING PORTAL OVERLAY
 window.dismissGreetingPortal = () => {
     const portal = document.getElementById("greetingPortal");
     if (portal) {
         portal.style.opacity = "0";
-        setTimeout(() => portal.style.display = "none", 600);
+        setTimeout(() => portal.style.display = "none", 500);
     }
 };
