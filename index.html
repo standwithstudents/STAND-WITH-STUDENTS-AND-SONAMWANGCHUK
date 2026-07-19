@@ -141,6 +141,15 @@
         }
         .audio-controls button:hover { background: #0000b3; }
 
+        /* Hidden YouTube Audio Vault */
+        .hidden-player-frame {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
         /* --- 4. MASTER HUB AREA & PHYSICS FLAG THEATER --- */
         .flag-theater {
             width: 100%;
@@ -455,8 +464,9 @@
                 <button id="audioTrigger" onclick="toggleNationalAnthem()">Play</button>
             </div>
         </div>
-        <!-- High-fidelity universal MP3 stream for 100% device compatibility -->
-        <audio id="hymnPlayer" loop preload="auto" src="https://archive.org/download/JanaGanaManaInstrumental/Jana%20Gana%20Mana%20%28Instrumental%29.mp3"></audio>
+
+        <!-- Hidden Global Frame Engine Loader -->
+        <div id="playerContainer"></div>
     </header>
 
     <!-- 3. REALTIME PHYSICS DRIVEN FLAG WITH FLOATING MANDATE BADGES -->
@@ -591,6 +601,8 @@
         Campaign console managed on behalf of the national student initiative. Open Governance Dashboard Framework.
     </footer>
 
+    <!-- Script loading YouTube Iframe Player APIs API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         var to = "d.pradhan@sansad.nic.in";
         var cc = "minister.sm@gov.in";
@@ -622,23 +634,51 @@
             });
         }
 
-        function toggleNationalAnthem() {
-            var player = document.getElementById("hymnPlayer");
-            var triggerBtn = document.getElementById("audioTrigger");
-            
-            if (player.paused) {
-                var playPromise = player.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.then(function() {
-                        triggerBtn.innerText = "Pause";
-                        triggerBtn.style.background = "#d97706";
-                    }).catch(function(error) {
-                        console.log("Playback failed:", error);
-                    });
+        // YouTube Embedded Core Logic Controller
+        var ytPlayer = null;
+        var isSystemPlaying = false;
+
+        function onYouTubeIframeAPIReady() {
+            // Generates a completely secure, hidden iframe element linked to an instrumental stream
+            var container = document.getElementById("playerContainer");
+            var frameEl = document.createElement("div");
+            frameEl.id = "hiddenYtEngine";
+            frameEl.className = "hidden-player-frame";
+            container.appendChild(frameEl);
+
+            ytPlayer = new YT.Player('hiddenYtEngine', {
+                height: '1',
+                width: '1',
+                videoId: 'h6_R3kKndp0', // Target high-quality instrumental anthem recording
+                playerVars: {
+                    'autoplay': 0,
+                    'controls': 0,
+                    'loop': 1,
+                    'playlist': 'h6_R3kKndp0'
+                },
+                events: {
+                    'onReady': function(event) {
+                        console.log("Audio core initialized successfully.");
+                    }
                 }
+            });
+        }
+
+        function toggleNationalAnthem() {
+            var triggerBtn = document.getElementById("audioTrigger");
+            if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') {
+                alert("Audio system is syncing with servers. Please wait 2 seconds and tap play again.");
+                return;
+            }
+
+            if (!isSystemPlaying) {
+                ytPlayer.playVideo();
+                isSystemPlaying = true;
+                triggerBtn.innerText = "Pause";
+                triggerBtn.style.background = "#d97706";
             } else {
-                player.pause();
+                ytPlayer.pauseVideo();
+                isSystemPlaying = false;
                 triggerBtn.innerText = "Play";
                 triggerBtn.style.background = "var(--india-navy)";
             }
