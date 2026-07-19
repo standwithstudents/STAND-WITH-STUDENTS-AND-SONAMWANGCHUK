@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 8. ANTHEM RESPECTIVE AUDIO LOOP ARCHITECTURE
+    // 8. ANTHEM CORE AUDIO DEPLOYMENT CONTROLS
     // ==========================================
     const anthemAudio = document.getElementById("anthemAudioPlayer");
     const progressBar = document.getElementById("audio-progress-bar");
@@ -171,11 +171,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 9. PROFESSIONAL TIMELINE FEED DESIGN INJECTION
+    // 9. TIMELINE FEED DESIGN INJECTION
     // ==========================================
     const newsTimelineTarget = document.getElementById("newsTimelineTarget");
     const liveCampaignTimelineStream = [
-        { status: "Critical Update", bg: "#rgba(255,153,51,0.15)", color: "#ff9933", title: "Sonam Wangchuk Pushes Fast Ahead of March", text: "Despite heavy security management adjustments, Wangchuk states the July 20 Parliament March stands firm for educational framework values." },
+        { status: "Critical Update", bg: "rgba(255,153,51,0.15)", color: "#ff9933", title: "Sonam Wangchuk Pushes Fast Ahead of March", text: "Despite heavy security management adjustments, Wangchuk states the July 20 Parliament March stands firm for educational framework values." },
         { status: "Developing", bg: "rgba(255,255,255,0.06)", color: "#ffffff", title: "Night Vigil Confirmed at Assembling Zones", text: "Abhijeet Dipke and citizen clusters report thousands arriving across strategic routes to secure peaceful advocacy alignment panels." },
         { status: "Manifesto Focus", bg: "rgba(19,136,8,0.15)", color: "#138808", title: "Senior Academic Alliance Demands Overhaul", text: "Prominent research professors release an open manifesto letter requesting complete accountability structural transparency." }
     ];
@@ -202,7 +202,6 @@ window.toggleFaqAccordion = (headerElement) => {
     const contentPane = parentItem.querySelector(".faq-accordion-content");
     const isCurrentlyOpen = parentItem.classList.contains("open-faq");
 
-    // Close all open FAQ rows inside the workspace first
     document.querySelectorAll(".faq-accordion-item").forEach(item => {
         item.classList.remove("open-faq");
         item.querySelector(".faq-accordion-content").style.maxHeight = null;
@@ -211,6 +210,25 @@ window.toggleFaqAccordion = (headerElement) => {
     if (!isCurrentlyOpen) {
         parentItem.classList.add("open-faq");
         contentPane.style.maxHeight = contentPane.scrollHeight + "px";
+    }
+};
+
+// ==========================================
+// 11. LEGAL LIGHTBOX DISPLAY ENGINE CONTROLLERS
+// ==========================================
+window.openLegalLightbox = (modalElementId) => {
+    const activeTargetModal = document.getElementById(modalElementId);
+    if (activeTargetModal) {
+        activeTargetModal.classList.add("modal-visible");
+        document.body.style.overflow = "hidden"; // Prevent background body displacement scrolling
+    }
+};
+
+window.closeLegalLightbox = (modalElementId) => {
+    const activeTargetModal = document.getElementById(modalElementId);
+    if (activeTargetModal) {
+        activeTargetModal.classList.remove("modal-visible");
+        document.body.style.overflow = ""; 
     }
 };
 
