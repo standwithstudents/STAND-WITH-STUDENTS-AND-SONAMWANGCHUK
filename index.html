@@ -310,7 +310,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* HIGH-END GRAPHICAL TIMELINE INTERFACE STYLING */
+        /* GRAPHICAL TIMELINE INTERFACE STYLING */
         .timeline-track-wrapper {
             position: relative;
             padding-left: 1.5rem;
@@ -370,7 +370,7 @@
             margin-bottom: 0.35rem;
         }
         
-        /* PREMIUM FAQ ACCORDION PATTERN */
+        /* FAQ ACCORDION PATTERN */
         .faq-accordion-container {
             display: flex;
             flex-direction: column;
@@ -421,6 +421,114 @@
             transform: rotate(180deg);
         }
 
+        /* UPGRADED COMPLIANT FOOTER GRID SYSTEM */
+        .premium-dashboard-footer {
+            background: rgba(9, 15, 28, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 3.5rem 2rem 2rem 2rem;
+            font-family: 'Inter', sans-serif;
+            color: #94a3b8;
+        }
+        .footer-grid-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .footer-column h4 {
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin: 0 0 1.25rem 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .footer-column p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 0 0 0.5rem 0;
+        }
+        .footer-law-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+        .footer-legal-trigger {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            text-align: left;
+        }
+        .footer-legal-trigger:hover {
+            color: #ff9933;
+            padding-left: 2px;
+        }
+        .footer-bottom-baseline {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+        
+        /* ACCESSIBLE LEGAL LIGHTBOX MODALS */
+        .legal-lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+        .legal-lightbox-modal.modal-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .legal-modal-card {
+            background: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            max-width: 550px;
+            width: 100%;
+            padding: 2rem;
+            box-sizing: border-box;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .legal-modal-close-btn {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            color: #64748b;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .legal-modal-close-btn:hover { color: #ffffff; }
+
         /* MOBILE OVERRIDES LAYER */
         @media screen and (max-width: 992px) {
             .nav-top-row { flex-direction: column; gap: 0.75rem; text-align: center; }
@@ -429,6 +537,8 @@
             .dashboard-grid-layout { display: flex !important; flex-direction: column !important; }
             .sidebar-panel { order: -1 !important; }
             .greeting-card-mesh { padding: 1.75rem 1.25rem; }
+            .footer-grid-layout { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom-baseline { flex-direction: column; gap: 1rem; text-align: center; }
         }
     </style>
 </head>
@@ -452,7 +562,7 @@
         </div>
     </div>
 
-    <!-- STAGE 2: PREMIUM FIXED/STICKY GLASSMORPHIC PLATFORM NAVIGATION HEADER -->
+    <!-- STAGE 2: FIXED/STICKY GLASSMORPHIC NAVIGATION HEADER -->
     <nav class="glass-nav" role="navigation" aria-label="Primary Platform Route Architecture">
         <div class="nav-container">
             <div class="nav-top-row">
@@ -491,7 +601,7 @@
                 </div>
             </div>
             
-            <!-- STICKY SEGMENT BUTTON NAV ROUTER LINKS (GALLERY COMPONENT REMOVED) -->
+            <!-- STICKY NAVIGATION LINK SETMENTS -->
             <div class="segmented-nav-links">
                 <a href="#home-section" class="nav-link-item active-route"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
                 <a href="#campaign-message" class="nav-link-item"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i><span>Campaign</span></a>
@@ -511,7 +621,7 @@
         </div>
     </div>
 
-    <!-- STAGE 4: MAIN VIEWPORT ANIMATED HERO STAGE -->
+    <!-- STAGE 4: HERO VIEWPORT -->
     <section class="dashboard-hero" id="home-section">
         <div class="hero-overlay"></div>
         <div class="hero-container reveal-on-scroll">
@@ -530,11 +640,11 @@
         </div>
     </section>
 
-    <!-- STAGE 5: CORE DASHBOARD METRICS & DATA WORKSPACE -->
+    <!-- STAGE 5: DASHBOARD MAIN CORE ENGINE MAIN PANEL -->
     <main class="dashboard-workspace" id="main-dashboard-content">
         <div class="dashboard-grid-layout">
             
-            <!-- LEFT COMPONENT COLUMN -->
+            <!-- LEFT COLUMN -->
             <div class="workspace-panel main-panel">
                 <article class="premium-dashboard-card border-saffron reveal-on-scroll" id="campaign-message">
                     <div class="card-header">
@@ -565,7 +675,7 @@
                     </div>
                 </article>
 
-                <!-- ADVANCED FAQ ACCORDION ENGINE NODE WITH MULTIPLE QUESTIONS AND ANSWERS -->
+                <!-- FAQ ACCORDION ENGINE NODE -->
                 <article class="premium-dashboard-card border-navy reveal-on-scroll" id="faq-node-block">
                     <div class="card-header">
                         <div class="card-icon-frame navy-glow"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></div>
@@ -614,10 +724,10 @@
                 </article>
             </div>
 
-            <!-- RIGHT COMPONENT COLUMN -->
+            <!-- RIGHT COLUMN -->
             <div class="workspace-panel sidebar-panel">
                 
-                <!-- AUTOMATED ANALYTICS INTERACTION MATRIX -->
+                <!-- ANALYTICS DATA MATRIX -->
                 <div class="analytics-counter-matrix">
                     <div class="counter-metric-tile">
                         <div class="counter-numerical-node" data-target-count="450000">0</div>
@@ -629,16 +739,14 @@
                     </div>
                 </div>
 
-                <!-- PROFESSIONAL GRAPHICAL LIVE TIMELINE INTERFACE -->
+                <!-- LIVE TIMELINE WIDGET -->
                 <article class="premium-dashboard-card border-saffron" id="live-news-radar">
                     <div class="card-header">
                         <div class="card-icon-frame saffron-glow"><i class="fa-solid fa-timeline" aria-hidden="true"></i></div>
                         <h3 class="card-title">Live Campaign News Feed / Timeline</h3>
                     </div>
                     <div class="card-body">
-                        <div class="timeline-track-wrapper" id="newsTimelineTarget">
-                            <!-- Timeline elements injected here programmatically -->
-                        </div>
+                        <div class="timeline-track-wrapper" id="newsTimelineTarget"></div>
                     </div>
                 </article>
 
@@ -672,7 +780,6 @@
                             </button>
                         </div>
                         
-                        <!-- SHARING ENGINES -->
                         <div class="social-amplification-rack">
                             <a href="#" id="whatsappShareBtn" class="btn-amplification" target="_blank">
                                 <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp Share
@@ -688,12 +795,18 @@
                     </div>
                 </article>
 
+                <!-- ANTHEM CARD UPGRADED WITH RESPECTFUL STANDING NOTE INJUNCTION -->
                 <article class="premium-dashboard-card anthem-dashboard-node border-navy" id="national-anthem-node">
                     <div class="card-header">
                         <div class="card-icon-frame navy-glow"><i class="fa-solid fa-music" aria-hidden="true"></i></div>
                         <h3 class="card-title">🇮🇳 National Anthem of India</h3>
                     </div>
                     <div class="card-body">
+                        <div class="anthem-respect-callout">
+                            <p class="respect-note" style="color: #ff9933; font-size: 0.8rem; font-weight: 600; text-align: center; margin-bottom: 0.85rem; line-height: 1.4; border: 1px dashed rgba(255,153,51,0.25); padding: 0.5rem; border-radius: 6px; background: rgba(255,153,51,0.03);">
+                                "Please stand, if you are able and wish to do so, while listening to the National Anthem."
+                            </p>
+                        </div>
                         <div class="custom-audio-interface">
                             <div class="player-timeline-block">
                                 <span class="time-stamp" id="current-time">0:00</span>
@@ -709,7 +822,7 @@
                     </div>
                 </article>
 
-                <!-- SOLIDARITY COORDINATION CODES (ABHIJEET DIPKE NAME FULLY RESTORED) -->
+                <!-- SOLIDARITY CLUSTERS -->
                 <article class="premium-dashboard-card border-white" id="coordination-outpost">
                     <div class="card-header">
                         <div class="card-icon-frame white-glow"><i class="fa-solid fa-handshake-angle" aria-hidden="true"></i></div>
@@ -741,12 +854,52 @@
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <footer class="dashboard-footer" role="contentinfo">
-        <div class="footer-container">
-            <p class="footer-copyright">Campaign interface managed on behalf of the national student initiative.</p>
-            <p class="footer-version-tag">Version 2.0 (Premium Dashboard Edition) • Framework Year 2026</p>
+    <!-- STAGE 6: FULL ENHANCED EXECUTIVE FOOTER COMPONENT METRIC GRID -->
+    <footer class="premium-dashboard-footer" role="contentinfo">
+        <div class="footer-grid-layout">
+            <div class="footer-column">
+                <h4>Prepared By</h4>
+                <p style="color: #ffffff; font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Syed Akber Hussaini</p>
+                <p style="color: #ff9933; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.25rem;">Social Activist</p>
+                <p style="color: #94a3b8; font-size: 0.8rem;"><i class="fa-solid fa-location-dot" style="color:#138808; margin-right:4px;"></i> Hyderabad, Telangana, India</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Legal Matrix</h4>
+                <div class="footer-law-links">
+                    <button class="footer-legal-trigger" onclick="openLegalLightbox('disclaimerModal')">Disclaimer Notice</button>
+                    <button class="footer-legal-trigger" onclick="openLegalLightbox('privacyModal')">Privacy Declaration</button>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Mandate Scope</h4>
+                <p style="font-size: 0.8rem; color: #64748b;">This environment acts completely client-side to host constitutional advocacy vectors for systemic structural reforms within statutory frameworks.</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom-baseline">
+            <p>&copy; 2026 The Sovereign Voice initiative. All student protection frameworks fully active.</p>
+            <p style="color:#64748b;">Version 2.0 (Executive Production Build)</p>
         </div>
     </footer>
+
+    <!-- LIGHTBOX OVERLAYS FOR NOTICE BOXES -->
+    <div class="legal-lightbox-modal" id="disclaimerModal" onclick="closeLegalLightbox('disclaimerModal')">
+        <div class="legal-modal-card" onclick="event.stopPropagation()">
+            <button class="legal-modal-close-btn" onclick="closeLegalLightbox('disclaimerModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3 style="color:#fff; margin-bottom:1rem; font-family:'Plus Jakarta Sans'; font-weight:700;">Disclaimer Notice</h3>
+            <p style="color:#94a3b8; font-size:0.85rem; line-height:1.6;">This interface functions as a digital operational console compiled solely for democratic advocacy and peaceful public dialogue. All dispatch elements process text locally via user interaction parameters. The publisher assumes no liability for external server configurations or individual client mail execution routines.</p>
+        </div>
+    </div>
+
+    <div class="legal-lightbox-modal" id="privacyModal" onclick="closeLegalLightbox('privacyModal')">
+        <div class="legal-modal-card" onclick="event.stopPropagation()">
+            <button class="legal-modal-close-btn" onclick="closeLegalLightbox('privacyModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3 style="color:#fff; margin-bottom:1rem; font-family:'Plus Jakarta Sans'; font-weight:700;">Privacy Notice</h3>
+            <p style="color:#94a3b8; font-size:0.85rem; line-height:1.6;">Privacy preservation is maintained absolutely. The dashboard functions without logging tracking analytics, hosting data mining parameters, or storing submitted routing text parameters on external server systems. All actions execute instantly client-side on your device cache.</p>
+        </div>
+    </div>
 
     <!-- Core Automation Scripts Linkage -->
     <script src="script.js"></script>
