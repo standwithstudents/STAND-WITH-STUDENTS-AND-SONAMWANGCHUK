@@ -9,7 +9,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // ==========================================
-    // 1. ACTIVE PAGE INITIALIZATION LOADER & VISUAL FIELD ENGINE
+    // 1. PAGE INITIALIZATION LOADER DISMISSAL
     // ==========================================
     const pageLoader = document.getElementById("page-loader-curtain");
     if (pageLoader) {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 2. HERO SECTION PROCEDURAL SLOW PARTICULATES MATRIX
+    // 2. HERO SECTION PROCEDURAL PARTICULATES FIELD
     // ==========================================
     function initializeHeroProceduralParticles() {
         const canvas = document.getElementById("heroParticlesField");
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 3. NAVIGATION HIGHLIGHT ROUTE SCROLLER
+    // 3. NAVIGATION HIGHLIGHT SCROLLER
     // ==========================================
     const routingLinks = document.querySelectorAll(".nav-link-item");
     const operationalSections = document.querySelectorAll("section, article, main");
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 7. SYSTEM CHRONOGRAPH HEARTBEAT LOOP
+    // 7. SYSTEM CHRONOGRAPH ENGINE HEARTBEAT
     // ==========================================
     const chronoDateEl = document.getElementById("liveChronoDate");
     const chronoTimeEl = document.getElementById("liveChronoTime");
@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(runSystemChronograph, 1000);
 
     // ==========================================
-    // 8. SOCIAL HOOK LINKS SHARE INTERFACE
+    // 8. SOCIAL AMPLIFICATION DEEP INTERFACES
     // ==========================================
     const whatsappAnchor = document.getElementById("whatsappShareBtn");
     const instagramAnchor = document.getElementById("instagramShareBtn");
@@ -212,13 +212,54 @@ document.addEventListener("DOMContentLoaded", () => {
         instagramAnchor.addEventListener("click", function(e) {
             e.preventDefault();
             navigator.clipboard.writeText(`${crossPlatformSharePayload} ${window.location.href}`);
-            alert("Movement link copied to clipboard! Share it on your Instagram Story or DMs.");
+            triggerToastFeedback("Movement details cached for Instagram pipeline!");
             window.open("https://instagram.com", "_blank");
         });
     }
 
     // ==========================================
-    // 9. ANTHEM CORE AUDIO CONTROLS
+    // 9. POLISHED EMAIL CONTENT AND GRANULAR UTILITIES
+    // ==========================================
+    const targetRecipients = "d.pradhan@sansad.nic.in";
+    const subjectHeader = "Urgent Mandate: Educational Accountability and Examination Infrastructure Reform";
+    const letterBody = "Dear Minister,\n\nAs an involved citizen, I am writing to formally voice my deep concerns regarding the recent structural systemic issues within our national examination infrastructure. Academic integrity and absolute transparency are crucial anchors for the future of our students.\n\nWe urge immediate administrative accountability, comprehensive reforms to secure examinations against vulnerabilities, and swift action to support the generations striving to contribute to our nation.\n\nRespectfully submitted,\nA Concerned Citizen of India";
+
+    window.executeProtestDispatch = () => {
+        window.location.href = `mailto:${targetRecipients}?subject=${encodeURIComponent(subjectHeader)}&body=${encodeURIComponent(letterBody)}`;
+    };
+
+    window.copyGranularAsset = (assetType) => {
+        let copyTextTarget = "";
+        let feedbackMessageText = "";
+
+        if (assetType === 'letter') {
+            copyTextTarget = letterBody;
+            feedbackMessageText = "Letter text cached successfully!";
+        } else if (assetType === 'subject') {
+            copyTextTarget = subjectHeader;
+            feedbackMessageText = "Subject line cached successfully!";
+        } else if (assetType === 'recipients') {
+            copyTextTarget = targetRecipients;
+            feedbackMessageText = "Recipients list cached successfully!";
+        }
+
+        navigator.clipboard.writeText(copyTextTarget).then(() => {
+            triggerToastFeedback(feedbackMessageText);
+        }).catch(err => console.error(err));
+    };
+
+    function triggerToastFeedback(msg) {
+        const toastEl = document.getElementById("clipboardToast");
+        const msgEl = document.getElementById("toastMessageValue");
+        if (toastEl && msgEl) {
+            msgEl.textContent = msg;
+            toastEl.classList.add("show");
+            setTimeout(() => toastEl.classList.remove("show"), 3000);
+        }
+    }
+
+    // ==========================================
+    // 10. ANTHEM CORE CONTROLS
     // ==========================================
     const anthemAudio = document.getElementById("anthemAudioPlayer");
     const progressBar = document.getElementById("audio-progress-bar");
@@ -241,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 10. TIMELINE FEED DESIGN INJECTION
+    // 11. TIMELINE FEED DESIGN INJECTION
     // ==========================================
     const newsTimelineTarget = document.getElementById("newsTimelineTarget");
     const liveCampaignTimelineStream = [
@@ -265,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 11. FAQ ACCORDION PATTERN TOGGLE CONTROLLER
+// 12. FAQ ACCORDION ENGINE HANDLERS
 // ==========================================
 window.toggleFaqAccordion = (headerElement) => {
     const parentItem = headerElement.parentElement;
@@ -283,9 +324,6 @@ window.toggleFaqAccordion = (headerElement) => {
     }
 };
 
-// ==========================================
-// 12. LEGAL LIGHTBOX DISPLAY CONTROLLERS
-// ==========================================
 window.openLegalLightbox = (modalElementId) => {
     const activeTargetModal = document.getElementById(modalElementId);
     if (activeTargetModal) {
