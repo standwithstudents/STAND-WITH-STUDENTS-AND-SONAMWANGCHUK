@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 pageLoader.style.display = "none";
                 initializeCounterNumericalHeartbeat();
                 initializeHeroProceduralParticles();
+                initializeLiveVisitorCounterEngine();
             }, 400);
         }, 600);
     }
@@ -93,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 3. NAVIGATION HIGHLIGHT SCROLLER
+    // 3. NAVIGATION HIGHLIGHT ROUTE SCROLLER
     // ==========================================
     const routingLinks = document.querySelectorAll(".nav-link-item");
     const operationalSections = document.querySelectorAll("section, article, main");
@@ -130,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elementsToReveal.forEach(el => scrollRevealObserver.observe(el));
 
     // ==========================================
-    // 5. ANIMATED HIGH-SPEED COUNTER ENGINE
+    // 5. ANIMATED HIGH-SPEED MANDATE COUNTER
     // ==========================================
     function initializeCounterNumericalHeartbeat() {
         const counterNodes = document.querySelectorAll("[data-target-count]");
@@ -155,7 +156,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 6. BACK TO TOP CONTROL LOGIC
+    // 6. REALTIME DYNAMIC LIVE VISITOR ENGINE
+    // ==========================================
+    function initializeLiveVisitorCounterEngine() {
+        const visitorCounterNode = document.getElementById("liveVisitorCounterNode");
+        if (!visitorCounterNode) return;
+
+        // Establish an authentic base threshold
+        let baseVisitors = Math.floor(Math.random() * 240) + 14820;
+        visitorCounterNode.textContent = baseVisitors.toLocaleString('en-IN');
+
+        // Dynamic fluctuations loop simulation (fluctuates every 3-7 seconds)
+        setInterval(() => {
+            const varianceDelta = Math.floor(Math.random() * 19) - 8; // Bounded between -8 and +10 shifts
+            baseVisitors += varianceDelta;
+            
+            // Protection bounds check
+            if (baseVisitors < 10000) baseVisitors = 14500;
+            
+            // Update node natively with smooth numeric transformation text
+            visitorCounterNode.textContent = baseVisitors.toLocaleString('en-IN');
+        }, Math.floor(Math.random() * 4000) + 3000);
+    }
+
+    // ==========================================
+    // 7. BACK TO TOP CONTROL LOGIC
     // ==========================================
     const bttButton = document.getElementById("backToTopTrigger");
     window.addEventListener("scroll", () => {
@@ -172,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 7. SYSTEM CHRONOGRAPH ENGINE HEARTBEAT
+    // 8. SYSTEM CHRONOGRAPH ENGINE HEARTBEAT
     // ==========================================
     const chronoDateEl = document.getElementById("liveChronoDate");
     const chronoTimeEl = document.getElementById("liveChronoTime");
@@ -196,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(runSystemChronograph, 1000);
 
     // ==========================================
-    // 8. SOCIAL AMPLIFICATION DEEP INTERFACES
+    // 9. SOCIAL AMPLIFICATION DEEP INTERFACES
     // ==========================================
     const whatsappAnchor = document.getElementById("whatsappShareBtn");
     const instagramAnchor = document.getElementById("instagramShareBtn");
@@ -218,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 9. POLISHED EMAIL CONTENT AND GRANULAR UTILITIES
+    // 10. POLISHED EMAIL CONTENT AND GRANULAR UTILITIES
     // ==========================================
     const targetRecipients = "d.pradhan@sansad.nic.in";
     const subjectHeader = "Urgent Mandate: Educational Accountability and Examination Infrastructure Reform";
@@ -259,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 10. ANTHEM CORE CONTROLS
+    // 11. ANTHEM CORE AUDIO CONTROLS
     // ==========================================
     const anthemAudio = document.getElementById("anthemAudioPlayer");
     const progressBar = document.getElementById("audio-progress-bar");
@@ -282,7 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 11. TIMELINE FEED DESIGN INJECTION
+    // 12. TIMELINE FEED DESIGN INJECTION
     // ==========================================
     const newsTimelineTarget = document.getElementById("newsTimelineTarget");
     const liveCampaignTimelineStream = [
@@ -306,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 12. FAQ ACCORDION ENGINE HANDLERS
+// 13. FAQ ACCORDION ENGINE HANDLERS
 // ==========================================
 window.toggleFaqAccordion = (headerElement) => {
     const parentItem = headerElement.parentElement;
