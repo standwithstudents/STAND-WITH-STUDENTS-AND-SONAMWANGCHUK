@@ -4,37 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Coalition for Student Accountability</title>
-    <!-- FontAwesome for high-end professional iconography -->
+    <!-- Premium Fonts and Layout Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-red: #e03e3e;
-            --dark-red: #b82323;
-            --bg-deep: #0a0c10;
-            --card-surface: #12161f;
-            --card-border: #1e2533;
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --accent-gold: #f59e0b;
+            --primary-red: #ef4444;
+            --dark-red: #dc2626;
+            --bg-base: #090d16;
+            --card-surface: #111827;
+            --card-border: #1f2937;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-gold: #fbbf24;
             --india-saffron: #FF9933;
             --india-green: #138808;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-deep);
-            color: var(--text-primary);
-            line-height: 1.6;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- 1. PREMIUM POPPING ALERT TICKER --- */
+        /* --- 1. PREMIUM ALERT MARQUEE --- */
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
-            background-color: #1a080a;
-            border-bottom: 1px solid rgba(224, 62, 62, 0.3);
+            background-color: #1e1112;
+            border-bottom: 1px solid rgba(239, 68, 68, 0.25);
             padding: 14px 0;
             box-sizing: border-box;
         }
@@ -44,7 +49,7 @@
             padding-left: 100%;
             animation: ticker 50s linear infinite;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13.5px;
             letter-spacing: 0.5px;
         }
         .ticker span.highlight-alert {
@@ -54,7 +59,7 @@
             border-radius: 4px;
             font-weight: 800;
             display: inline-block;
-            box-shadow: 0 0 12px rgba(224,62,62,0.4);
+            box-shadow: 0 0 12px rgba(239,68,68,0.3);
             margin: 0 8px;
             text-transform: uppercase;
         }
@@ -63,62 +68,69 @@
             100% { transform: translate3d(-100%, 0, 0); }
         }
 
-        /* --- 2. ADVANCED PROFESSIONAL HEADER & CREDITS --- */
+        /* --- 2. EXECUTIVE CORE HEADER & HUB --- */
         header {
-            background-color: rgba(18, 22, 31, 0.85);
-            backdrop-filter: blur(12px);
+            background: linear-gradient(to bottom, rgba(17, 24, 39, 0.95), rgba(9, 13, 22, 0.95));
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--card-border);
-            padding: 20px;
+            padding: 24px 20px;
             text-align: center;
-            z-index: 1000;
         }
         .meta-branding {
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--accent-gold);
-            font-weight: 700;
-            margin-bottom: 4px;
+            font-weight: 800;
+            margin-bottom: 6px;
         }
         .meta-branding i { margin-right: 6px; }
         .leader-title {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 800;
             color: #fff;
             margin: 0;
+            letter-spacing: -0.5px;
         }
         .meta-links {
-            margin-top: 8px;
+            margin-top: 12px;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            font-size: 14px;
+            gap: 24px;
+            font-size: 13.5px;
         }
         .meta-links a {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.2s, transform 0.2s;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.05);
         }
-        .meta-links a:hover { color: #fff; }
+        .meta-links a:hover { 
+            color: #fff; 
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-1px);
+        }
 
-        /* --- 3. HIGH-REALISM ADVANCED CSS SWINGING FLAG --- */
+        /* --- 3. WAVE PHYSICS FLAG COMPONENT --- */
         .flag-theater {
             width: 100%;
-            background: radial-gradient(circle at center, #181d28 0%, #0a0c10 100%);
-            padding: 60px 0;
+            background: radial-gradient(circle at center, #131b2e 0%, #090d16 100%);
+            padding: 50px 0;
             display: flex;
             justify-content: center;
             align-items: center;
             border-bottom: 1px solid var(--card-border);
-            position: relative;
         }
         .flag-wave-machine {
-            width: 300px;
-            height: 200px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            width: 285px;
+            height: 190px;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
             position: relative;
             background: linear-gradient(
                 to bottom,
@@ -128,8 +140,9 @@
                 var(--india-green) 66.66%
             );
             transform-origin: left center;
-            animation: flagWindGrid 3.5s ease-in-out infinite alternate;
+            animation: flagWindGrid 4s ease-in-out infinite alternate;
             overflow: hidden;
+            border-radius: 2px;
         }
         .flag-wave-machine::before {
             content: "";
@@ -137,8 +150,8 @@
             top: 33.33%;
             left: 50%;
             transform: translate(-50%, 0);
-            width: 66.6px;
-            height: 66.6px;
+            width: 63.3px;
+            height: 63.3px;
             border: 2px solid #000080;
             border-radius: 50%;
             box-sizing: border-box;
@@ -157,193 +170,202 @@
             background: linear-gradient(
                 45deg,
                 rgba(255,255,255,0) 0%,
-                rgba(255,255,255,0.1) 30%,
-                rgba(0,0,0,0.25) 50%,
-                rgba(255,255,255,0.12) 70%,
+                rgba(255,255,255,0.08) 30%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(255,255,255,0.1) 70%,
                 rgba(0,0,0,0) 100%
             );
             background-size: 200% 100%;
-            animation: rippleShadow 1.75s linear infinite;
+            animation: rippleShadow 2s linear infinite;
         }
         @keyframes flagWindGrid {
-            0% { transform: rotateX(8deg) rotateY(-12deg) skewY(-3deg) scaleX(0.96); }
-            50% { transform: rotateX(-4deg) rotateY(4deg) skewY(1deg) scaleX(0.99); }
-            100% { transform: rotateX(10deg) rotateY(-8deg) skewY(3deg) scaleX(0.97); }
+            0% { transform: rotateX(6deg) rotateY(-10deg) skewY(-2deg) scaleX(0.97); }
+            100% { transform: rotateX(8deg) rotateY(4deg) skewY(2deg) scaleX(0.99); }
         }
         @keyframes rippleShadow {
             0% { background-position: 0% 50%; }
             100% { background-position: -200% 50%; }
         }
 
-        /* --- 5. ENTERPRISE GRID SYSTEM --- */
+        /* --- 4. ASYMMETRIC ADVANCED TEMPLATE GRID --- */
         .dashboard-container {
-            max-width: 1300px;
+            max-width: 1250px;
             margin: 50px auto;
             display: grid;
             grid-template-columns: 7fr 5fr;
-            gap: 35px;
+            gap: 40px;
             padding: 0 24px;
         }
         .main-column, .sidebar-column {
             display: flex;
             flex-direction: column;
-            gap: 35px;
+            gap: 40px;
         }
 
+        /* CARD MODEL */
         .premium-card {
             background-color: var(--card-surface);
             border: 1px solid var(--card-border);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 40px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
-            position: relative;
-            transition: border-color 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
         .premium-card:hover {
-            border-color: rgba(255,255,255,0.1);
+            border-color: rgba(255, 255, 255, 0.08);
         }
         .premium-card.accent-strip {
-            border-top: 4px solid var(--india-saffron);
+            position: relative;
+            overflow: hidden;
+        }
+        .premium-card.accent-strip::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--india-saffron), #fff, var(--india-green));
         }
         .premium-card.danger-strip {
-            border: 1px solid rgba(224, 62, 62, 0.4);
-            background: linear-gradient(180deg, var(--card-surface) 0%, #161113 100%);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            background: linear-gradient(180deg, var(--card-surface) 0%, #151113 100%);
         }
 
         h2, h3 {
             font-weight: 700;
             color: #fff;
             margin-top: 0;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.5px;
         }
-        h2 { font-size: 26px; }
+        h2 { font-size: 24px; margin-bottom: 24px; }
 
         .editorial-body p {
-            font-size: 16px;
-            color: #cbd5e1;
-            margin-bottom: 22px;
+            font-size: 15.5px;
+            color: #d1d5db;
+            margin-bottom: 24px;
             text-align: justify;
         }
 
-        /* SOLEMN MEMORIAL MODULE */
+        /* SOLEMN MEMORIAL STYLE */
         .memorial-module {
-            background: linear-gradient(135deg, #1a1113 0%, #12161f 100%);
+            background: linear-gradient(135deg, #181214 0%, #111827 100%);
             border-left: 4px solid var(--primary-red);
         }
         .memorial-module h3 {
             color: var(--primary-red);
-            font-size: 19px;
+            font-size: 18.5px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .memorial-quote {
             font-style: italic;
-            color: #e2e8f0;
-            border-left: 2px solid rgba(255,255,255,0.1);
-            padding-left: 15px;
+            color: #e5e7eb;
+            border-left: 2px solid rgba(255,255,255,0.06);
+            padding-left: 18px;
         }
 
-        /* CONSOLE PORTAL SYSTEM (RIGHT COLUMN) */
+        /* SPLIT METRICS CONSOLE */
         .profile-mesh {
             display: flex;
             justify-content: space-around;
-            gap: 15px;
+            gap: 20px;
             margin-bottom: 30px;
             border-bottom: 1px solid var(--card-border);
-            padding-bottom: 25px;
+            padding-bottom: 30px;
         }
         .mesh-node {
             text-align: center;
             flex: 1;
         }
         .mesh-avatar {
-            width: 110px;
-            height: 110px;
+            width: 105px;
+            height: 105px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--primary-red);
-            background-color: #0f1219;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);
+            border: 2px solid rgba(239, 68, 68, 0.5);
+            background-color: #0b0f19;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
         }
+        .mesh-avatar:hover { transform: scale(1.03); }
         .mesh-node h4 {
-            font-size: 15px;
-            margin: 8px 0 2px 0;
+            font-size: 14.5px;
+            margin: 12px 0 2px 0;
             color: #fff;
         }
         .mesh-node span {
-            font-size: 11px;
+            font-size: 10.5px;
             text-transform: uppercase;
             font-weight: 700;
             color: var(--primary-red);
             letter-spacing: 0.5px;
         }
 
-        /* EXECUTIVE ACTIONS BUTTONS */
+        /* ADVANCED INTERACTIVE BUTTONS */
         .action-trigger {
             display: block;
             width: 100%;
             box-sizing: border-box;
-            background-color: var(--primary-red);
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
             color: #fff !important;
             padding: 16px;
-            font-size: 15px;
+            font-size: 14.5px;
             font-weight: 700;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             transition: all 0.2s ease;
             cursor: pointer;
             border: none;
-            box-shadow: 0 4px 12px rgba(224,62,62,0.3);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         .action-trigger:hover {
-            background-color: var(--dark-red);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(224,62,62,0.4);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35);
         }
         .action-sec {
-            background-color: #1e293b;
+            background: #1f2937;
+            border: 1px solid #374151;
             font-size: 13px;
             padding: 12px;
-            margin-top: 12px;
-            color: #cbd5e1 !important;
+            margin-top: 14px;
+            color: #e5e7eb !important;
             box-shadow: none;
         }
-        .action-sec:hover { background-color: #334155; box-shadow: none; transform: none;}
+        .action-sec:hover { background: #374151; transform: none; box-shadow: none; }
 
         .status-badge {
-            font-size: 13px;
+            font-size: 12.5px;
             color: var(--accent-gold);
-            margin-top: 12px;
-            background: #090b0e;
-            padding: 10px;
-            border-radius: 6px;
+            margin-top: 14px;
+            background: #090d16;
+            padding: 12px;
+            border-radius: 8px;
             font-weight: 600;
             text-align: center;
-            border: 1px solid rgba(245,158,11,0.2);
+            border: 1px solid rgba(251,191,36,0.15);
         }
 
         .meta-data-box {
-            background: #090b0e;
-            padding: 18px;
-            border-radius: 6px;
+            background: #090d16;
+            padding: 20px;
+            border-radius: 8px;
             font-size: 13px;
             margin-top: 25px;
             border-left: 3px solid var(--accent-gold);
-            color: var(--text-secondary);
+            color: var(--text-muted);
         }
 
-        /* SOLIDARITY STRUCTURE */
+        /* SOLIDARITY GRID LAYOUT */
         .solidarity-block-title {
-            font-size: 15px;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: 800;
             color: #fff;
             border-bottom: 1px solid var(--card-border);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -353,56 +375,57 @@
             gap: 20px;
             margin-bottom: 20px;
             background: rgba(255,255,255,0.01);
-            padding: 16px;
-            border-radius: 8px;
+            padding: 18px;
+            border-radius: 10px;
             border: 1px solid rgba(255,255,255,0.02);
         }
         .solidarity-avatar {
-            width: 75px;
-            height: 75px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--card-border);
-            background-color: #0c0f16;
+            background-color: #090d16;
         }
         .solidarity-info h4 {
             margin: 0 0 4px 0;
             color: #fff;
-            font-size: 16px;
+            font-size: 15.5px;
         }
         .solidarity-info p {
             margin: 0;
             font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.4;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        /* OUTRO ARCHITECTURE */
+        /* OUTRO SECTION */
         .outro-container {
             text-align: center;
-            margin: 60px auto 20px auto;
+            margin: 70px auto 30px auto;
             max-width: 600px;
-            color: var(--text-secondary);
-            font-size: 15px;
+            color: var(--text-muted);
+            font-size: 14.5px;
         }
         .outro-container i {
             color: var(--accent-gold);
             display: block;
-            font-size: 24px;
-            margin-bottom: 12px;
+            font-size: 26px;
+            margin-bottom: 14px;
         }
 
         footer {
             text-align: center;
-            padding: 35px;
-            background-color: #06070a;
-            font-size: 13px;
-            color: #3b4252;
+            padding: 35px 20px;
+            background-color: #060910;
+            font-size: 12.5px;
+            color: #4b5563;
             border-top: 1px solid var(--card-border);
         }
 
         @media (max-width: 992px) {
             .dashboard-container { grid-template-columns: 1fr; }
+            .premium-card { padding: 30px; }
         }
     </style>
 </head>
@@ -417,7 +440,7 @@
         </div>
     </div>
 
-    <!-- 2. BRANDING & CONTACT ROUTING HEADER -->
+    <!-- 2. BRANDING HEADER -->
     <header>
         <div class="meta-branding"><i class="fa-solid fa-shield-halved"></i> National Student Mobilization Initiative</div>
         <h1 class="leader-title">SYED AKBER HUSSAINI</h1>
@@ -427,18 +450,18 @@
         </div>
     </header>
 
-    <!-- 3. REALTIME CSS WAVE PHYSICS NATIONAL FLAG -->
+    <!-- 3. REALTIME CSS REALISM FLAG -->
     <div class="flag-theater">
         <div class="flag-wave-machine" title="Sovereign Flag of India"></div>
     </div>
 
-    <!-- 4. DASHBOARD ARCHITECTURE -->
+    <!-- 4. GRID ARCHITECTURE -->
     <div class="dashboard-container">
         
-        <!-- LEFT NARRATIVE COLUMN -->
+        <!-- LEFT PANELS -->
         <div class="main-column">
             
-            <!-- Core Message -->
+            <!-- Message Frame -->
             <div class="premium-card accent-strip">
                 <div class="editorial-body">
                     <h2>A Message to Every Indian</h2>
@@ -456,7 +479,7 @@
                 </div>
             </div>
 
-            <!-- Solemn Memorial Track -->
+            <!-- Memorial Module -->
             <div class="premium-card memorial-module">
                 <h3><i class="fa-solid fa-candle-holder"></i> In Remembrance: The Victims of the Examination Crisis</h3>
                 <p class="memorial-quote">
@@ -467,20 +490,20 @@
                 </p>
             </div>
 
-            <!-- Non-Partisan Appeal -->
+            <!-- Manifesto Block -->
             <div class="premium-card">
                 <h3>Universal Manifesto to All Indian Political Formations</h3>
-                <p style="color: var(--text-secondary); margin: 0; text-align: justify;">
+                <p style="color: var(--text-muted); margin: 0; text-align: justify;">
                     Preserving academic transparency is a non-partisan duty. We explicitly urge every political party in India to join the peaceful march to Parliament on July 20th, 2026. Stand behind the student framework, support the generation that forms the foundation of this republic, and demand immediate administrative accountability. We are the true future of India, and together, we will make India proud.
                 </p>
             </div>
 
         </div>
 
-        <!-- RIGHT SIDEBAR CONSOLE COLUMN -->
+        <!-- RIGHT SIDEBAR COLUMN -->
         <div class="sidebar-column">
             
-            <!-- Resignation Direct Action Portal -->
+            <!-- Resignation Portal -->
             <div class="premium-card danger-strip">
                 
                 <div class="profile-mesh">
@@ -496,10 +519,10 @@
                     </div>
                 </div>
 
-                <h3 style="text-align: center; font-size: 18px; text-transform: uppercase;">
+                <h3 style="text-align: center; font-size: 16.5px; text-transform: uppercase; letter-spacing: 0.5px;">
                     Accountability Dispatch System
                 </h3>
-                <p style="font-size: 13px; text-align: center; color: var(--text-secondary); margin-bottom: 25px;">
+                <p style="font-size: 13px; text-align: center; color: var(--text-muted); margin-bottom: 25px;">
                     Send an automated formal protest email directly from your secure client to the Ministry of Education.
                 </p>
 
@@ -508,7 +531,7 @@
                 </button>
                 
                 <button class="action-trigger action-sec" onclick="copyToClipboard()">
-                    <i class="fa-solid fa-copy"></i> Copy Text Copy Layout Instead
+                    <i class="fa-solid fa-copy"></i> Copy Text Framework Instead
                 </button>
                 
                 <div class="status-badge" id="clipboardAlert" style="display: none;">
@@ -526,7 +549,7 @@
             <div class="premium-card">
                 <div class="solidarity-block-title">In Solidarity With</div>
                 
-                <!-- Sonam Wangchuk Profile -->
+                <!-- Sonam Wangchuk -->
                 <div class="solidarity-item">
                     <img src="wangchuk.jpg" alt="Mr. Sonam Wangchuk" class="solidarity-avatar">
                     <div class="solidarity-info">
@@ -535,10 +558,10 @@
                     </div>
                 </div>
 
-                <!-- Abhijeet Dipke Profile -->
+                <!-- Abhijeet Dipke -->
                 <div class="solidarity-item">
-                    <div class="solidarity-avatar" style="display: flex; align-items: center; justify-content: center; background: #1e2533; border: 1px dashed var(--text-secondary);">
-                        <i class="fa-solid fa-bullhorn" style="font-size: 24px; color: var(--accent-gold);"></i>
+                    <div class="solidarity-avatar" style="display: flex; align-items: center; justify-content: center; background: #1f2937; border: 1px dashed var(--text-muted);">
+                        <i class="fa-solid fa-bullhorn" style="font-size: 22px; color: var(--accent-gold);"></i>
                     </div>
                     <div class="solidarity-info">
                         <h4>Mr. Abhijeet Dipke</h4>
@@ -551,7 +574,7 @@
 
     </div>
 
-    <!-- 5. THANK YOU VISITOR OUTRO -->
+    <!-- THANK YOU OUTRO -->
     <div class="outro-container">
         <i class="fa-solid fa-hands-praying"></i>
         <strong>Thank you for visiting our official platform.</strong><br>
