@@ -18,13 +18,13 @@
     <!-- Structural Cascade Integration -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Styles for Navigation Photo Component, Live News Widget & Welcome Overlay -->
+    <!-- Styles for Navigation Photo Component, Live News Widget, Welcome Overlay & Live Clock -->
     <style>
         /* ADJUST NAV EXTRA TO AVOID CLIPPING THE FRAME */
         .glass-nav {
             padding: 0.75rem 0;
             position: relative;
-            z-index: 20; /* Layered safely above the ticker */
+            z-index: 20;
             background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -34,7 +34,7 @@
         .announcement-ticker-bar {
             display: block !important;
             position: relative;
-            clear: both; /* Prevents floated components from spilling over */
+            clear: both;
             width: 100%;
             background: rgba(11, 18, 32, 0.95) !important;
             backdrop-filter: blur(12px);
@@ -42,13 +42,56 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             overflow: hidden;
             padding: 0.85rem 0;
-            z-index: 10; /* Lower than header layer to sit underneath perfectly */
+            z-index: 10;
         }
         .ticker-content {
             display: flex;
             align-items: center;
             gap: 1.5rem;
             white-space: nowrap;
+        }
+
+        /* LIVE SYSTEM CHRONOGRAPH WIDGET */
+        .live-chronograph-node {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            border-radius: 12px;
+            padding: 0.85rem 1.25rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .chrono-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .chrono-label i {
+            color: #ff9933;
+            animation: pulseFade 2s infinite ease-in-out;
+        }
+        .chrono-display-values {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #ffffff;
+            display: flex;
+            gap: 0.75rem;
+        }
+        .chrono-date { color: #ffffff; }
+        .chrono-time { color: #138808; font-weight: 700; }
+
+        @keyframes pulseFade {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
         }
 
         /* PROFESSIONAL WELCOME INTERFACE SYSTEM */
@@ -240,7 +283,7 @@
 </head>
 <body>
 
-    <!-- MODIFICATION 1: SPECIAL & EMOTIONAL GREETING GATEWAY OVERLAY BLOCK -->
+    <!-- GREETING GATEWAY OVERLAY BLOCK -->
     <div class="greeting-overlay-curtain" id="greetingPortal">
         <div class="greeting-card-mesh">
             <div class="greeting-gesture-frame">
@@ -248,7 +291,7 @@
             </div>
             <span class="special-welcome-tag">Welcome, Brave Citizen</span>
             <h2>The Sovereign Voice<br><span style="font-size: 1.2rem; font-weight: 500; color: #94a3b8;">National Movement for Student Rights & Accountability</span></h2>
-            <p>You are entering a space built on the broken dreams, sweat, and tears of millions of Indian students. This is not just a digital platform; it is a monument to our shared struggle for truth and structural transparency. Thank you for choosing to stand with us, for keeping hope alive, and for defending the integrity of our generation's future.</p>
+            <p>You are entering a space built on the dreams, effort, and resilience of millions of Indian students. This is not just a digital platform; it is a monument to our shared struggle for truth and structural transparency. Thank you for choosing to stand with us, for keeping hope alive, and for defending the integrity of our generation's future.</p>
             <button class="btn-enter-platform" onclick="dismissGreetingPortal()">Join The Frontline</button>
         </div>
     </div>
@@ -281,7 +324,7 @@
         </div>
     </nav>
 
-    <!-- 2. ANNOUNCEMENT MARQUEE TICKER (VISIBILITY RESTORED & POSITIONED PROPERLY) -->
+    <!-- 2. ANNOUNCEMENT MARQUEE TICKER -->
     <div class="announcement-ticker-bar">
         <div class="ticker-content">
             <span class="ticker-badge"><i class="fa-solid fa-bullhorn"></i> CRITICAL UPDATE</span>
@@ -302,7 +345,6 @@
                 <div class="pulse-badge mandate-green"><i class="fa-solid fa-circle-exclamation"></i> RESIGN PM NARENDRA MODI</div>
             </div>
             
-            <!-- MODIFICATION 2: EMOTIONAL & PROFESSIONAL MAIN HEADINGS -->
             <h2 class="hero-main-title">The Sovereign Voice</h2>
             <p class="hero-subtitle" style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #ff9933; margin-bottom: 0.5rem;">National Movement for Student Rights & Accountability</p>
             <p class="hero-subtitle">A digital operational framework dedicated to securing systemic educational reforms, institutional transparency, and immediate administrative accountability.</p>
@@ -367,6 +409,18 @@
 
             <!-- COLUMN RIGHT: INTERACTIVE CONTROL & RADAR MODULES (5-SPAN GRID) -->
             <div class="workspace-panel sidebar-panel">
+                
+                <!-- NEW ADDITION: LIVE CHRONOGRAPH WIDGET STICKER -->
+                <div class="live-chronograph-node">
+                    <div class="chrono-label">
+                        <i class="fa-solid fa-circle-dot"></i> Live Tracker
+                    </div>
+                    <div class="chrono-display-values">
+                        <span class="chrono-date" id="liveChronoDate">--/--/----</span>
+                        <span class="chrono-time" id="liveChronoTime">00:00:00 AM</span>
+                    </div>
+                </div>
+
                 <article class="premium-dashboard-card danger-console-panel" id="email-campaign">
                     <div class="panel-critical-glow"></div>
                     <div class="card-header">
