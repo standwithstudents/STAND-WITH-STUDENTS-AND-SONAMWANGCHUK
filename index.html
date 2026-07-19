@@ -223,7 +223,7 @@
         .chrono-date { color: #ffffff; }
         .chrono-time { color: #138808; font-weight: 700; }
 
-        /* 4. HIGH-END RESPONSIVE HERO DESIGN Engine OVERRIDE STACK */
+        /* 4. HERO DESIGN Engine OVERRIDE STACK */
         .dashboard-hero {
             position: relative;
             width: 100%;
@@ -234,19 +234,17 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            /* Premium Tricolor Animated Gradient Matrix Background Canvas */
             background: linear-gradient(135deg, #090e1a 0%, #060912 50%, #05070f 100%);
             z-index: 1;
         }
         
-        /* THE ANIMATED TRICOLOR COLOR BLOB MESH LAYERS */
         .hero-tricolor-gradient-mesh {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.08; /* Perfectly balanced for executive dark aesthetics */
+            opacity: 0.08;
             pointer-events: none;
             z-index: -3;
             overflow: hidden;
@@ -267,7 +265,6 @@
             100% { transform: translate(50px, 40px) scale(1.15); }
         }
 
-        /* NATIVE CANVAS SLOW-PARTICULATES FIELD */
         .hero-particles-canvas-layer {
             position: absolute;
             top: 0;
@@ -278,7 +275,6 @@
             z-index: -2;
         }
 
-        /* CENTERED SUBTLE ASHOKA CHAKRA WATERMARK COMPONENT */
         .ashoka-chakra-watermark-frame {
             position: absolute;
             top: 50%;
@@ -312,6 +308,41 @@
         }
         @keyframes slowChakraRotation {
             to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* RED HIGH-VISIBILITY BLINKING BREAKING NEWS ALERT CHIP */
+        .breaking-alert-banner {
+            background: rgba(220, 38, 38, 0.15);
+            border: 1px solid #dc2626;
+            color: #ef4444;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.25);
+            animation: redAlertPulse 1.5s infinite var(--anim-bezier);
+            margin-bottom: 1.5rem;
+        }
+        .breaking-alert-banner i {
+            font-size: 0.9rem;
+        }
+        @keyframes redAlertPulse {
+            0%, 100% {
+                background: rgba(220, 38, 38, 0.15);
+                box-shadow: 0 0 20px rgba(220, 38, 38, 0.25);
+                border-color: #dc2626;
+            }
+            50% {
+                background: rgba(220, 38, 38, 0.4);
+                box-shadow: 0 0 35px rgba(220, 38, 38, 0.5);
+                border-color: #f87171;
+                color: #ffffff;
+            }
         }
 
         /* SCROLL DRIVEN REVEALS */
@@ -710,19 +741,16 @@
         </div>
     </div>
 
-    <!-- STAGE 4: ADVANCED PREMIUM VISUAL ENGINE HERO VIEWPORT -->
+    <!-- STAGE 4: ADVANCED PREMIUM VISUAL ENGINE HERO VIEWPORT (MODI COMPONENT REMOVED, PRADHAN AS RED PULSE ALERT) -->
     <section class="dashboard-hero" id="home-section">
-        <!-- Tricolor Animated Blobs -->
         <div class="hero-tricolor-gradient-mesh" aria-hidden="true">
             <div class="mesh-blob mesh-saffron"></div>
             <div class="mesh-blob mesh-white"></div>
             <div class="mesh-blob mesh-green"></div>
         </div>
         
-        <!-- Native Floating Particulate Canvas Layer -->
         <canvas class="hero-particles-canvas-layer" id="heroParticlesField" aria-hidden="true"></canvas>
 
-        <!-- Centered Ashoka Chakra Watermark -->
         <div class="ashoka-chakra-watermark-frame" aria-hidden="true">
             <div class="chakra-hub-node"></div>
         </div>
@@ -732,9 +760,11 @@
                 <div class="waving-flag-canvas" title="Sovereign Flag of India Waving Natively"></div>
             </div>
             
-            <div class="hero-badge-row">
-                <div class="pulse-badge mandate-saffron"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> RESIGN MINISTER DHARMENDRA PRADHAN</div>
-                <div class="pulse-badge mandate-green"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> RESIGN PM NARENDRA MODI</div>
+            <div class="hero-badge-row" style="margin-bottom: 0.5rem;">
+                <!-- HIGH VISIBILITY RED BLINKING BREAKING ALERTS WRAPPER -->
+                <div class="breaking-alert-banner">
+                    <i class="fa-solid fa-triangle-exclamation"></i> BREAKING NEWS ALERT: DEMAND RESIGNATION OF MINISTER DHARMENDRA PRADHAN
+                </div>
             </div>
             
             <h2 class="hero-main-title">The Sovereign Voice</h2>
