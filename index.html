@@ -3,839 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Student Solidarity Campaign | Executive Dashboard</title>
+    <title>National Coalition for Student Accountability | Executive Campaign Dashboard</title>
     
-    <!-- Premium Google Typography -->
+    <!-- SEO Meta & Optimization Tags -->
+    <meta name="description" content="Official mobilization dashboard demanding structural transparency, examination infrastructure reforms, and institutional accountability.">
+    <meta name="theme-color" content="#0B1220">
+    
+    <!-- Premium Font Architectures & High-End Iconographies -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- FontAwesome for Premium Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            --bg-deep: #0a0f1d;
-            --bg-surface: rgba(16, 22, 42, 0.7);
-            --bg-card: rgba(23, 32, 59, 0.55);
-            --border-glow: rgba(255, 255, 255, 0.08);
-            --border-focus: rgba(255, 255, 255, 0.18);
-            
-            /* Tricolor Accent Palette */
-            --tricolor-saffron: #FF9933;
-            --tricolor-white: #FFFFFF;
-            --tricolor-green: #138808;
-            --tricolor-blue: #000080;
-            
-            /* UI Typography */
-            --font-primary: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            --font-display: 'Montserrat', sans-serif;
-            
-            --glow-saffron: rgba(255, 153, 51, 0.15);
-            --glow-green: rgba(19, 136, 8, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body {
-            background-color: var(--bg-deep);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255, 153, 51, 0.03) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(19, 136, 8, 0.03) 0%, transparent 40%);
-            color: #f1f5f9;
-            font-family: var(--font-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Top Premium Tricolor Indicator Header Bar */
-        .tricolor-ribbon {
-            height: 4px;
-            width: 100%;
-            background: linear-gradient(to right, 
-                var(--tricolor-saffron) 0%, 
-                var(--tricolor-saffron) 33.33%, 
-                var(--tricolor-white) 33.33%, 
-                var(--tricolor-white) 66.66%, 
-                var(--tricolor-green) 66.66%, 
-                var(--tricolor-green) 100%);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        /* Navigation Architecture */
-        .navbar {
-            background: rgba(10, 15, 29, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-glow);
-            position: fixed;
-            top: 4px;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-brand i {
-            color: var(--tricolor-saffron);
-            -webkit-text-fill-color: initial;
-        }
-
-        .badge-live {
-            background: rgba(239, 68, 68, 0.15);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #ef4444;
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-
-        .badge-live::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: #ef4444;
-            border-radius: 50%;
-            animation: pulse 1.8s infinite;
-        }
-
-        /* Main Structural Dashboard Layout */
-        .dashboard-container {
-            max-width: 1300px;
-            margin: 100px auto 40px auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero Strategic Banner Section */
-        .hero-banner {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-glow);
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .hero-meta-tag {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--tricolor-saffron);
-            margin-bottom: 1rem;
-        }
-
-        .hero-main-title {
-            font-family: var(--font-display);
-            font-size: 2.75rem;
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -1px;
-            margin-bottom: 1.2rem;
-            background: linear-gradient(to bottom, #ffffff 40%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: #94a3b8;
-            max-width: 700px;
-            margin: 0 auto 2rem auto;
-            font-weight: 400;
-        }
-
-        /* Custom Device-Agnostic National Anthem Engine Component */
-        .anthem-card-wrapper {
-            max-width: 500px;
-            margin: 0 auto;
-            background: var(--bg-card);
-            border: 1px solid var(--border-focus);
-            border-radius: 16px;
-            padding: 1.25rem 1.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .anthem-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .anthem-title-group {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-align: left;
-        }
-
-        .anthem-icon-box {
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--tricolor-saffron);
-            font-size: 0.95rem;
-        }
-
-        .anthem-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        .anthem-sublabel {
-            font-size: 0.7rem;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .anthem-controls {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            width: 100%;
-        }
-
-        .btn-audio-toggle {
-            background: #ffffff;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bg-deep);
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(255,255,255,0.15);
-            flex-shrink: 0;
-        }
-
-        .btn-audio-toggle:hover {
-            transform: scale(1.05);
-            background: #e2e8f0;
-        }
-
-        .timeline-container {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .timeline-slider-wrapper {
-            position: relative;
-            width: 100%;
-            height: 4px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-            cursor: pointer;
-        }
-
-        .timeline-progress-bar {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, var(--tricolor-saffron), var(--tricolor-green));
-            border-radius: 2px;
-        }
-
-        .time-metrics {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.7rem;
-            color: #64748b;
-            font-family: monospace;
-        }
-
-        /* Interactive Multi-Column Grid System */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (max-width: 968px) {
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-main-title {
-                font-size: 2rem;
-            }
-            .hero-banner {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .glass-panel {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-glow);
-            border-radius: 16px;
-            padding: 2rem;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .panel-heading {
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            border-bottom: 1px solid var(--border-glow);
-            padding-bottom: 0.75rem;
-        }
-
-        .panel-heading i {
-            color: var(--tricolor-saffron);
-        }
-
-        /* Campaign Intel Stream Blueprint */
-        .campaign-details-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .detail-node {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-
-        .node-indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--tricolor-saffron);
-            margin-top: 0.6rem;
-            flex-shrink: 0;
-            box-shadow: 0 0 8px var(--tricolor-saffron);
-        }
-
-        .detail-node:nth-child(2) .node-indicator {
-            background: #ffffff;
-            box-shadow: 0 0 8px #ffffff;
-        }
-        .detail-node:nth-child(3) .node-indicator {
-            background: var(--tricolor-green);
-            box-shadow: 0 0 8px var(--tricolor-green);
-        }
-
-        .node-content-box strong {
-            display: block;
-            color: #ffffff;
-            font-size: 0.95rem;
-            margin-bottom: 0.15rem;
-        }
-
-        .node-content-box p {
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-
-        /* Institutional Accountability Action Panel */
-        .dispatch-system-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .input-group-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .input-group-panel label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #94a3b8;
-        }
-
-        .input-field-ux, .textarea-field-ux {
-            background: rgba(10, 15, 29, 0.6);
-            border: 1px solid var(--border-glow);
-            border-radius: 8px;
-            padding: 0.85rem 1rem;
-            color: #ffffff;
-            font-family: var(--font-primary);
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            width: 100%;
-        }
-
-        .input-field-ux:focus, .textarea-field-ux:focus {
-            outline: none;
-            border-color: var(--border-focus);
-            background: rgba(10, 15, 29, 0.9);
-            box-shadow: 0 0 0 2px rgba(255,255,255,0.05);
-        }
-
-        .textarea-field-ux {
-            min-height: 160px;
-            resize: vertical;
-            line-height: 1.5;
-        }
-
-        .action-button-cluster {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        @media (max-width: 480px) {
-            .action-button-cluster {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .btn-prime-action, .btn-sec-action {
-            font-family: var(--font-primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 0.9rem 1.2rem;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            transition: all 0.2s ease;
-            border: none;
-        }
-
-        .btn-prime-action {
-            background: linear-gradient(135deg, var(--tricolor-saffron) 0%, #e27c1d 100%);
-            color: #ffffff;
-            box-shadow: 0 4px 15px var(--glow-saffron);
-        }
-
-        .btn-prime-action:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(255, 153, 51, 0.25);
-        }
-
-        .btn-sec-action {
-            background: rgba(255, 255, 255, 0.06);
-            color: #e2e8f0;
-            border: 1px solid var(--border-glow);
-        }
-
-        .btn-sec-action:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            border-color: var(--border-focus);
-        }
-
-        /* Premium Transparent Footer */
-        .dashboard-footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: #475569;
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border-glow);
-            margin-top: 4rem;
-            letter-spacing: 0.5px;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-        }
-    </style>
+    <!-- Structural Cascade Integration -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="tricolor-ribbon"></div>
-
-    <nav class="navbar">
-        <div class="nav-brand">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>STUDENT SOLIDARITY</span>
+    <!-- 1. STICKY GLASSMORPHIC TRANSPARENT NAVIGATION HEADER -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <span class="saffron-dot"></span>
+                <span class="white-dot"></span>
+                <span class="green-dot"></span>
+                <h1 class="nav-title-mesh">
+                    <span class="saffron-txt">SYED</span>
+                    <span class="white-txt">AKBER</span>
+                    <span class="green-txt">HUSSAINI</span>
+                </h1>
+            </a>
+            <div class="nav-actions">
+                <a href="https://instagram.com/syed.akber_._" target="_blank" class="nav-social-btn" aria-label="Instagram Profile">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@syed.akber_._</span>
+                </a>
+                <a href="mailto:SAH6440@GMAIL.COM" class="nav-social-btn" aria-label="Email Project Director">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>SAH6440@GMAIL.COM</span>
+                </a>
+            </div>
         </div>
-        <div class="badge-live">Live Campaign</div>
     </nav>
 
-    <main class="dashboard-container">
-        
-        <!-- Hero Strategic Section -->
-        <section class="hero-banner">
-            <div class="hero-meta-tag">Official Command Node</div>
-            <h1 class="hero-main-title">National Student Solidarity Campaign</h1>
-            <p class="hero-subtitle">
-                A unified, peaceful democratic network coordinating institutional accountability, administrative alignment, and constitutional alignment alongside Sonam Wangchuk.
-            </p>
+    <!-- 2. ANNOUNCEMENT MARQUEE CONTROLLER -->
+    <div class="announcement-ticker-bar">
+        <div class="ticker-content">
+            <span class="ticker-badge"><i class="fa-solid fa-bullhorn"></i> CRITICAL UPDATE</span>
+            <p class="ticker-text">OFFICIAL NOTICE: ALL CONCERNED CITIZENS ARE CALLED TO JOIN THE NATIONAL PEACEFUL MARCH TO SANSAD (PARLIAMENT, NEW DELHI) TOMORROW, JULY 20TH, 2026. STAND UNIFIED FOR INSTITUTIONAL TRANSPARENCY AND EXAMINATION INFRASTRUCTURE REFORM! 🇮🇳</p>
+        </div>
+    </div>
 
-            <!-- Custom Device-Agnostic Audio Player Architecture -->
-            <div class="anthem-card-wrapper">
-                <div class="anthem-header">
-                    <div class="anthem-title-group">
-                        <div class="anthem-icon-box">
+    <!-- 3. PREMIUM ANIMATED HERO STAGE -->
+    <section class="dashboard-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <!-- Modern Realism CSS Swinging Flag Setup -->
+            <div class="flag-viewport">
+                <div class="waving-flag-canvas" title="Sovereign Flag of India"></div>
+            </div>
+            
+            <div class="hero-badge-row">
+                <div class="pulse-badge mandate-saffron"><i class="fa-solid fa-circle-exclamation"></i> RESIGN MINISTER DHARMENDRA PRADHAN</div>
+                <div class="pulse-badge mandate-green"><i class="fa-solid fa-circle-exclamation"></i> RESIGN PM NARENDRA MODI</div>
+            </div>
+            
+            <h2 class="hero-main-title">National Coalition for Student Accountability</h2>
+            <p class="hero-subtitle">A digital operational framework dedicated to securing systemic educational reforms, institutional transparency, and immediate administrative accountability.</p>
+        </div>
+    </section>
+
+    <!-- 4. EXECUTIVE DASHBOARD CORE ENGINE WORKSPACE -->
+    <main class="dashboard-workspace">
+        <div class="dashboard-grid-layout">
+            
+            <!-- COLUMN LEFT: CAMPAIGN STATEMENT & MEMORIALS (7-SPAN GRID) -->
+            <div class="workspace-panel main-panel">
+                
+                <!-- Card Component: Core Message -->
+                <article class="premium-dashboard-card border-saffron" id="campaign-message">
+                    <div class="card-header">
+                        <div class="card-icon-frame saffron-glow">
+                            <i class="fa-solid fa-scroll"></i>
+                        </div>
+                        <h3 class="card-title">A Message to Every Indian</h3>
+                    </div>
+                    <div class="card-body editorial-content">
+                        <p class="salutation"><strong>Dear Fellow Indians,</strong></p>
+                        <p>Tomorrow is not just another day—it is an opportunity to peacefully stand together for the future of our students and the values of our democracy.</p>
+                        <p>Millions of students dedicate years of hard work, sacrifice, and hope to build a better future. They deserve an education system that is fair, transparent, and worthy of their trust. Their dreams should never be overshadowed by concerns about the integrity of examinations or the institutions that shape their future.</p>
+                        <p>If you are attending tomorrow's peaceful march towards Parliament, I extend my heartfelt respect and best wishes. Please remain peaceful, respectful, and committed to the principles of our Constitution. Let your voice be heard with dignity, discipline, and unity.</p>
+                        <p>If you are unable to join the march in person, your support still matters. You can express your views respectfully through emails to public representatives, by raising awareness, and by encouraging constructive dialogue. Every peaceful action contributes to a stronger democracy.</p>
+                        <p style="margin-bottom: 0;">This is not about politics—it is about the future of India's youth. It is about standing with every student who dreams of a fair opportunity and an honest education system.</p>
+                        
+                        <div class="tricolor-divider">
+                            <span></span><span></span><span></span>
+                        </div>
+                        
+                        <p class="closing-call">Let us stand together for accountability, transparency, justice, and hope.</p>
+                        <p class="signature-tag">United for Students. United for Justice. United for India.<br>🇮🇳 Jai Hind.</p>
+                    </div>
+                </article>
+
+                <!-- Card Component: Solemn Remembrance Module -->
+                <article class="premium-dashboard-card border-red" id="memorial-remembrance">
+                    <div class="card-header">
+                        <div class="card-icon-frame red-glow">
+                            <i class="fa-solid fa-candle-holder"></i>
+                        </div>
+                        <h3 class="card-title text-danger">In Remembrance: The Victims of the Examination Crisis</h3>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="solemn-blockquote">
+                            "We dedicate this national platform to honor the memory of the brilliant young Indian students who tragically lost their lives to suicide under the immense structural strain and despair caused by persistent examination paper leaks. Their lost futures remain a permanent scar on the nation's conscience."
+                        </blockquote>
+                        <div class="card-message-callout">
+                            <p>To every student managing anxiety across the nation: Your existence is invaluable, and you are the true architectural future of this country. We are building this network of accountability to guarantee that your hard work will never again be exploited. Stand resolute; we will clean this system and make India proud.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card Component: Educational Reforms & Manifesto Block -->
+                <article class="premium-dashboard-card border-green" id="educational-reforms">
+                    <div class="card-header">
+                        <div class="card-icon-frame green-glow">
+                            <i class="fa-solid fa-landmark-flag"></i>
+                        </div>
+                        <h3 class="card-title">Universal Manifesto to All Indian Political Formations</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="manifesto-paragraph">Preserving academic transparency is a non-partisan duty. We explicitly urge every political party in India to join the peaceful march to Parliament on July 20th, 2026. Stand behind the student framework, support the generation that forms the foundation of this republic, and demand immediate administrative accountability. We are the true future of India, and together, we will make India proud.</p>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- COLUMN RIGHT: INTERACTIVE CONTROL & RADAR MODULES (5-SPAN GRID) -->
+            <div class="workspace-panel sidebar-panel">
+                
+                <!-- CARD COMPONENT: 🇮🇳 HIGH-END NATIONAL ANTHEM MODULE -->
+                <article class="premium-dashboard-card anthem-dashboard-node border-navy" id="national-anthem-node">
+                    <div class="card-header">
+                        <div class="card-icon-frame navy-glow">
                             <i class="fa-solid fa-music"></i>
                         </div>
-                        <div>
-                            <div class="anthem-label">National Anthem Player</div>
-                            <div class="anthem-sublabel">Device-Agnostic Audio Engine</div>
+                        <h3 class="card-title">🇮🇳 National Anthem of India</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="anthem-respect-callout">
+                            <p class="respect-note">"Please stand, if you are able and wish to do so, while listening to the National Anthem of India."</p>
+                        </div>
+                        
+                        <!-- Responsive Smart Player Workspace -->
+                        <div class="custom-audio-interface">
+                            <div class="player-timeline-block">
+                                <span class="time-stamp" id="current-time">0:00</span>
+                                <div class="progress-slider-container">
+                                    <div class="progress-track" id="audio-progress-bar"></div>
+                                </div>
+                                <span class="time-stamp" id="total-duration">0:52</span>
+                            </div>
+                            
+                            <div class="player-control-matrix">
+                                <button class="player-control-btn ripple-effect" id="btn-play-anthem" onclick="handleAnthemPlay()" aria-label="Play National Anthem">
+                                    <i class="fa-solid fa-play"></i> <span>Play National Anthem</span>
+                                </button>
+                                <button class="player-control-btn btn-secondary ripple-effect" id="btn-pause-anthem" onclick="handleAnthemPause()" aria-label="Pause National Anthem">
+                                    <i class="fa-solid fa-pause"></i> <span>Pause</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Core HTML5 Audio Loader configured for universal MP3 parsing -->
+                        <audio id="anthemAudioPlayer" preload="auto" src="assets/audio/anthem.mp3"></audio>
+                    </div>
+                </article>
+
+                <!-- CARD COMPONENT: DIRECT ACTION EMAIL CAMPAIGN PORTAL -->
+                <article class="premium-dashboard-card danger-console-panel" id="email-campaign">
+                    <div class="panel-critical-glow"></div>
+                    <div class="card-header">
+                        <div class="card-icon-frame critical-red-glow">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
+                        <h3 class="card-title">Accountability Dispatch Center</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- TARGET EXECUTIVE PROFILE MESH -->
+                        <div class="target-profile-mesh">
+                            <div class="profile-node">
+                                <div class="avatar-wrapper">
+                                    <img src="pradhan.jpg" alt="Minister Dharmendra Pradhan" class="profile-avatar">
+                                </div>
+                                <h4>Dharmendra Pradhan</h4>
+                                <span class="title-sub text-saffron">Education Minister</span>
+                            </div>
+                            <div class="profile-node">
+                                <div class="avatar-wrapper">
+                                    <img src="modi.jpg" alt="PM Narendra Modi" class="profile-avatar">
+                                </div>
+                                <h4>Narendra Modi</h4>
+                                <span class="title-sub text-green">Prime Minister</span>
+                            </div>
+                        </div>
+
+                        <p class="console-descriptor">Submit a structured civic accountability mandate directly to the Ministry of Education and associated statutory planning headers.</p>
+
+                        <div class="action-trigger-matrix">
+                            <button class="action-dashboard-btn btn-dispatch ripple-effect" onclick="executeProtestDispatch()">
+                                <i class="fa-solid fa-envelope-circle-check"></i> Dispatch Protest Email
+                            </button>
+                            <button class="action-dashboard-btn btn-clipboard ripple-effect" onclick="executeFrameworkCopy()">
+                                <i class="fa-solid fa-copy"></i> Copy Text Framework Instead
+                            </button>
+                        </div>
+
+                        <!-- Micro-Animation Alert Notification -->
+                        <div class="dashboard-toast" id="clipboardToast">
+                            <i class="fa-solid fa-circle-check"></i> <span>Framework copied to local clipboard cache.</span>
+                        </div>
+
+                        <!-- Immutable Direct Architecture Verification Box -->
+                        <div class="system-routing-data-box">
+                            <span class="routing-box-title"><i class="fa-solid fa-server"></i> System Routing Parameters:</span>
+                            <ul class="routing-list">
+                                <li><strong>Primary Recipient:</strong> <code class="routing-code">d.pradhan@sansad.nic.in</code></li>
+                                <li><strong>Carbon Copy (CC):</strong> <code class="routing-code">minister.sm@gov.in</code></li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-                
-                <div class="anthem-controls">
-                    <button class="btn-audio-toggle" id="playPauseBtn" aria-label="Play Audio">
-                        <i class="fa-solid fa-play" id="playIcon"></i>
-                    </button>
-                    
-                    <div class="timeline-container">
-                        <div class="timeline-slider-wrapper" id="timelineSlider">
-                            <div class="timeline-progress-bar" id="progressBar"></div>
+                </article>
+
+                <!-- CARD COMPONENT: SOLIDARITY MATRIX NETWORKS -->
+                <article class="premium-dashboard-card border-white" id="campaign-updates">
+                    <div class="card-header">
+                        <div class="card-icon-frame white-glow">
+                            <i class="fa-solid fa-handshake-angle"></i>
                         </div>
-                        <div class="time-metrics">
-                            <span id="currentTime">0:00</span>
-                            <span id="totalDuration">0:52</span>
-                        </div>
+                        <h3 class="card-title">In Solidarity With</h3>
                     </div>
-                </div>
+                    <div class="card-body solidarity-mesh-list">
+                        
+                        <!-- Solidarity Node: Sonam Wangchuk -->
+                        <div class="solidarity-row-node">
+                            <img src="wangchuk.jpg" alt="Mr. Sonam Wangchuk" class="solidarity-avatar">
+                            <div class="solidarity-meta">
+                                <h4>Mr. Sonam Wangchuk</h4>
+                                <p>Eminent Engineer, Innovator & Education Reformer. The primary guide for institutional civic truth.</p>
+                            </div>
+                        </div>
+
+                        <!-- Solidarity Node: Abhijeet Dipke -->
+                        <div class="solidarity-row-node">
+                            <div class="solidarity-avatar placeholder-icon-avatar">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+                            <div class="solidarity-meta">
+                                <h4>Mr. Abhijeet Dipke</h4>
+                                <p>Social Reform Activist. Organizing citizen protection modules and tracking metrics for national student equity.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
             </div>
-        </section>
-
-        <!-- Two-Column Interactive Functional Grid -->
-        <div class="dashboard-grid">
-            
-            <!-- Left Panel: Campaign Operational Parameters -->
-            <section class="glass-panel">
-                <h2 class="panel-heading">
-                    <i class="fa-solid fa-circle-nodes"></i>
-                    Operational Strategy
-                </h2>
-                
-                <div class="campaign-details-list">
-                    <div class="detail-node">
-                        <div class="node-indicator"></div>
-                        <div class="node-content-box">
-                            <strong>Strategic Action Plan</strong>
-                            <p>Peaceful historic march directly to Parliament scheduled for July 20, 2026. Organizers, leaders, and student delegates assembling at designated convergence vectors.</p>
-                        </div>
-                    </div>
-
-                    <div class="detail-node">
-                        <div class="node-indicator"></div>
-                        <div class="node-content-box">
-                            <strong>Core Campaign Leadership</strong>
-                            <p>Led in absolute solidarity by prominent socio-environmental reformer Sonam Wangchuk alongside key student policy and human rights advocates Syed Akber Hussaini and Abhijeet Dipke.</p>
-                        </div>
-                    </div>
-
-                    <div class="detail-node">
-                        <div class="node-indicator"></div>
-                        <div class="node-content-box">
-                            <strong>Constitutional Accountability Pillars</strong>
-                            <p>Directly demands structural reformation across systemic education frameworks, immediate ministerial oversight accountability, and comprehensive democratic leadership re-evaluations.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Right Panel: Institutional Advocacy Dispatch Terminal -->
-            <section class="glass-panel">
-                <h2 class="panel-heading">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    Advocacy Dispatch Center
-                </h2>
-                
-                <div class="dispatch-system-wrapper">
-                    <div class="input-group-panel">
-                        <label for="ministerEmail">Target Administrative Authority</label>
-                        <input type="email" id="ministerEmail" class="input-field-ux" value="minister.hrd@gov.in" readonly>
-                    </div>
-
-                    <div class="input-group-panel">
-                        <label for="emailSubject">Official Communication Subject</label>
-                        <input type="text" id="emailSubject" class="input-field-ux" value="Urgent: Comprehensive Student Welfare and Leadership Accountability Demands">
-                    </div>
-
-                    <div class="input-group-panel">
-                        <label for="emailBody">Advocacy Framework Text</label>
-                        <textarea id="emailBody" class="textarea-field-ux">Dear Honorable Minister,
-
-I am writing as a deeply concerned citizen to formally voice my unwavering support for the National Student Solidarity Campaign and the peaceful march led by Sonam Wangchuk, Syed Akber Hussaini, and Abhijeet Dipke on July 20, 2026.
-
-The systemic crisis within our academic and national structures requires urgent transparency. We respectfully demand structural administrative accountability, including immediate leadership reforms.
-
-We request your prompt action to look into these fundamental student concerns.
-
-Sincerely,
-[A Concerned Citizen/Student]</textarea>
-                    </div>
-
-                    <div class="action-button-cluster">
-                        <button class="btn-prime-action" onclick="dispatchAdvocacyEmail()">
-                            <i class="fa-solid fa-envelope-open-text"></i>
-                            Launch Mail App
-                        </button>
-                        <button class="btn-sec-action" onclick="copyFrameworkToClipboard()">
-                            <i class="fa-solid fa-copy"></i>
-                            Copy Text
-                        </button>
-                    </div>
-                </div>
-            </section>
         </div>
-
     </main>
 
+    <!-- 5. VISITOR OUTRO REFLECTION FOOTPRINT -->
+    <section class="thanks-outro-reflection">
+        <div class="outro-icon"><i class="fa-solid fa-hands-praying"></i></div>
+        <h3>Thank You for Visiting Our Official Platform</h3>
+        <p>Your civic engagement forms an active architectural layer protecting the sovereign future of India's students.</p>
+    </section>
+
+    <!-- 6. ENTERPRISE FOOTER FRAMEWORK -->
     <footer class="dashboard-footer">
-        National Student Solidarity Campaign • Executive Dashboard Version 2.0 • Secured Decentralized Framework
+        <div class="footer-container">
+            <p class="footer-copyright">Campaign interface managed on behalf of the national student initiative. Open Governance Dashboard Framework.</p>
+            <p class="footer-version-tag">Version 2.0 (Premium Dashboard Edition) • Framework Year 2026</p>
+        </div>
     </footer>
 
-    <!-- High-Performance Native JavaScript Logic -->
-    <script>
-        // Native Custom Audio Engine Configured for Apple iOS and Desktop Layouts
-        const audioFileUrl = 'assets/audio/anthem.mp3';
-        let audioContext = null;
-        let audioBuffer = null;
-        let audioSource = null;
-        
-        // Tracking states
-        let isPlaying = false;
-        let startTime = 0;
-        let pausedTime = 0;
-        let trackingInterval = null;
-        const assumedDuration = 52; // Hardcoded fallback duration in seconds
-
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const playIcon = document.getElementById('playIcon');
-        const progressBar = document.getElementById('progressBar');
-        const currentTimeEl = document.getElementById('currentTime');
-        const timelineSlider = document.getElementById('timelineSlider');
-
-        // Initialize Audio API Context safely on first user gesture
-        function initializeAudioEngine() {
-            if (!audioContext) {
-                window.AudioContext = window.AudioContext || window.webkitAudioContext;
-                audioContext = new AudioContext();
-                fetchAudioBinaryData();
-            }
-        }
-
-        // Fetch binary data via clean AJAX request architecture
-        function fetchAudioBinaryData() {
-            fetch(audioFileUrl)
-                .then(response => {
-                    if (!response.ok) throw new Error("Audio file failed to resolve on server path.");
-                    return response.arrayBuffer();
-                })
-                .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
-                .then(decodedBuffer => {
-                    audioBuffer = decodedBuffer;
-                    console.log("Audio payload successfully initialized into system memory Buffer.");
-                })
-                .catch(error => console.error("Audio Pipeline Alert:", error));
-        }
-
-        function playBufferEngine(startPosition) {
-            if (!audioBuffer) return;
-            
-            // Disconnect old active instances if running
-            stopBufferEngine();
-
-            audioSource = audioContext.createBufferSource();
-            audioSource.buffer = audioBuffer;
-            audioSource.connect(audioContext.destination);
-            
-            // Web Audio API handles playback logic offset securely
-            audioSource.start(0, startPosition);
-            
-            startTime = audioContext.currentTime - startPosition;
-            isPlaying = true;
-            
-            playIcon.className = "fa-solid fa-pause";
-            startTimelineInterval();
-
-            // Auto reset loop logic when the file ends naturally
-            audioSource.onended = () => {
-                const currentDuration = audioBuffer ? audioBuffer.duration : assumedDuration;
-                if (audioContext.currentTime - startTime >= currentDuration - 0.2) {
-                    resetAudioTrackState();
-                }
-            };
-        }
-
-        function stopBufferEngine() {
-            if (audioSource) {
-                try {
-                    audioSource.stop();
-                } catch(e) {}
-                audioSource.disconnect();
-                audioSource = null;
-            }
-            isPlaying = false;
-            playIcon.className = "fa-solid fa-play";
-            clearInterval(trackingInterval);
-        }
-
-        function startTimelineInterval() {
-            clearInterval(trackingInterval);
-            trackingInterval = setInterval(() => {
-                if (!isPlaying || !audioBuffer) return;
-                const elapsed = audioContext.currentTime - startTime;
-                updateTimelineDisplay(elapsed, audioBuffer.duration);
-            }, 250);
-        }
-
-        function updateTimelineDisplay(elapsed, totalTime) {
-            if (elapsed > totalTime) elapsed = totalTime;
-            const progressPercent = (elapsed / totalTime) * 100;
-            progressBar.style.width = `${progressPercent}%`;
-            
-            // Time math parsing
-            const mins = Math.floor(elapsed / 60);
-            const secs = Math.floor(elapsed % 60).toString().padStart(2, '0');
-            currentTimeEl.textContent = `${mins}:${secs}`;
-        }
-
-        function resetAudioTrackState() {
-            stopBufferEngine();
-            pausedTime = 0;
-            progressBar.style.width = '0%';
-            currentTimeEl.textContent = '0:00';
-        }
-
-        // Click Logic routing
-        playPauseBtn.addEventListener('click', () => {
-            if (!audioContext) {
-                initializeAudioEngine();
-                // Brief artificial buffer delay on initial dynamic pull request
-                setTimeout(() => {
-                    if (audioBuffer) {
-                        playBufferEngine(0);
-                    } else {
-                        alert("Initial dynamic stream pulling from server. Please press play once more.");
-                    }
-                }, 400);
-                return;
-            }
-
-            if (audioContext.state === 'suspended') {
-                audioContext.resume();
-            }
-
-            if (isPlaying) {
-                pausedTime = audioContext.currentTime - startTime;
-                stopBufferEngine();
-            } else {
-                if (audioBuffer) {
-                    if (pausedTime >= audioBuffer.duration) pausedTime = 0;
-                    playBufferEngine(pausedTime);
-                } else {
-                    alert("Syncing track with cloud servers... please try again in a brief second.");
-                }
-            }
-        });
-
-        // Dynamic Interactive Scrubber Execution
-        timelineSlider.addEventListener('click', (e) => {
-            if (!audioBuffer) return;
-            const rect = timelineSlider.getBoundingClientRect();
-            const clickPositionRatio = (e.clientX - rect.left) / rect.width;
-            const newTargetSeekTime = clickPositionRatio * audioBuffer.duration;
-            
-            if (isPlaying) {
-                playBufferEngine(newTargetSeekTime);
-            } else {
-                pausedTime = newTargetSeekTime;
-                updateTimelineDisplay(newTargetSeekTime, audioBuffer.duration);
-            }
-        });
-
-        // Advocacy System Logic Routing
-        function dispatchAdvocacyEmail() {
-            const destination = document.getElementById('ministerEmail').value;
-            const subjectLine = encodeURIComponent(document.getElementById('emailSubject').value);
-            const explicitBody = encodeURIComponent(document.getElementById('emailBody').value);
-            
-            window.location.href = `mailto:${destination}?subject=${subjectLine}&body=${explicitBody}`;
-        }
-
-        function copyFrameworkToClipboard() {
-            const rawBodyText = document.getElementById('emailBody').value;
-            
-            navigator.clipboard.writeText(rawBodyText)
-                .then(() => alert("Advocacy Framework successfully copied to system clipboard!"))
-                .catch(() => alert("System Notice: Please manually select and copy the text area block."));
-        }
-
-        // Initialize Audio context trigger automatically on user hover/interaction window parameters
-        window.addEventListener('preloadEngine', initializeAudioEngine, { once: true });
-    </script>
+    <!-- Core Automation Scripts Linkage -->
+    <script src="script.js"></script>
 </body>
 </html>
