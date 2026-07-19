@@ -18,8 +18,111 @@
     <!-- Structural Cascade Integration -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Styles for Navigation Photo Component & Live News Widget -->
+    <!-- Styles for Navigation Photo Component, Live News Widget & Welcome Overlay -->
     <style>
+        /* TICKER VISIBILITY RECOVERY PATCH */
+        .announcement-ticker-bar {
+            display: block !important;
+            position: relative;
+            width: 100%;
+            background: rgba(11, 18, 32, 0.8) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 153, 51, 0.25);
+            overflow: hidden;
+            padding: 0.85rem 0;
+            z-index: 99;
+        }
+        .ticker-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            white-space: nowrap;
+        }
+
+        /* PROFESSIONAL WELCOME INTERFACE SYSTEM */
+        .greeting-overlay-curtain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .greeting-card-mesh {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 153, 51, 0.05);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            max-width: 580px;
+            width: 90%;
+            text-align: center;
+            transform: scale(1);
+            transition: transform 0.5s ease;
+        }
+        .greeting-gesture-frame {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.75rem auto;
+            background: linear-gradient(135deg, rgba(255, 153, 51, 0.15) 0%, rgba(19, 136, 8, 0.15) 100%);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(255, 153, 51, 0.2);
+            animation: pulseGesture 3s infinite ease-in-out;
+        }
+        .greeting-gesture-frame i {
+            font-size: 3rem;
+            background: linear-gradient(to right, #ff9933, #ffffff, #138808);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes pulseGesture {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 153, 51, 0.2); }
+            50% { transform: scale(1.05); box-shadow: 0 0 45px rgba(19, 136, 8, 0.3); }
+        }
+        .greeting-card-mesh h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 1.85rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+        .greeting-card-mesh p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .btn-enter-platform {
+            background: linear-gradient(90deg, #ff9933 0%, #138808 100%);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px -5px rgba(19, 136, 8, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-enter-platform:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(255, 153, 51, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        /* GENERAL BRAND & COMPONENTS STYLING */
         .nav-brand {
             display: flex;
             align-items: center;
@@ -56,8 +159,6 @@
             flex-direction: column;
             line-height: 1.1;
         }
-
-        /* LIVE NEWS DYNAMIC COMPONENT STYLING */
         .news-feed-container {
             display: flex;
             flex-direction: column;
@@ -86,11 +187,6 @@
             flex-shrink: 0;
             background: #141b2d;
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .news-image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
         .news-meta-block {
             display: flex;
@@ -122,11 +218,22 @@
 </head>
 <body>
 
-    <!-- 1. STICKY GLASSMORPHIC TRANSPARENT NAVIGATION HEADER -->
+    <!-- GREETING GATEWAY OVERLAY BLOCK -->
+    <div class="greeting-overlay-curtain" id="greetingPortal">
+        <div class="greeting-card-mesh">
+            <div class="greeting-gesture-frame">
+                <i class="fa-solid fa-hands-praying"></i>
+            </div>
+            <h2>Namaste & Welcome</h2>
+            <p>We extend our deepest respect and gratitude to you for visiting the official operational framework of the National Coalition for Student Accountability. Thank you for standing in solidarity with the future of India's students.</p>
+            <button class="btn-enter-platform" onclick="dismissGreetingPortal()">Access Campaign Dashboard</button>
+        </div>
+    </div>
+
+    <!-- 1. STICKY GLASSMORPHIC NAVIGATION HEADER -->
     <nav class="glass-nav">
         <div class="nav-container">
             <a href="#" class="nav-brand">
-                <!-- Round Profile Photo Frame -->
                 <div class="nav-profile-frame">
                     <img src="assets/images/akber.jpg" alt="Syed Akber Hussaini" class="nav-profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="nav-profile-fallback" style="display: none;"><i class="fa-solid fa-user"></i></div>
@@ -151,7 +258,7 @@
         </div>
     </nav>
 
-    <!-- 2. ANNOUNCEMENT MARQUEE CONTROLLER -->
+    <!-- 2. ANNOUNCEMENT MARQUEE TICKER (VISIBILITY RESTORED) -->
     <div class="announcement-ticker-bar">
         <div class="ticker-content">
             <span class="ticker-badge"><i class="fa-solid fa-bullhorn"></i> CRITICAL UPDATE</span>
@@ -163,7 +270,6 @@
     <section class="dashboard-hero">
         <div class="hero-overlay"></div>
         <div class="hero-container">
-            <!-- Modern Realism CSS Swinging Flag Setup -->
             <div class="flag-viewport">
                 <div class="waving-flag-canvas" title="Sovereign Flag of India"></div>
             </div>
@@ -184,8 +290,6 @@
             
             <!-- COLUMN LEFT: CAMPAIGN STATEMENT & MEMORIALS (7-SPAN GRID) -->
             <div class="workspace-panel main-panel">
-                
-                <!-- Card Component: Core Message -->
                 <article class="premium-dashboard-card border-saffron" id="campaign-message">
                     <div class="card-header">
                         <div class="card-icon-frame saffron-glow">
@@ -200,17 +304,12 @@
                         <p>If you are attending tomorrow's peaceful march towards Parliament, I extend my heartfelt respect and best wishes. Please remain peaceful, respectful, and committed to the principles of our Constitution. Let your voice be heard with dignity, discipline, and unity.</p>
                         <p>If you are unable to join the march in person, your support still matters. You can express your views respectfully through emails to public representatives, by raising awareness, and by encouraging constructive dialogue. Every peaceful action contributes to a stronger democracy.</p>
                         <p style="margin-bottom: 0;">This is not about politics—it is about the future of India's youth. It is about standing with every student who dreams of a fair opportunity and an honest education system.</p>
-                        
-                        <div class="tricolor-divider">
-                            <span></span><span></span><span></span>
-                        </div>
-                        
+                        <div class="tricolor-divider"><span></span><span></span><span></span></div>
                         <p class="closing-call">Let us stand together for accountability, transparency, justice, and hope.</p>
                         <p class="signature-tag">United for Students. United for Justice. United for India.<br>🇮🇳 Jai Hind.</p>
                     </div>
                 </article>
 
-                <!-- Card Component: Solemn Remembrance Module -->
                 <article class="premium-dashboard-card border-red" id="memorial-remembrance">
                     <div class="card-header">
                         <div class="card-icon-frame red-glow">
@@ -228,7 +327,6 @@
                     </div>
                 </article>
 
-                <!-- Card Component: Educational Reforms & Manifesto Block -->
                 <article class="premium-dashboard-card border-green" id="educational-reforms">
                     <div class="card-header">
                         <div class="card-icon-frame green-glow">
@@ -240,13 +338,10 @@
                         <p class="manifesto-paragraph">Preserving academic transparency is a non-partisan duty. We explicitly urge every political party in India to join the peaceful march to Parliament on July 20th, 2026. Stand behind the student framework, support the generation that forms the foundation of this republic, and demand immediate administrative accountability. We are the true future of India, and together, we will make India proud.</p>
                     </div>
                 </article>
-
             </div>
 
             <!-- COLUMN RIGHT: INTERACTIVE CONTROL & RADAR MODULES (5-SPAN GRID) -->
             <div class="workspace-panel sidebar-panel">
-                
-                <!-- CARD COMPONENT: DIRECT ACTION EMAIL CAMPAIGN PORTAL (MOVED TO TOP RIGHT) -->
                 <article class="premium-dashboard-card danger-console-panel" id="email-campaign">
                     <div class="panel-critical-glow"></div>
                     <div class="card-header">
@@ -256,26 +351,19 @@
                         <h3 class="card-title">Accountability Dispatch Center</h3>
                     </div>
                     <div class="card-body">
-                        <!-- TARGET EXECUTIVE PROFILE MESH -->
                         <div class="target-profile-mesh">
                             <div class="profile-node">
-                                <div class="avatar-wrapper">
-                                    <img src="pradhan.jpg" alt="Minister Dharmendra Pradhan" class="profile-avatar">
-                                </div>
+                                <div class="avatar-wrapper"><img src="pradhan.jpg" alt="Minister Dharmendra Pradhan" class="profile-avatar"></div>
                                 <h4>Dharmendra Pradhan</h4>
                                 <span class="title-sub text-saffron">Education Minister</span>
                             </div>
                             <div class="profile-node">
-                                <div class="avatar-wrapper">
-                                    <img src="modi.jpg" alt="PM Narendra Modi" class="profile-avatar">
-                                </div>
+                                <div class="avatar-wrapper"><img src="modi.jpg" alt="PM Narendra Modi" class="profile-avatar"></div>
                                 <h4>Narendra Modi</h4>
                                 <span class="title-sub text-green">Prime Minister</span>
                             </div>
                         </div>
-
                         <p class="console-descriptor">Submit a structured civic accountability mandate directly to the Ministry of Education and associated statutory planning headers.</p>
-
                         <div class="action-trigger-matrix">
                             <button class="action-dashboard-btn btn-dispatch ripple-effect" onclick="executeProtestDispatch()">
                                 <i class="fa-solid fa-envelope-circle-check"></i> Dispatch Protest Email
@@ -284,13 +372,9 @@
                                 <i class="fa-solid fa-copy"></i> Copy Text Framework Instead
                             </button>
                         </div>
-
-                        <!-- Micro-Animation Alert Notification -->
                         <div class="dashboard-toast" id="clipboardToast">
                             <i class="fa-solid fa-circle-check"></i> <span>Framework copied to local clipboard cache.</span>
                         </div>
-
-                        <!-- Immutable Direct Architecture Verification Box -->
                         <div class="system-routing-data-box">
                             <span class="routing-box-title"><i class="fa-solid fa-server"></i> System Routing Parameters:</span>
                             <ul class="routing-list">
@@ -301,7 +385,6 @@
                     </div>
                 </article>
 
-                <!-- CARD COMPONENT: 🇮🇳 HIGH-END NATIONAL ANTHEM MODULE -->
                 <article class="premium-dashboard-card anthem-dashboard-node border-navy" id="national-anthem-node">
                     <div class="card-header">
                         <div class="card-icon-frame navy-glow">
@@ -310,98 +393,65 @@
                         <h3 class="card-title">🇮🇳 National Anthem of India</h3>
                     </div>
                     <div class="card-body">
-                        <div class="anthem-respect-callout">
-                            <p class="respect-note">"Please stand, if you are able and wish to do so, while listening to the National Anthem of India."</p>
-                        </div>
-                        
-                        <!-- Responsive Smart Player Workspace -->
+                        <div class="anthem-respect-callout"><p class="respect-note">"Please stand, if you are able and wish to do so, while listening to the National Anthem of India."</p></div>
                         <div class="custom-audio-interface">
                             <div class="player-timeline-block">
                                 <span class="time-stamp" id="current-time">0:00</span>
-                                <div class="progress-slider-container">
-                                    <div class="progress-track" id="audio-progress-bar"></div>
-                                </div>
+                                <div class="progress-slider-container"><div class="progress-track" id="audio-progress-bar"></div></div>
                                 <span class="time-stamp" id="total-duration">0:52</span>
                             </div>
-                            
                             <div class="player-control-matrix">
-                                <button class="player-control-btn ripple-effect" id="btn-play-anthem" onclick="handleAnthemPlay()" aria-label="Play National Anthem">
-                                    <i class="fa-solid fa-play"></i> <span>Play National Anthem</span>
-                                </button>
-                                <button class="player-control-btn btn-secondary ripple-effect" id="btn-pause-anthem" onclick="handleAnthemPause()" aria-label="Pause National Anthem">
-                                    <i class="fa-solid fa-pause"></i> <span>Pause</span>
-                                </button>
+                                <button class="player-control-btn ripple-effect" id="btn-play-anthem" onclick="handleAnthemPlay()"><i class="fa-solid fa-play"></i> <span>Play National Anthem</span></button>
+                                <button class="player-control-btn btn-secondary ripple-effect" id="btn-pause-anthem" onclick="handleAnthemPause()"><i class="fa-solid fa-pause"></i> <span>Pause</span></button>
                             </div>
                         </div>
-                        
-                        <!-- Core HTML5 Audio Loader configured for universal MP3 parsing -->
                         <audio id="anthemAudioPlayer" preload="auto" src="assets/audio/anthem.mp3"></audio>
                     </div>
                 </article>
 
-                <!-- AUTOMATED DYNAMIC LIVE NEWS PANEL -->
                 <article class="premium-dashboard-card border-saffron" id="live-news-radar">
                     <div class="card-header">
-                        <div class="card-icon-frame saffron-glow">
-                            <i class="fa-solid fa-satellite-dish"></i>
-                        </div>
+                        <div class="card-icon-frame saffron-glow"><i class="fa-solid fa-satellite-dish"></i></div>
                         <h3 class="card-title">Live Campaign News Feed</h3>
                     </div>
-                    <div class="card-body">
-                        <div class="news-feed-container" id="newsFeedTarget">
-                            <!-- Handled dynamically by script.js -->
-                        </div>
-                    </div>
+                    <div class="card-body"><div class="news-feed-container" id="newsFeedTarget"></div></div>
                 </article>
 
-                <!-- CARD COMPONENT: SOLIDARITY MATRIX NETWORKS -->
                 <article class="premium-dashboard-card border-white" id="campaign-updates">
                     <div class="card-header">
-                        <div class="card-icon-frame white-glow">
-                            <i class="fa-solid fa-handshake-angle"></i>
-                        </div>
+                        <div class="card-icon-frame white-glow"><i class="fa-solid fa-handshake-angle"></i></div>
                         <h3 class="card-title">In Solidarity With</h3>
                     </div>
                     <div class="card-body solidarity-mesh-list">
-                        
-                        <!-- Solidarity Node: Sonam Wangchuk -->
                         <div class="solidarity-row-node">
                             <img src="wangchuk.jpg" alt="Mr. Sonam Wangchuk" class="solidarity-avatar">
                             <div class="solidarity-meta">
                                 <h4>Mr. Sonam Wangchuk</h4>
-                                <p>Eminent Engineer, Innovator & Education Reformer. The primary guide for institutional civic truth.</p>
+                                <p>Eminent Engineer, Innovator & Education Reformer.</p>
                             </div>
                         </div>
-
-                        <!-- Solidarity Node: Abhijeet Dipke -->
                         <div class="solidarity-row-node">
-                            <div class="solidarity-avatar placeholder-icon-avatar">
-                                <i class="fa-solid fa-bullhorn"></i>
-                            </div>
+                            <div class="solidarity-avatar placeholder-icon-avatar"><i class="fa-solid fa-bullhorn"></i></div>
                             <div class="solidarity-meta">
                                 <h4>Mr. Abhijeet Dipke</h4>
-                                <p>Social Reform Activist. Organizing citizen protection modules and tracking metrics for national student equity.</p>
+                                <p>Social Reform Activist. Organizing citizen protection modules.</p>
                             </div>
                         </div>
-
                     </div>
                 </article>
-
             </div>
         </div>
     </main>
 
-    <!-- 5. VISITOR OUTRO REFLECTION FOOTPRINT -->
     <section class="thanks-outro-reflection">
         <div class="outro-icon"><i class="fa-solid fa-hands-praying"></i></div>
         <h3>Thank You for Visiting Our Official Platform</h3>
         <p>Your civic engagement forms an active architectural layer protecting the sovereign future of India's students.</p>
     </section>
 
-    <!-- 6. ENTERPRISE FOOTER FRAMEWORK -->
     <footer class="dashboard-footer">
         <div class="footer-container">
-            <p class="footer-copyright">Campaign interface managed on behalf of the national student initiative. Open Governance Dashboard Framework.</p>
+            <p class="footer-copyright">Campaign interface managed on behalf of the national student initiative.</p>
             <p class="footer-version-tag">Version 2.0 (Premium Dashboard Edition) • Framework Year 2026</p>
         </div>
     </footer>
