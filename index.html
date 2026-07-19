@@ -3,51 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demand Accountability</title>
+    <title>National Demand for Student Accountability | Syed Akber Hussaini</title>
     <style>
+        :root {
+            --primary-red: #d9534f;
+            --dark-red: #c9302c;
+            --bg-black: #0c0d0f;
+            --card-bg: #15181c;
+            --text-light: #f4f4f4;
+            --text-gray: #b0b3b8;
+            --accent-yellow: #f0ad4e;
+            --india-saffron: #FF9933;
+            --india-green: #138808;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #121212;
-            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-black);
+            color: var(--text-light);
+            line-height: 1.6;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #1e1e1e;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+
+        /* --- 1. RUNNING ALERT TICKER --- */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: #721c24;
+            border-bottom: 2px solid var(--primary-red);
+            padding: 8px 0;
+            box-sizing: border-box;
         }
-        h1 { color: #ff4747; }
-        p { font-size: 18px; line-height: 1.6; }
-        .btn {
+        .ticker {
             display: inline-block;
-            background-color: #ff4747;
-            color: white;
-            padding: 15px 30px;
-            font-size: 20px;
+            white-space: nowrap;
+            padding-right: 100%;
+            animation: ticker 25s linear infinite;
             font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: 0.3s;
+            color: #f8d7da;
+            font-size: 15px;
+            letter-spacing: 0.5px;
         }
-        .btn:hover { background-color: #d63030; }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* --- 2. CREDITS BANNER --- */
+        .credits-banner {
+            background-color: #000;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+            border-bottom: 1px solid #222;
+        }
+        .credits-banner strong {
+            color: #fff;
+        }
+
+        /* --- FLAG HEADER --- */
+        .flag-header {
+            display: flex;
+            height: 6px;
+            width: 100%;
+        }
+        .flag-stripe { flex: 1; }
+        .saffron { background-color: var(--india-saffron); }
+        .white { background-color: #fff; }
+        .green { background-color: var(--india-green); }
+
+        /* --- WELCOME & CONTENT MAIN --- */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .welcome-section {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+            border-top: 4px solid var(--india-saffron);
+            border-bottom: 4px solid var(--india-green);
+        }
+
+        .welcome-title-box {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-title-box h1 {
+            font-size: 32px;
+            margin: 10px 0;
+            color: #fff;
+        }
+        .flag-icon-large {
+            font-size: 45px;
+            margin: 0;
+        }
+
+        .welcome-text p {
+            font-size: 17px;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* --- ACTION BOX --- */
+        .action-box {
+            background: rgba(217, 83, 79, 0.08);
+            border: 2px solid var(--primary-red);
+            padding: 35px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        .action-box h2 {
+            font-size: 24px;
+            margin-top: 0;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .action-box p {
+            color: var(--text-gray);
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 12px auto;
+            box-sizing: border-box;
+            background-color: var(--primary-red);
+            color: #fff !important;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-1px);
+        }
+
+        .btn-fallback {
+            background-color: #333;
+            font-size: 15px;
+            padding: 12px;
+            color: var(--text-gray) !important;
+        }
+        .btn-fallback:hover { background-color: #444; }
+
+        .clipboard-info {
+            font-size: 14px;
+            color: var(--accent-yellow);
+            margin-top: 15px;
+            background: #000;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .info-box {
+            text-align: left;
+            background: #111417;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 25px;
+            border-left: 4px solid var(--accent-yellow);
+            color: var(--text-gray);
+        }
+
+        /* --- LEADERS SECTION --- */
+        .section-title {
+            font-size: 24px;
+            color: var(--text-light);
+            border-bottom: 2px solid #333;
+            padding-bottom: 8px;
+            margin: 50px 0 25px 0;
+        }
+        .acknowledgments {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .ack-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 6px;
+            border-top: 3px solid var(--accent-yellow);
+        }
+        .ack-card h4 { margin-top: 0; color: #fff; font-size: 17px; }
+        .ack-card p { margin: 0; font-size: 14px; color: var(--text-gray); }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #080808;
+            font-size: 13px;
+            color: #444;
+            border-top: 1px solid #1a1a1a;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-section { padding: 25px 20px; }
+            .welcome-title-box h1 { font-size: 26px; }
+            .acknowledgments { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>TAKE 2 MINUTES – SEND AN EMAIL</h1>
-    <p><strong>Demand Accountability.</strong> If you cannot join the protest at Jantar Mantar, raise your voice online.</p>
-    <p>Click the button below to automatically open your email app with the recipient IDs, subject, and message already filled out. Then just hit send!</p>
-    
-    <a class="btn" href="mailto:d.pradhan@sansad.nic.in?cc=minister.sm@gov.in,appt.pmo@nic.in&subject=Resign%20Immediately%20Mr.%20Pradhan&body=Mr.%20Dharmendra%20Pradhan%2C%0A%0AYou%20are%20an%20incompetent%20Education%20Minister.%20You%20do%20not%20deserve%20to%20serve%20as%20India%27s%20Education%20Minister.%20The%20nation%20demands%20accountability%20from%20this%20government%2C%20and%20your%20resignation%20is%20inevitable.%0A%0AAs%20it%20won%27t%20be%20possible%20for%20me%20to%20be%20present%20at%20Jantar%20Mantar%2C%20I%20am%20marking%20my%20attendance%20this%20way.%20%23standwithsonamsir">
-        👉 CLICK HERE TO SEND EMAIL
-    </a>
-</div>
+    <!-- 1. RUNNING ALERT TICKER -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            🚨 ATTENTION: JOIN THE PEACEFUL MARCH TO SANSAD (PARLIAMENT, NEW DELHI) TOMORROW, JULY 20TH, 2026. STAND UNIFIED FOR ACCOUNTABILITY AND TRANSPARENCY IN OUR EDUCATION SYSTEM! 🇮🇳
+        </div>
+    </div>
 
+    <!-- 2. CREDITS BANNER -->
+    <div class="credits-banner">
+        Initiative & Campaign Led By: <strong>SYED AKBER HUSSAINI</strong> (Social Activist)
+    </div>
+
+    <!-- TRICOLOR DECORATION BAR -->
+    <div class="flag-header">
+        <div class="flag-stripe saffron"></div>
+        <div class="flag-stripe white"></div>
+        <div class="flag-stripe green"></div>
+    </div>
+
+    <div class="container">
+
+        <!-- 3. WELCOME & GREETING PASSAGE -->
+        <div class="welcome-section">
+            <div class="welcome-title-box">
+                <p class="flag-icon-large">🇮🇳</p>
+                <h1>A Message to Every Indian</h1>
+            </div>
+            
+            <div class="welcome-text">
+                <p><strong>Dear Fellow Indians,</strong></p>
+                <p>Tomorrow is not just another day—it is an opportunity to peacefully stand together for the future of our students and the values of our democracy.</p>
+                <p>Millions of students dedicate years of hard work, sacrifice, and hope to build a better future. They deserve an education system that is fair, transparent, and worthy of their trust. Their dreams should never be overshadowed by concerns about the integrity of examinations or the institutions that shape their future.</p>
+                <p>If you are attending tomorrow's peaceful march towards Parliament, I extend my heartfelt respect and best wishes. Please remain peaceful, respectful, and committed to the principles of our Constitution. Let your voice be heard with dignity, discipline, and unity.</p>
+                <p>If you are unable to join the march in person, your support still matters. You can express your views respectfully through emails to public representatives, by raising awareness, and by encouraging constructive dialogue. Every peaceful action contributes to a stronger democracy.</p>
+                <p>This is not about politics—it is about the future of India's youth. It is about standing with every student who dreams of a fair opportunity and an honest education system.</p>
+                <p>Let us stand together for accountability, transparency, justice, and hope.</p>
+                <p style="text-align: center; font-weight: bold; margin-top: 30px; color: var(--accent-yellow);">
+                    United for Students. United for Justice. United for India.<br>
+                    🇮🇳 Jai Hind.
+                </p>
+            </div>
+        </div>
+
+        <!-- 4. EMAIL PETITION HEADER SECTION -->
+        <div class="action-box">
+            <h2>Official Demands Submission Portal</h2>
+            <p>If you cannot join the physical assembly at Parliament, execute your constitutional right to register dissent online. Click the button below to instantly request accountability and the formal resignation of Education Minister Dharmendra Pradhan.</p>
+            
+            <button class="btn" onclick="sendProtestEmail()">
+                👉 CLICK HERE TO SEND EMAIL DIRECTLY
+            </button>
+            
+            <button class="btn btn-fallback" onclick="copyToClipboard()">
+                📋 Click to Copy Complete Email Template Instead
+            </button>
+            
+            <div class="clipboard-info" id="clipboardAlert" style="display: none;">
+                ✓ Email framework successfully copied! Open your preferred application and paste.
+            </div>
+
+            <div class="info-box">
+                <strong>Configured Recipients:</strong><br>
+                • <b>To:</b> d.pradhan@sansad.nic.in (Education Minister)<br>
+                • <b>CC:</b> minister.sm@gov.in, appt.pmo@nic.in (Prime Minister's Office)<br>
+                • <b>Subject:</b> Requesting Systemic Accountability & Administrative Responsibility
+            </div>
+        </div>
+
+        <!-- LEADERS ACKNOWLEDGMENT -->
+        <div class="section-title">In Solidarity With</div>
+        <div class="acknowledgments">
+            <div class="ack-card">
+                <h4>Mr. Sonam Wangchuk</h4>
+                <p>Whose unwavering integrity and dedication to institutional truth serve as the guiding light for transparent civilian movements in our democracy.</p>
+            </div>
+            <div class="ack-card">
+                <h4>Mr. Abhijeet Dipke</h4>
+                <p>Acknowledged for consistent digital mobilization and active public voice supporting the fundamental rights of Indian students.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        Campaign managed on behalf of the national student movement. © 2026.
+    </footer>
+
+    <script>
+        var to = "d.pradhan@sansad.nic.in";
+        var cc = "minister.sm@gov.in,appt.pmo@nic.in";
+        var subjectText = "Urgently Requesting Accountability and Responsibility: Indian Education Crisis";
+        
+        var bodyText = "To Mr. Dharmendra Pradhan,\n" +
+                       "Minister for Education, India\n\n" +
+                       "Subject: Demand for Systemic Accountability and Formal Resignation\n\n" +
+                       "Respected Minister,\n\n" +
+                       "We write this as concerned citizens, students, and supporters of India’s future. The recent series of systemic failures within the National Education Ministry have severely eroded public confidence and compromised the aspirations of millions of students. In the face of prolonged uncertainty and visible mismanagement, silence and inaction are no longer acceptable responses.\n\n" +
+                       "Effective leadership demands accountability. The Indian student body deserves transparency, integrity, and a ministry focused purely on securing their future. As we unified in solidarity with the principled demands for transparency voiced by leaders like Sonam Wangchuk, we collectively mandate that you assume responsibility and formally resign from your position to restore trust and allow for meaningful reform.\n\n" +
+                       "The future of our nation must be prioritized over temporary political stability.\n\n" +
+                       "Sincerely,\n" +
+                       "A Unified Voice for Student Justice\n\n" +
+                       "--- #standwithsonamsir ---";
+
+        function sendProtestEmail() {
+            var subject = encodeURIComponent(subjectText);
+            var body = encodeURIComponent(bodyText);
+            window.location.href = "mailto:" + to + "?cc=" + cc + "&subject=" + subject + "&body=" + body;
+        }
+
+        function copyToClipboard() {
+            var fullTemplate = "TO: " + to + "\nCC: " + cc + "\nSUBJECT: " + subjectText + "\n\nMESSAGE:\n" + bodyText;
+            
+            navigator.clipboard.writeText(fullTemplate).then(function() {
+                var alertBox = document.getElementById("clipboardAlert");
+                alertBox.style.display = "block";
+                setTimeout(function(){ alertBox.style.display = "none"; }, 5000);
+            }, function() {
+                alert("Please manually copy the text from the template area.");
+            });
+        }
+    </script>
 </body>
 </html>
