@@ -260,7 +260,7 @@
             z-index: 9999;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s base, visibility 0.3s base;
+            transition: opacity 0.3s, visibility 0.3s;
         }
         #backToTopTrigger.active-btt {
             opacity: 1;
@@ -310,6 +310,117 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* HIGH-END GRAPHICAL TIMELINE INTERFACE STYLING */
+        .timeline-track-wrapper {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .timeline-track-wrapper::before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #ff9933, #ffffff, #138808);
+            opacity: 0.4;
+        }
+        .timeline-node-event {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-node-event:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-node-dot {
+            position: absolute;
+            left: calc(-1.5rem - 3px);
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #ff9933;
+            box-shadow: 0 0 8px #ff9933;
+            z-index: 2;
+        }
+        .timeline-node-event:nth-child(2) .timeline-node-dot { border-color: #ffffff; box-shadow: 0 0 8px #ffffff; }
+        .timeline-node-event:nth-child(3) .timeline-node-dot { border-color: #138808; box-shadow: 0 0 8px #138808; }
+        
+        .timeline-node-body {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 0.85rem;
+            transition: var(--transition-smooth);
+        }
+        .timeline-node-body:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 153, 51, 0.2);
+        }
+        .timeline-node-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 0.35rem;
+        }
+        
+        /* PREMIUM FAQ ACCORDION PATTERN */
+        .faq-accordion-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        .faq-accordion-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+        .faq-accordion-header {
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffffff;
+            transition: background 0.2s;
+        }
+        .faq-accordion-header:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .faq-accordion-icon {
+            font-size: 0.8rem;
+            color: #ff9933;
+            transition: transform 0.3s;
+        }
+        .faq-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(0, 0, 0, 0.1);
+        }
+        .faq-accordion-content p {
+            padding: 1rem;
+            margin: 0;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+        .faq-accordion-item.open-faq .faq-accordion-icon {
+            transform: rotate(180deg);
+        }
+
         /* MOBILE OVERRIDES LAYER */
         @media screen and (max-width: 992px) {
             .nav-top-row { flex-direction: column; gap: 0.75rem; text-align: center; }
@@ -328,7 +439,7 @@
         <div class="loader-spinner-ring"></div>
     </div>
 
-    <!-- STAGE 1: PORTAL GREETING OVERLAY SYSTEM (Z-INDEX BOUND CONTROL) -->
+    <!-- STAGE 1: PORTAL GREETING OVERLAY SYSTEM -->
     <div class="greeting-overlay-curtain" id="greetingPortal" role="dialog" aria-modal="true" aria-labelledby="portalHeading">
         <div class="greeting-card-mesh">
             <div class="greeting-gesture-frame" aria-hidden="true">
@@ -380,12 +491,11 @@
                 </div>
             </div>
             
-            <!-- STICKY SEGMENT BUTTON NAV ROUTER LINKS -->
+            <!-- STICKY SEGMENT BUTTON NAV ROUTER LINKS (GALLERY COMPONENT REMOVED) -->
             <div class="segmented-nav-links">
                 <a href="#home-section" class="nav-link-item active-route"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
                 <a href="#campaign-message" class="nav-link-item"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i><span>Campaign</span></a>
                 <a href="#live-news-radar" class="nav-link-item"><i class="fa-solid fa-timeline" aria-hidden="true"></i><span>Timeline</span></a>
-                <a href="#solidarity-gallery" class="nav-link-item"><i class="fa-solid fa-images" aria-hidden="true"></i><span>Gallery</span></a>
                 <a href="#email-campaign" class="nav-link-item"><i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i><span>Email</span></a>
                 <a href="#faq-node-block" class="nav-link-item"><i class="fa-solid fa-circle-question" aria-hidden="true"></i><span>FAQ</span></a>
                 <a href="#coordination-outpost" class="nav-link-item"><i class="fa-solid fa-address-book" aria-hidden="true"></i><span>Contact</span></a>
@@ -455,36 +565,56 @@
                     </div>
                 </article>
 
-                <article class="premium-dashboard-card border-white reveal-on-scroll" id="solidarity-gallery">
-                    <div class="card-header">
-                        <div class="card-icon-frame white-glow"><i class="fa-solid fa-images" aria-hidden="true"></i></div>
-                        <h3 class="card-title">Mobilization & Solidarity Gallery</h3>
-                    </div>
-                    <div class="card-body">
-                        <div style="background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 8px; padding: 2rem; text-align: center; color: #64748b;">
-                            <i class="fa-solid fa-photo-film" style="font-size: 2rem; margin-bottom: 0.5rem; display: block;"></i>
-                            Platform Live Stream Gallery Active for Asset Deployment
-                        </div>
-                    </div>
-                </article>
-
+                <!-- ADVANCED FAQ ACCORDION ENGINE NODE WITH MULTIPLE QUESTIONS AND ANSWERS -->
                 <article class="premium-dashboard-card border-navy reveal-on-scroll" id="faq-node-block">
                     <div class="card-header">
                         <div class="card-icon-frame navy-glow"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></div>
                         <h3 class="card-title">Frequently Asked Questions (FAQ)</h3>
                     </div>
                     <div class="card-body">
-                        <div style="display:flex; flex-direction:column; gap:0.75rem;">
-                            <div style="background:rgba(255,255,255,0.02); padding:0.85rem; border-radius:6px; border:1px solid rgba(255,255,255,0.05);">
-                                <h4 style="font-size:0.85rem; color:#ffffff; margin-bottom:0.25rem;">What are the primary targets of the movement?</h4>
-                                <p style="font-size:0.8rem; color:#94a3b8; margin:0;">Securing full transparent overhaul of the national examination architecture, independent probes, and administrative resignations for operational failure.</p>
+                        <div class="faq-accordion-container">
+                            <div class="faq-accordion-item">
+                                <div class="faq-accordion-header" onclick="toggleFaqAccordion(this)">
+                                    <span>What are the core objectives of this dashboard initiative?</span>
+                                    <i class="fa-solid fa-chevron-down faq-accordion-icon"></i>
+                                </div>
+                                <div class="faq-accordion-content">
+                                    <p>The system serves as a central operational point to coordinate peaceful advocacy demands. The primary targets include securing a total legislative and structural overhaul of national testing agencies, establishing stricter anti-leak infrastructure protection protocols, and demanding immediate senior administrative accountability for consecutive examination errors.</p>
+                                </div>
+                            </div>
+                            <div class="faq-accordion-item">
+                                <div class="faq-accordion-header" onclick="toggleFaqAccordion(this)">
+                                    <span>How can I safely support the peaceful march remotely?</span>
+                                    <i class="fa-solid fa-chevron-down faq-accordion-icon"></i>
+                                </div>
+                                <div class="faq-accordion-content">
+                                    <p>You can use the automated Accountability Dispatch Center panel on the right side. It lets you send a formal constitutional complaint email directly to state representatives or copy the text framework to raise clean awareness on localized civic channels.</p>
+                                </div>
+                            </div>
+                            <div class="faq-accordion-item">
+                                <div class="faq-accordion-header" onclick="toggleFaqAccordion(this)">
+                                    <span>Is this student platform associated with any partisan political formation?</span>
+                                    <i class="fa-solid fa-chevron-down faq-accordion-icon"></i>
+                                </div>
+                                <div class="faq-accordion-content">
+                                    <p>No. Academic infrastructure integrity and student safety are non-partisan constitutional duties. The platform is entirely run by students and citizen advocates, welcoming all cross-party democratic alliances to show solid tracking solidarity behind the upcoming generation.</p>
+                                </div>
+                            </div>
+                            <div class="faq-accordion-item">
+                                <div class="faq-accordion-header" onclick="toggleFaqAccordion(this)">
+                                    <span>What data protection guidelines apply when using social dispatch channels?</span>
+                                    <i class="fa-solid fa-chevron-down faq-accordion-icon"></i>
+                                </div>
+                                <div class="faq-accordion-content">
+                                    <p>All sharing deep-links operate completely client-side. The dashboard does not track, collect, or store any personal credentials or transmission records in external database structures, guaranteeing full anonymity and private security layout frameworks.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </article>
             </div>
 
-            <!-- RIGHT COMPONENT COLUMN (FLIPS OVER ABOVE THE OTHER ON PHONE GRAPHICS SCREENS) -->
+            <!-- RIGHT COMPONENT COLUMN -->
             <div class="workspace-panel sidebar-panel">
                 
                 <!-- AUTOMATED ANALYTICS INTERACTION MATRIX -->
@@ -498,6 +628,19 @@
                         <div class="counter-metric-label" style="font-size:0.65rem; color:#94a3b8; font-weight:700;">Dispatched Mandates</div>
                     </div>
                 </div>
+
+                <!-- PROFESSIONAL GRAPHICAL LIVE TIMELINE INTERFACE -->
+                <article class="premium-dashboard-card border-saffron" id="live-news-radar">
+                    <div class="card-header">
+                        <div class="card-icon-frame saffron-glow"><i class="fa-solid fa-timeline" aria-hidden="true"></i></div>
+                        <h3 class="card-title">Live Campaign News Feed / Timeline</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline-track-wrapper" id="newsTimelineTarget">
+                            <!-- Timeline elements injected here programmatically -->
+                        </div>
+                    </div>
+                </article>
 
                 <article class="premium-dashboard-card danger-console-panel" id="email-campaign">
                     <div class="panel-critical-glow" aria-hidden="true"></div>
@@ -529,7 +672,7 @@
                             </button>
                         </div>
                         
-                        <!-- SHARS ENGINES -->
+                        <!-- SHARING ENGINES -->
                         <div class="social-amplification-rack">
                             <a href="#" id="whatsappShareBtn" class="btn-amplification" target="_blank">
                                 <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp Share
@@ -566,25 +709,25 @@
                     </div>
                 </article>
 
-                <article class="premium-dashboard-card border-saffron" id="live-news-radar">
-                    <div class="card-header">
-                        <div class="card-icon-frame saffron-glow"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i></div>
-                        <h3 class="card-title">Live Campaign News Feed / Timeline</h3>
-                    </div>
-                    <div class="card-body"><div class="news-feed-container" id="newsFeedTarget"></div></div>
-                </article>
-
+                <!-- SOLIDARITY COORDINATION CODES (ABHIJEET DIPKE NAME FULLY RESTORED) -->
                 <article class="premium-dashboard-card border-white" id="coordination-outpost">
                     <div class="card-header">
                         <div class="card-icon-frame white-glow"><i class="fa-solid fa-handshake-angle" aria-hidden="true"></i></div>
-                        <h3 class="card-title">Outpost Coordination Desk</h3>
+                        <h3 class="card-title">In Solidarity With</h3>
                     </div>
                     <div class="card-body solidarity-mesh-list">
-                        <div class="solidarity-row-node">
+                        <div class="solidarity-row-node" style="margin-bottom:1rem;">
                             <img src="wangchuk.jpg" alt="Mr. Sonam Wangchuk Profile Frame" class="solidarity-avatar">
                             <div class="solidarity-meta">
                                 <h4>Mr. Sonam Wangchuk</h4>
                                 <p>Eminent Engineer, Innovator & Education Reformer.</p>
+                            </div>
+                        </div>
+                        <div class="solidarity-row-node">
+                            <div class="solidarity-avatar" style="display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.05); border-radius:50%; width:45px; height:45px;"><i class="fa-solid fa-bullhorn" style="color:#138808;"></i></div>
+                            <div class="solidarity-meta">
+                                <h4>Mr. Abhijeet Dipke</h4>
+                                <p>Social Reform Activist. Organizing citizen protection modules.</p>
                             </div>
                         </div>
                     </div>
